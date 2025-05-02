@@ -1,13 +1,13 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Android, Code, Laptop, Rocket } from 'lucide-react';
+import { Smartphone, Code, Laptop, Rocket } from 'lucide-react';
 
 const services = [
   {
     title: 'Modern Android Apps',
     description: 'Build elegant and scalable apps with Jetpack Compose and Material 3 design',
-    icon: Android
+    icon: Smartphone
   },
   {
     title: 'Clean Architecture',
