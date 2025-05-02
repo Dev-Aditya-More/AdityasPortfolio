@@ -1,9 +1,44 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Github, Twitter, Linkedin } from 'lucide-react';
 
 const HeroSection = () => {
+  const [displayText, setDisplayText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  const fullText = "Android Developer & Kotlin Enthusiast";
+  const typingSpeed = 100; // milliseconds per character
+  const deletingSpeed = 50; // milliseconds per character
+  const pauseTime = 2000; // pause time at full text
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    
+    if (isTyping) {
+      if (displayText !== fullText) {
+        timeout = setTimeout(() => {
+          setDisplayText(fullText.slice(0, displayText.length + 1));
+        }, typingSpeed);
+      } else {
+        timeout = setTimeout(() => {
+          setIsTyping(false);
+        }, pauseTime);
+      }
+    } else {
+      if (displayText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayText(displayText.slice(0, displayText.length - 1));
+        }, deletingSpeed);
+      } else {
+        timeout = setTimeout(() => {
+          setIsTyping(true);
+        }, pauseTime / 2);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isTyping]);
+
   return (
     <div className="min-h-screen flex flex-col justify-center pt-20 pb-16">
       <div className="container">
@@ -13,8 +48,9 @@ const HeroSection = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
               Aditya More
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-muted-foreground leading-tight">
-              Android Developer & Kotlin Enthusiast
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-muted-foreground leading-tight h-14">
+              <span className="inline-block">{displayText}</span>
+              <span className="inline-block w-0.5 h-7 bg-primary ml-1 animate-blink"></span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
               I specialize in building modern Android apps with <span className="highlight">Jetpack Compose</span>,

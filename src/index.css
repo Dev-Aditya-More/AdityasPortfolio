@@ -140,3 +140,16 @@
 .social-icon {
   @apply w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-300;
 }
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
