@@ -5,7 +5,7 @@ import { ArrowRight, Github, Twitter, Linkedin } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center pt-20 pb-16">
+    <div className="min-h-screen flex flex-col justify-center pt-20 pb-16">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3 space-y-6">
@@ -52,10 +52,10 @@ const HeroSection = () => {
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
                   <code className="text-primary font-mono text-sm sm:text-base p-6 text-center">
                     @Composable<br />
-                    fun DevProfile() {<br />
+                    fun DevProfile() {"{"}<br />
                     &nbsp;&nbsp;// Building amazing<br />
                     &nbsp;&nbsp;// Android experiences<br />
-                    }
+                    {"}"}
                   </code>
                 </div>
               </div>
@@ -66,7 +66,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
