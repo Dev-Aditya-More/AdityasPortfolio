@@ -153,3 +153,25 @@
 .animate-blink {
   animation: blink 1s infinite;
 }
+
+/* Parallax animation effects */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.parallax-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.parallax-float-delayed {
+  animation: float 8s ease-in-out infinite 1s;
+}
+
+.parallax-element {
+  transition: transform 0.05s linear;
+}
