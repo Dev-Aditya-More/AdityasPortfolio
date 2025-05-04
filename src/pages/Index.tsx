@@ -8,11 +8,13 @@ import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import ParallaxBackground from '@/components/ParallaxBackground';
+import CursorGradient from '@/components/CursorGradient';
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <ParallaxBackground />
+      <CursorGradient />
       <Navbar />
       <HeroSection />
       <AboutSection />
