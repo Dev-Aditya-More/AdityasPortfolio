@@ -80,7 +80,14 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-              <Button className="w-full">Resume</Button>
+              <a
+  href="/Aditya More.pdf"
+  download
+  className="w-full"
+>
+  <Button className="w-full">Resume</Button>
+</a>
+
             </div>
           </div>
         )}
