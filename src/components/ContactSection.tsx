@@ -26,8 +26,8 @@ const ContactSection = () => {
               
               <div>
                 <h4 className="font-medium mb-1">Email me at</h4>
-                <a href="mailto:contact@adityamore.dev" className="text-primary hover:underline">
-                  contact@adityamore.dev
+                <a href="mailto:aditya1875more@gmail.com" className="text-primary hover:underline">
+                  aditya1875more@gmail.com
                 </a>
               </div>
             </div>

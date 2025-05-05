@@ -6,7 +6,7 @@ import { ArrowRight, Github, Twitter, Linkedin } from 'lucide-react';
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
-  const fullText = "Android Developer & Kotlin Enthusiast";
+  const fullText = "Android Developer & DevOps Enthusiast";
   const typingSpeed = 100; // milliseconds per character
   const deletingSpeed = 50; // milliseconds per character
   const pauseTime = 2000; // pause time at full text

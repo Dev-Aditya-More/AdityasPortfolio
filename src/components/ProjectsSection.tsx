@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -7,31 +6,40 @@ import { Github, Link } from 'lucide-react';
 
 const projects = [
   {
-    title: 'ComposeHub',
-    description: 'A showcase app with fully modular Jetpack Compose components.',
-    longDesc: 'A comprehensive collection of reusable Compose components following Material 3 guidelines. Features complex UI patterns, animations, and theming support.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
-    tags: ['Jetpack Compose', 'Material 3', 'Animation', 'Theming'],
-    github: 'https://github.com/Dev-Aditya-More/ComposeHub',
-    live: '#'
+    title: 'Taskly - To-Do List App',
+    description: 'Minimal and offline-first task tracker using Room DB.',
+    longDesc: 'Built with MVVM and Clean Architecture, Room DB for persistence, and Jetpack Compose UI. Supports Coroutines and Hilt DI for a robust offline experience.',
+    image: 'https://unsplash.com/photos/a-notebook-with-a-pen-on-top-of-it-y16ku6si6xI',
+    tags: ['Jetpack Compose', 'Room DB', 'MVVM', 'Hilt', 'Coroutines'],
+    github: 'https://github.com/Dev-Aditya-More/ToDoList',
+    
   },
   {
-    title: 'Taskly',
-    description: 'A to-do list app with clean architecture and offline support using Room DB.',
-    longDesc: 'Feature-rich task management app with clean architecture, offline first approach, and multi-module structure. Utilizes Room database, Coroutines, and Hilt for dependency injection.',
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d',
-    tags: ['MVVM', 'Room', 'Clean Architecture', 'Coroutines'],
-    github: 'https://github.com/Dev-Aditya-More/Taskly',
-    live: '#'
+    title: 'StopwatchX',
+    description: 'Functional stopwatch app built with Compose and State Management.',
+    longDesc: 'Implements a clean Compose-based UI with start/pause/reset features, using State and ViewModel to manage lifecycle-aware timing logic.',
+    image: 'https://unsplash.com/photos/person-holding-white-and-silver-colored-pocket-watch-p3Pj7jOYvnM',
+    tags: ['Jetpack Compose', 'State Management', 'ViewModel', 'Kotlin'],
+    github: 'https://github.com/Dev-Aditya-More/StopwatchApp',
+    
   },
   {
-    title: 'CryptoX',
-    description: 'A real-time crypto tracker using WebSockets and Jetpack Compose animations.',
-    longDesc: 'Real-time cryptocurrency tracker that displays market data with smooth animations and transitions. Implements WebSockets for live updates and uses advanced Compose animations.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-    tags: ['WebSockets', 'Compose Animations', 'API Integration', 'MVVM'],
-    github: 'https://github.com/Dev-Aditya-More/CryptoX',
-    live: '#'
+    title: 'TicTacToe Game',
+    description: 'Simple and clean TicTacToe game with Compose.',
+    longDesc: 'Classic two-player game with a responsive Compose UI. Showcases logic separation, UI states, and win/draw detection.',
+    image: 'https://unsplash.com/photos/a-sign-with-letters-and-numbers--yhBOqHOr0c',
+    tags: ['Jetpack Compose', 'State Handling', 'Game Logic', 'Kotlin'],
+    github: 'https://github.com/Dev-Aditya-More/TicTacToeGame',
+    
+  },
+  {
+    title: 'QR Code Scanner',
+    description: 'Android app to scan QR codes using ML Kit and CameraX.',
+    longDesc: 'Lightweight scanner using Google ML Kits Barcode API, with real-time decoding and camera control using CameraX. Kotlin-based implementation.',
+    image: 'https://unsplash.com/photos/black-samsung-android-smartphone-displaying-qr-code-QuZThQoxwm4',
+    tags: ['CameraX', 'ML Kit', 'QR Scanner', 'Kotlin', 'Jetpack'],
+    github: 'https://github.com/Dev-Aditya-More/QRcodeScanner',
+    
   }
 ];
 
@@ -40,7 +48,7 @@ const ProjectsSection = () => {
     <section id="projects" className="section bg-muted/30">
       <div className="container">
         <h2 className="section-title">Featured Projects</h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {projects.map((project, index) => (
             <Card key={index} className="project-card flex flex-col h-full">
@@ -69,16 +77,12 @@ const ProjectsSection = () => {
                     <Github size={16} className="mr-1" /> Code
                   </a>
                 </Button>
-                <Button size="sm" asChild className="flex-1">
-                  <a href={project.live} target="_blank" rel="noopener noreferrer">
-                    <Link size={16} className="mr-1" /> View Demo
-                  </a>
-                </Button>
+                
               </CardFooter>
             </Card>
           ))}
         </div>
-        
+
         <div className="text-center">
           <p className="text-muted-foreground mb-4">
             Want to see more of my work?

@@ -44,7 +44,7 @@ const AboutSection = () => {
             </p>
             <p>
               When I'm not coding, you can find me exploring new technologies, contributing to open source,
-              or experimenting with the latest features in the Android ecosystem.
+              or experimenting with the latest features in the Android ecosystem or learning DevOps by choice
             </p>
           </div>
           <div className="flex flex-col justify-center">
