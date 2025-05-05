@@ -9,7 +9,7 @@ const projects = [
     title: 'Taskly - To-Do List App',
     description: 'Minimal and offline-first task tracker using Room DB.',
     longDesc: 'Built with MVVM and Clean Architecture, Room DB for persistence, and Jetpack Compose UI. Supports Coroutines and Hilt DI for a robust offline experience.',
-    image: 'https://unsplash.com/photos/a-notebook-with-a-pen-on-top-of-it-y16ku6si6xI',
+    image: 'https://images.unsplash.com/photo-1641261689141-ee46b8a0470c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tags: ['Jetpack Compose', 'Room DB', 'MVVM', 'Hilt', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/ToDoList',
     
@@ -18,7 +18,7 @@ const projects = [
     title: 'StopwatchX',
     description: 'Functional stopwatch app built with Compose and State Management.',
     longDesc: 'Implements a clean Compose-based UI with start/pause/reset features, using State and ViewModel to manage lifecycle-aware timing logic.',
-    image: 'https://unsplash.com/photos/person-holding-white-and-silver-colored-pocket-watch-p3Pj7jOYvnM',
+    image: 'https://images.unsplash.com/photo-1431499012454-31a9601150c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tags: ['Jetpack Compose', 'State Management', 'ViewModel', 'Kotlin'],
     github: 'https://github.com/Dev-Aditya-More/StopwatchApp',
     
@@ -27,7 +27,7 @@ const projects = [
     title: 'TicTacToe Game',
     description: 'Simple and clean TicTacToe game with Compose.',
     longDesc: 'Classic two-player game with a responsive Compose UI. Showcases logic separation, UI states, and win/draw detection.',
-    image: 'https://unsplash.com/photos/a-sign-with-letters-and-numbers--yhBOqHOr0c',
+    image: 'https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tags: ['Jetpack Compose', 'State Handling', 'Game Logic', 'Kotlin'],
     github: 'https://github.com/Dev-Aditya-More/TicTacToeGame',
     
@@ -36,7 +36,7 @@ const projects = [
     title: 'QR Code Scanner',
     description: 'Android app to scan QR codes using ML Kit and CameraX.',
     longDesc: 'Lightweight scanner using Google ML Kits Barcode API, with real-time decoding and camera control using CameraX. Kotlin-based implementation.',
-    image: 'https://unsplash.com/photos/black-samsung-android-smartphone-displaying-qr-code-QuZThQoxwm4',
+    image: 'https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tags: ['CameraX', 'ML Kit', 'QR Scanner', 'Kotlin', 'Jetpack'],
     github: 'https://github.com/Dev-Aditya-More/QRcodeScanner',
     
