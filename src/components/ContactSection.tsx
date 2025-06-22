@@ -68,7 +68,7 @@ const ContactSection = () => {
                   </li>
                 </ul>
                 <Button asChild className="w-full">
-                  <a href="mailto:contact@adityamore.dev">Get In Touch</a>
+                  <a href="mailto:aditya1875more@gmail.com">Get In Touch</a>
                 </Button>
               </CardContent>
             </Card>
