@@ -1,18 +1,14 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
   Smartphone, 
   Code, 
-  Database, 
-  GitBranch, 
-  TestTube, 
   Cloud, 
-  Terminal,
   Settings,
   Zap,
-  Layers
+  Layers,
+  TestTube
 } from 'lucide-react';
 
 const skillCategories = [
@@ -22,8 +18,18 @@ const skillCategories = [
     skills: [
       { name: 'Kotlin', icon: '🟣', proficiency: 'Advanced' },
       { name: 'Java', icon: '☕', proficiency: 'Intermediate' },
-      { name: 'Jetpack Compose', icon: '🎨', proficiency: 'Expert' },
-      { name: 'Android SDK', icon: '🤖', proficiency: 'Expert' }
+      { name: 'Jetpack Compose', icon: '🎨', proficiency: 'Mastery' },
+      { name: 'Android SDK', icon: '🤖', proficiency: 'Mastery' }
+    ]
+  },
+  {
+    title: 'Android Toolkit',
+    icon: Code,
+    skills: [
+      { name: 'Room DB', icon: '💾', proficiency: 'Advanced' },
+      { name: 'WorkManager', icon: '📆', proficiency: 'Intermediate' },
+      { name: 'DataStore', icon: '🗂️', proficiency: 'Intermediate' },
+      { name: 'Retrofit', icon: '🌐', proficiency: 'Advanced' }
     ]
   },
   {
@@ -32,7 +38,7 @@ const skillCategories = [
     skills: [
       { name: 'Docker', icon: '🐳', proficiency: 'Advanced' },
       { name: 'Kubernetes', icon: '⚓', proficiency: 'Intermediate' },
-      { name: 'AWS', icon: '☁️', proficiency: 'Learning' },
+      { name: 'AWS', icon: '☁️', proficiency: 'Exploring' },
       { name: 'Terraform', icon: '🏗️', proficiency: 'Intermediate' }
     ]
   },
@@ -41,7 +47,7 @@ const skillCategories = [
     icon: Settings,
     skills: [
       { name: 'Git', icon: '📝', proficiency: 'Moderate' },
-      { name: 'Android Studio', icon: '💻', proficiency: 'Expert' },
+      { name: 'Android Studio', icon: '💻', proficiency: 'Mastery' },
       { name: 'Firebase', icon: '🔥', proficiency: 'Intermediate' },
       { name: 'Gradle', icon: '⚙️', proficiency: 'Advanced' }
     ]
@@ -50,29 +56,36 @@ const skillCategories = [
     title: 'Architecture & Patterns',
     icon: Layers,
     skills: [
-      { name: 'MVVM', icon: '🏛️', proficiency: 'Expert' },
+      { name: 'MVVM', icon: '🏛️', proficiency: 'Mastery' },
       { name: 'Clean Architecture', icon: '🎯', proficiency: 'Advanced' },
       { name: 'Dependency Injection', icon: '🔗', proficiency: 'Intermediate' },
-      { name: 'Repository Pattern', icon: '📚', proficiency: 'Expert' }
+      { name: 'Repository Pattern', icon: '📚', proficiency: 'Mastery' }
     ]
   }
 ];
 
-const additionalSkills = [
-  'Room Database', 'Coroutines & Flow', 'Retrofit', 'Hilt/Dagger', 
-  'Material Design', 'JUnit Testing', 'Espresso', 'MockK',
-  'CI/CD Pipelines', 'Prometheus', 'Grafana', 'Ansible',
-  'Performance Optimization', 'WorkManager', 'DataStore'
+const additionalSkills = {
+  'Android': ['Room Database', 'WorkManager', 'DataStore'],
+  'Kotlin': ['Coroutines & Flow', 'Hilt/Dagger', 'Retrofit'],
+  'DevOps': ['CI/CD Pipelines', 'Prometheus', 'Grafana', 'Ansible']
+};
+
+const currentlyLearning = [
+  'AWS (Deep Dive)',
+  'CI with GitHub Actions',
+  'KSP & Compose Compiler'
 ];
 
 const getProficiencyColor = (proficiency: string) => {
   switch (proficiency) {
-    case 'Expert':
-      return 'text-green-600 bg-green-100 dark:text-green-400 dark:bg-green-900/20';
+    case 'Mastery':
+      return 'text-purple-600 bg-purple-100 dark:text-purple-400 dark:bg-purple-900/20';
     case 'Advanced':
       return 'text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-blue-900/20';
     case 'Intermediate':
       return 'text-yellow-600 bg-yellow-100 dark:text-yellow-400 dark:bg-yellow-900/20';
+    case 'Exploring':
+      return 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20';
     default:
       return 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20';
   }
@@ -83,10 +96,10 @@ const SkillsSection = () => {
     <section id="skills" className="section bg-muted/30">
       <div className="container">
         <h2 className="section-title">Skills & Expertise</h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+            <Card key={index} className="group hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -94,7 +107,7 @@ const SkillsSection = () => {
                   </div>
                   <h3 className="text-xl font-semibold">{category.title}</h3>
                 </div>
-                
+
                 <div className="grid grid-cols-1 gap-4">
                   {category.skills.map((skill, idx) => (
                     <div key={idx} className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
@@ -116,7 +129,7 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        <Card className="overflow-hidden">
+        <Card className="overflow-hidden mb-6">
           <CardContent className="p-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-primary/10">
@@ -124,15 +137,37 @@ const SkillsSection = () => {
               </div>
               <h3 className="text-xl font-semibold">Additional Technologies</h3>
             </div>
-            
+            {Object.entries(additionalSkills).map(([category, skills], idx) => (
+              <div key={idx} className="mb-4">
+                <h4 className="text-sm font-semibold text-muted-foreground mb-2">{category}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill, i) => (
+                    <Badge key={i} variant="outline" className="bg-background/50 hover:bg-background cursor-default">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <TestTube className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Currently Learning</h3>
+            </div>
             <div className="flex flex-wrap gap-2">
-              {additionalSkills.map((skill, index) => (
-                <Badge 
-                  key={index} 
-                  variant="outline" 
-                  className="bg-background/50 hover:bg-background transition-colors cursor-default"
+              {currentlyLearning.map((item, index) => (
+                <Badge
+                  key={index}
+                  variant="secondary"
+                  className="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400"
                 >
-                  {skill}
+                  {item}
                 </Badge>
               ))}
             </div>
