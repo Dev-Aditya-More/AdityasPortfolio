@@ -20,8 +20,8 @@ const skillCategories = [
     title: 'Mobile Development',
     icon: Smartphone,
     skills: [
-      { name: 'Kotlin', icon: '🟣', proficiency: 'Expert' },
-      { name: 'Java', icon: '☕', proficiency: 'Advanced' },
+      { name: 'Kotlin', icon: '🟣', proficiency: 'Advanced' },
+      { name: 'Java', icon: '☕', proficiency: 'Intermediate' },
       { name: 'Jetpack Compose', icon: '🎨', proficiency: 'Expert' },
       { name: 'Android SDK', icon: '🤖', proficiency: 'Expert' }
     ]
@@ -32,7 +32,7 @@ const skillCategories = [
     skills: [
       { name: 'Docker', icon: '🐳', proficiency: 'Advanced' },
       { name: 'Kubernetes', icon: '⚓', proficiency: 'Intermediate' },
-      { name: 'AWS', icon: '☁️', proficiency: 'Advanced' },
+      { name: 'AWS', icon: '☁️', proficiency: 'Learning' },
       { name: 'Terraform', icon: '🏗️', proficiency: 'Intermediate' }
     ]
   },
@@ -40,9 +40,9 @@ const skillCategories = [
     title: 'Development Tools',
     icon: Settings,
     skills: [
-      { name: 'Git', icon: '📝', proficiency: 'Expert' },
+      { name: 'Git', icon: '📝', proficiency: 'Moderate' },
       { name: 'Android Studio', icon: '💻', proficiency: 'Expert' },
-      { name: 'Firebase', icon: '🔥', proficiency: 'Advanced' },
+      { name: 'Firebase', icon: '🔥', proficiency: 'Intermediate' },
       { name: 'Gradle', icon: '⚙️', proficiency: 'Advanced' }
     ]
   },
@@ -52,7 +52,7 @@ const skillCategories = [
     skills: [
       { name: 'MVVM', icon: '🏛️', proficiency: 'Expert' },
       { name: 'Clean Architecture', icon: '🎯', proficiency: 'Advanced' },
-      { name: 'Dependency Injection', icon: '🔗', proficiency: 'Advanced' },
+      { name: 'Dependency Injection', icon: '🔗', proficiency: 'Intermediate' },
       { name: 'Repository Pattern', icon: '📚', proficiency: 'Expert' }
     ]
   }
