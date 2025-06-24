@@ -72,8 +72,8 @@ const additionalSkills = {
 
 const currentlyLearning = [
   'AWS (Deep Dive)',
-  'CI with GitHub Actions',
-  'KSP & Compose Compiler'
+  'Working on cool projects',
+  'KMP & Flutter'
 ];
 
 const getProficiencyColor = (proficiency: string) => {
@@ -158,7 +158,7 @@ const SkillsSection = () => {
               <div className="p-2 rounded-lg bg-primary/10">
                 <TestTube className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">Currently Learning</h3>
+              <h3 className="text-xl font-semibold"> What next? </h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {currentlyLearning.map((item, index) => (
