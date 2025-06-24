@@ -53,7 +53,7 @@ const Navbar = () => {
             </a>
           ))}
           <ThemeToggle />
-          <a href="/Aditya_More.pdf" download>
+          <a href="/Aditya_More_New.pdf" download>
   <Button>Resume</Button>
 </a>
 
