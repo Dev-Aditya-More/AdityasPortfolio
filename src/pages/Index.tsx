@@ -25,17 +25,17 @@ const Index = () => {
       <ParallaxBackground />
       <CursorGradient />
       <Navbar />
-      
+
       {/* CLI Mode Toggle Button - Fixed position */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-        <Button 
+        <Button
           onClick={() => setCLIMode(true)}
-          className="bg-black text-green-400 hover:bg-gray-900 border border-green-400"
-          size="sm"
+          className="bg-gradient-to-r from-purple-500 to-green-400 text-white hover:from-purple-600 hover:to-green-500 shadow-lg border-none rounded-full px-5 py-2 text-sm transition-all duration-300"
         >
           <Terminal className="mr-2 h-4 w-4" />
           CLI Mode
         </Button>
+
       </div>
 
       <HeroSection />
