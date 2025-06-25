@@ -27,7 +27,7 @@ const Index = () => {
       <Navbar />
       
       {/* CLI Mode Toggle Button - Fixed position */}
-      <div className="fixed top-4 right-4 z-50">
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
         <Button 
           onClick={() => setCLIMode(true)}
           className="bg-black text-green-400 hover:bg-gray-900 border border-green-400"
