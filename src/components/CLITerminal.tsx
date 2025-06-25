@@ -49,7 +49,10 @@ const CLITerminal = ({ onExit }: CLITerminalProps) => {
     useEffect(() => {
         // Scroll to bottom when new commands are added
         if (terminalRef.current) {
-            terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+            terminalRef.current.scrollTo({
+                top: terminalRef.current.scrollHeight,
+                behavior: 'smooth',
+            });
         }
     }, [commandHistory]);
 
