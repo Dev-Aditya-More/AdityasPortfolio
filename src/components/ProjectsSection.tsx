@@ -16,7 +16,7 @@ const androidProjects = [
     download: 'https://github.com/Dev-Aditya-More/Taskly/releases/download/v1.0.0/app-debug.apk'
   },
   {
-    title: 'PokeVerse - Pokedex, Reimagined.',
+    title: 'PokeVerse - Pokedex App.',
     description: 'Interactive Pokédex app with clean ui and modern architecture',
     longDesc: 'Fetches and displays paginated data from PokéAPI and much more',
     image: '/PokeVerse.png',
