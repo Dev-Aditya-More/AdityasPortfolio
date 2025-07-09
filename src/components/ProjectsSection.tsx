@@ -10,18 +10,31 @@ const androidProjects = [
     title: 'Taskly - To do List App',
     description: 'Minimal and offline-first task tracker using Room DB.',
     longDesc: 'Built with MVVM and Clean Architecture, Room DB for persistence, and Jetpack Compose UI.',
-    image: 'https://images.unsplash.com/photo-1641261689141-ee46b8a0470c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: '/Taskly.png',
     tags: ['Jetpack Compose', 'Room DB', 'MVVM', 'Hilt', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/Taskly',
+    download: 'https://github.com/Dev-Aditya-More/Taskly/releases/download/v1.0.0/app-debug.apk'
   },
   {
-    title: 'StopwatchX',
-    description: 'Functional stopwatch app built with Compose and State Management.',
-    longDesc: 'Implements a clean Compose-based UI with start/pause/reset features, using State and ViewModel to manage lifecycle-aware timing logic.',
-    image: 'https://images.unsplash.com/photo-1431499012454-31a9601150c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    title: 'PokeVerse - Pokedex. Reimagined.',
+    description: 'Interactive Pokédex app with clean ui and modern architecture',
+    longDesc: 'Fetches and displays paginated data from PokéAPI and much more',
+    image: '/PokeVerse.png',
     tags: ['Jetpack Compose', 'State Management', 'ViewModel', 'Kotlin'],
-    github: 'https://github.com/Dev-Aditya-More/StopwatchApp',
+    github: 'https://github.com/Dev-Aditya-More/PokeVerse',
+    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/download/v1.0.0/app-debug.apk'
   },
+
+  {
+    title: 'Breezy — Forecasts that feel light',
+    description: 'Simple weather forecast app with a clean interface and location-based updates.',
+    longDesc: 'Displays real-time weather data via OpenWeatherMap API and much more',
+    image: '/Breezy.png',
+    tags: ['Jetpack Compose', 'State Management', 'ViewModel', 'Kotlin'],
+    github: 'https://github.com/Dev-Aditya-More/BreezyTheApp',
+    download: 'https://github.com/Dev-Aditya-More/BreezyTheApp/releases/download/v1.0.0/app-debug.apk'
+  },
+
   {
     title: 'TicTacToe Game',
     description: 'Simple and clean TicTacToe game with Compose.',
