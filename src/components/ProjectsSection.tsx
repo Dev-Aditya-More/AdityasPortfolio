@@ -20,7 +20,7 @@ const androidProjects = [
     description: 'Interactive Pokédex app with clean ui and modern architecture',
     longDesc: 'Fetches and displays paginated data from PokéAPI and much more',
     image: '/PokeVerse.png',
-    tags: ['Jetpack Compose', 'State Management', 'ViewModel', 'Kotlin'],
+    tags: ['Jetpack Compose', 'State Management', 'ViewModel', 'Kotlin', 'Koin', 'Coil', 'material3'],
     github: 'https://github.com/Dev-Aditya-More/PokeVerse',
     download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/download/v1.0.0/app-debug.apk'
   },
@@ -30,7 +30,7 @@ const androidProjects = [
     description: 'Simple weather forecast app with a clean interface and location-based updates.',
     longDesc: 'Displays real-time weather data via OpenWeatherMap API and much more',
     image: '/Breezy.png',
-    tags: ['Jetpack Compose', 'State Management', 'ViewModel', 'Kotlin'],
+    tags: ['Jetpack Compose', 'State Management', 'ViewModel', 'Kotlin', 'geocoder', 'material3'],
     github: 'https://github.com/Dev-Aditya-More/BreezyTheApp',
     download: 'https://github.com/Dev-Aditya-More/BreezyTheApp/releases/download/v1.0.0/app-debug.apk'
   },
