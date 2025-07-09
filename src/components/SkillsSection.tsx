@@ -36,32 +36,22 @@ const skillCategories = [
     title: 'DevOps & Infrastructure',
     icon: Cloud,
     skills: [
-      { name: 'Docker', icon: '🐳', proficiency: 'Advanced' },
-      { name: 'Kubernetes', icon: '⚓', proficiency: 'Intermediate' },
+      { name: 'Docker', icon: '🐳', proficiency: 'Exploring' },
+      { name: 'Kubernetes', icon: '⚓', proficiency: 'Exploring' },
       { name: 'AWS', icon: '☁️', proficiency: 'Exploring' },
-      { name: 'Terraform', icon: '🏗️', proficiency: 'Intermediate' }
+      { name: 'Terraform', icon: '🏗️', proficiency: 'Basic' }
     ]
   },
   {
     title: 'Development Tools',
     icon: Settings,
     skills: [
-      { name: 'Git', icon: '📝', proficiency: 'Moderate' },
-      { name: 'Android Studio', icon: '💻', proficiency: 'Mastery' },
+      { name: 'Git', icon: '📝', proficiency: 'Intermediate' },
+      { name: 'Android Studio', icon: '💻', proficiency: 'Intermediate' },
       { name: 'Firebase', icon: '🔥', proficiency: 'Intermediate' },
       { name: 'Gradle', icon: '⚙️', proficiency: 'Advanced' }
     ]
   },
-  {
-    title: 'Architecture & Patterns',
-    icon: Layers,
-    skills: [
-      { name: 'MVVM', icon: '🏛️', proficiency: 'Mastery' },
-      { name: 'Clean Architecture', icon: '🎯', proficiency: 'Advanced' },
-      { name: 'Dependency Injection', icon: '🔗', proficiency: 'Intermediate' },
-      { name: 'Repository Pattern', icon: '📚', proficiency: 'Mastery' }
-    ]
-  }
 ];
 
 const additionalSkills = {

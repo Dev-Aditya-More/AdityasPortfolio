@@ -16,7 +16,7 @@ const androidProjects = [
     download: 'https://github.com/Dev-Aditya-More/Taskly/releases/download/v1.0.0/app-debug.apk'
   },
   {
-    title: 'PokeVerse - Pokedex. Reimagined.',
+    title: 'PokeVerse - Pokedex, Reimagined.',
     description: 'Interactive Pokédex app with clean ui and modern architecture',
     longDesc: 'Fetches and displays paginated data from PokéAPI and much more',
     image: '/PokeVerse.png',
@@ -63,7 +63,7 @@ const androidProjects = [
 
 const devopsProjects = [
   {
-    
+
     title: 'coming soon',
     description: 'DevOps projects in development!',
     longDesc: 'Working on advanced DevOps automation, cloud-native solutions, and infrastructure optimization projects. Stay tuned for updates!',
@@ -80,8 +80,8 @@ const ProjectGrid = ({ projects, githubUrl }) => (
       {projects.map((project, index) => (
         <Card key={index} className="project-card flex flex-col h-full">
           <div className="h-48 overflow-hidden">
-            <img 
-              src={project.image} 
+            <img
+              src={project.image}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
             />
@@ -102,7 +102,15 @@ const ProjectGrid = ({ projects, githubUrl }) => (
             {project.github && (
               <Button variant="outline" size="sm" asChild className="flex-1">
                 <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  <Github size={16} className="mr-1" /> Code
+                  <Github size={16} className="mr-1" /> GitHub
+                </a>
+              </Button>
+            )}
+
+            {project.download && (
+              <Button variant="default" size="sm" asChild className="flex-1">
+                <a href={project.download} target="_blank" rel="noopener noreferrer">
+                Download APK
                 </a>
               </Button>
             )}
@@ -135,17 +143,17 @@ const ProjectsSection = () => {
             <TabsTrigger value="android">Android Development</TabsTrigger>
             <TabsTrigger value="devops">DevOps & Infrastructure</TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="android">
-            <ProjectGrid 
-              projects={androidProjects} 
+            <ProjectGrid
+              projects={androidProjects}
               githubUrl="https://github.com/Dev-Aditya-More"
             />
           </TabsContent>
-          
+
           <TabsContent value="devops">
-            <ProjectGrid 
-              projects={devopsProjects} 
+            <ProjectGrid
+              projects={devopsProjects}
               githubUrl="https://github.com/Dev-Aditya-More"
             />
           </TabsContent>
