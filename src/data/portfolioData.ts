@@ -34,41 +34,65 @@ export const portfolioData: PortfolioData = {
   skills: [
     "Kotlin",
     "Jetpack Compose",
+    "Room DB",
+    "MVVM",
+    "Hilt",
+    "Coroutines",
     "Python",
     "Java",
-    "LeetCode (DSA)",
+    "DSA",
     "Docker",
     "Git/GitHub",
-    "Firebase",
-    "Linux",
     "CI/CD",
-    "React (Basic)",
-    "Flask",
-    "REST APIs"
+    "Linux",
+    "Firebase",
+    "Koin",
+    "CameraX",
+    "ML Kit",
+    "Material3",
+    "Coil"
   ],
   projects: [
     {
       name: "Taskly",
-      description: "Supports adding, editing, deleting, and persisting tasks using Room and ViewModel.",
-      technologies: ["Jetpack Compose", "Kotlin", "LottieAnimations", "Room Database", "Material3", "ViewModel", "State management"],
+      description: "Offline-first to-do list app built with Jetpack Compose, Room DB, and MVVM. Features task creation, editing, and persistence.",
+      technologies: ["Jetpack Compose", "Kotlin", "Room Database", "MVVM", "Hilt", "Coroutines", "Material3"],
       github: "https://github.com/Dev-Aditya-More/Taskly"
     },
     {
-      name: "TicTacToe",
-      description: "built in Kotlin with Jetpack Compose. Features real-time game logic, win/draw detection, and a clean UI.",
-      technologies: ["Jetpack Compose", "State management", "Kotlin", "Material3"],
-      github: "https://github.com/Dev-Aditya-More/TicTacToe"
+      name: "PokeVerse",
+      description: "Interactive Pokédex app using paginated API data. Built with clean architecture and responsive Compose UI.",
+      technologies: ["Jetpack Compose", "State Management", "Kotlin", "Koin", "Coil", "Material3"],
+      github: "https://github.com/Dev-Aditya-More/PokeVerse"
     },
     {
-      name: "StopWatchApp",
-      description: "Functional stopwatch app built with Compose and State Management.",
+      name: "Breezy - Weather App",
+      description: "Simple weather forecast app with real-time updates via OpenWeatherMap and geolocation support.",
+      technologies: ["Jetpack Compose", "State Management", "Kotlin", "Geocoder", "Material3", "OpenWeatherMap API"],
+      github: "https://github.com/Dev-Aditya-More/BreezyTheApp"
+    },
+    {
+      name: "QR Code Scanner",
+      description: "Lightweight Android app that scans QR codes in real-time using ML Kit and CameraX.",
+      technologies: ["Kotlin", "Jetpack Compose", "ML Kit", "CameraX", "Barcode Scanning"],
+      github: "https://github.com/Dev-Aditya-More/QRcodeScanner"
+    },
+    {
+      name: "TicTacToe Game",
+      description: "Classic two-player TicTacToe game built in Compose with game logic separation and win/draw detection.",
+      technologies: ["Jetpack Compose", "Kotlin", "State Handling", "Material3"],
+      github: "https://github.com/Dev-Aditya-More/TicTacToeGame"
+    },
+    {
+      name: "StopWatch App",
+      description: "A functional stopwatch built with Kotlin and Compose. Demonstrates clean time state handling and UI updates.",
       technologies: ["Jetpack Compose", "Kotlin", "Coroutines", "Material3"],
       github: "https://github.com/Dev-Aditya-More/StopWatchApp"
     },
     {
       name: "Unit Converter App",
-      description: "Android app built using Jetpack Compose that supports dynamic dark/light theme and unit conversions.",
-      technologies: ["Kotlin", "Jetpack Compose", "Material 3"],
+      description: "Compose-based Android app for converting units with support for light/dark mode and responsive UI.",
+      technologies: ["Kotlin", "Jetpack Compose", "Material3"],
       github: "https://github.com/Dev-Aditya-More/UnitConverter"
     }
   ],

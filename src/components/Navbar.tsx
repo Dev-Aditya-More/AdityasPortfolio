@@ -53,7 +53,7 @@ const Navbar = () => {
             </a>
           ))}
           <ThemeToggle />
-          <a href="/Aditya_More_New_1.pdf" download>
+          <a href="/Aditya_More_New_2.pdf" download>
   <Button>Resume</Button>
 </a>
 
@@ -83,7 +83,7 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-              <a href="/Aditya_More_New_1.pdf" download className="w-full"> <Button className="w-full">Resume</Button></a>
+              <a href="/Aditya_More_New_2.pdf" download className="w-full"> <Button className="w-full">Resume</Button></a>
             </div>
           </div>
         )}
