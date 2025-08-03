@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 const CursorGradient = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 });
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -15,12 +15,19 @@ const CursorGradient = () => {
       setIsVisible(false);
     };
 
+    const handleMouseEnter = () => {
+      // Only show when mouse enters the document
+      setIsVisible(true);
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
     document.documentElement.addEventListener('mouseleave', handleMouseLeave);
+    document.documentElement.addEventListener('mouseenter', handleMouseEnter);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
+      document.documentElement.removeEventListener('mouseenter', handleMouseEnter);
     };
   }, [isVisible]);
 
