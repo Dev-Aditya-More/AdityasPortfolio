@@ -13,7 +13,7 @@ const Footer = () => {
               Aditya<span className="text-primary">.dev</span>
             </a>
             <p className="text-sm text-muted-foreground mt-1">
-              Android Developer & DevOps Enthusiast
+              Android & KMP Developer
             </p>
           </div>
           

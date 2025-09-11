@@ -36,7 +36,7 @@ const AboutSection = () => {
           <div>
             <p className="text-lg mb-4">
               I'm a passionate Android developer focused on building elegant, scalable, and 
-              modern mobile experiences with Jetpack Compose. 
+              modern mobile experiences with Jetpack Compose and KMP 
             </p>
             <p className="mb-4">
               Currently exploring advanced UI patterns, state management, and clean architecture. 
