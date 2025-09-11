@@ -67,7 +67,6 @@ const AboutSection = () => {
             </Card>
           </div>
         </div>
-      </div>
     </section>
   );
 };
