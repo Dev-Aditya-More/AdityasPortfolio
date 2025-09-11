@@ -1,19 +1,27 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Github, Twitter, Linkedin } from 'lucide-react';
 
+const titles = [
+  "Android and KMP Developer",
+  "DevOps Enthusiast",
+  "Seasonal Web Dev"
+];
+
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
-  const fullText = "Android Developer & DevOps Enthusiast";
-  const typingSpeed = 100; // milliseconds per character
-  const deletingSpeed = 50; // milliseconds per character
-  const pauseTime = 2000; // pause time at full text
+  const [titleIndex, setTitleIndex] = useState(0);
+
+  const typingSpeed = 100; // ms per character
+  const deletingSpeed = 50; // ms per character
+  const pauseTime = 2000; // pause at full text
+
+  const fullText = titles[titleIndex];
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
-    
+
     if (isTyping) {
       if (displayText !== fullText) {
         timeout = setTimeout(() => {
@@ -32,12 +40,13 @@ const HeroSection = () => {
       } else {
         timeout = setTimeout(() => {
           setIsTyping(true);
+          setTitleIndex((prev) => (prev + 1) % titles.length);
         }, pauseTime / 2);
       }
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, isTyping]);
+  }, [displayText, isTyping, fullText]);
 
   return (
     <div className="min-h-screen flex flex-col justify-center pt-20 pb-16">

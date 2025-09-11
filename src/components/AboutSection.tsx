@@ -32,19 +32,15 @@ const AboutSection = () => {
       <div className="container">
         <h2 className="section-title">About Me</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div>
+        <div>
             <p className="text-lg mb-4">
-              I'm a passionate Android developer focused on building elegant, scalable, and 
-              modern mobile experiences with Jetpack Compose and KMP 
+              Hi! I’m a passionate <span className="font-semibold text-primary">Android developer</span> dedicated to crafting elegant, scalable, and modern mobile experiences using <span className="highlight">Jetpack Compose</span> and <span className="highlight">Kotlin Multiplatform</span>.
             </p>
             <p className="mb-4">
-              Currently exploring advanced UI patterns, state management, and clean architecture. 
-              I love learning in public and sharing dev insights with the Android community.
+              My focus is on building robust apps with <span className="highlight">clean architecture</span>, advanced UI patterns, and seamless state management. I enjoy learning in public and sharing insights with the Android community.
             </p>
             <p>
-              When I'm not coding, you can find me exploring new technologies, contributing to open source,
-              or experimenting with the latest features in the Android ecosystem or learning DevOps by choice
+              When I’m not coding, you’ll find me exploring new technologies, contributing to open source, or diving into <span className="highlight">DevOps</span> and the latest features in the Android ecosystem.
             </p>
           </div>
           <div className="flex flex-col justify-center">

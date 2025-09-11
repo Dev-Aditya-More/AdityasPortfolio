@@ -60,7 +60,7 @@ const ContactSection = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>DM me on Twitter if you're building something cool with Compose 🚀</span>
+                    <span>shoot me a DM on <a href="https://x.com/@Adityaastwt">Twitter</a> if you're building something cool with Compose 🚀</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
