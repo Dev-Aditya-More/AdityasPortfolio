@@ -18,28 +18,28 @@ const skillCategories = [
     skills: [
       { name: 'Kotlin', icon: '🟣', proficiency: 'Advanced' },
       { name: 'Java', icon: '☕', proficiency: 'Intermediate' },
-      { name: 'Jetpack Compose', icon: '🎨', proficiency: 'Mastery' },
-      { name: 'Android SDK', icon: '🤖', proficiency: 'Mastery' }
+      { name: 'Jetpack Compose', icon: '🎨', proficiency: 'Intermediate' },
+      { name: 'Android SDK', icon: '🤖', proficiency: 'Intermediate' }
     ]
   },
   {
     title: 'Android Toolkit',
     icon: Code,
     skills: [
-      { name: 'Room DB', icon: '💾', proficiency: 'Advanced' },
+      { name: 'Room DB', icon: '💾', proficiency: 'Intermediate' },
       { name: 'WorkManager', icon: '📆', proficiency: 'Intermediate' },
       { name: 'DataStore', icon: '🗂️', proficiency: 'Intermediate' },
-      { name: 'Retrofit', icon: '🌐', proficiency: 'Advanced' }
+      { name: 'Retrofit', icon: '🌐', proficiency: 'Intermediate' }
     ]
   },
   {
     title: 'DevOps & Infrastructure',
     icon: Cloud,
     skills: [
-      { name: 'Docker', icon: '🐳', proficiency: 'Exploring' },
-      { name: 'Kubernetes', icon: '⚓', proficiency: 'Exploring' },
-      { name: 'AWS', icon: '☁️', proficiency: 'Exploring' },
-      { name: 'Terraform', icon: '🏗️', proficiency: 'Basic' }
+      { name: 'Docker', icon: '🐳', proficiency: 'Intermediate' },
+      { name: 'Kubernetes', icon: '⚓', proficiency: 'Intermediate' },
+      { name: 'AWS', icon: '☁️', proficiency: 'Beginner' },
+      { name: 'Terraform', icon: '🏗️', proficiency: 'Beginner' }
     ]
   },
   {
@@ -49,7 +49,7 @@ const skillCategories = [
       { name: 'Git', icon: '📝', proficiency: 'Intermediate' },
       { name: 'Android Studio', icon: '💻', proficiency: 'Intermediate' },
       { name: 'Firebase', icon: '🔥', proficiency: 'Intermediate' },
-      { name: 'Gradle', icon: '⚙️', proficiency: 'Advanced' }
+      { name: 'Gradle', icon: '⚙️', proficiency: 'Intermediate' }
     ]
   },
 ];
