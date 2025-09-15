@@ -38,8 +38,8 @@ const skillCategories = [
     skills: [
       { name: 'Docker', icon: '🐳', proficiency: 'Intermediate' },
       { name: 'Kubernetes', icon: '⚓', proficiency: 'Intermediate' },
-      { name: 'AWS', icon: '☁️', proficiency: 'Beginner' },
-      { name: 'Terraform', icon: '🏗️', proficiency: 'Beginner' }
+      { name: 'AWS', icon: '☁️', proficiency: 'Exploring' },
+      { name: 'Terraform', icon: '🏗️', proficiency: 'Exploring' }
     ]
   },
   {
