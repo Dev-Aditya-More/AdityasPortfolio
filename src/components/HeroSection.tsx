@@ -62,8 +62,8 @@ const HeroSection = () => {
               <span className="inline-block w-0.5 h-7 bg-primary ml-1 animate-blink"></span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              I specialize in building modern Android apps with <span className="highlight">Jetpack Compose and KMP</span>
-               creating elegant, scalable, and user-friendly mobile experiences with a focus on
+              I specialize in building modern Android apps with <span className="highlight">Jetpack Compose and KMP</span>{' '}
+              creating elegant, scalable, and user-friendly mobile experiences with a focus on
               <span className="highlight"> clean architecture</span> and best practices.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
