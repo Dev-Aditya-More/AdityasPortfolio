@@ -25,7 +25,7 @@ const androidProjects = [
     image: '/StashlyIcon.png',
     tags: ['Jetpack Compose', 'MVVM', 'Material3', 'Room DB', 'Coroutines', 'KoinDI', 'Retrofit', 'Coil'],
     github: 'https://github.com/Dev-Aditya-More/Stashly',
-    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/v1.0.0'
+    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/'
   },
   {
     title: 'PokeVerse — Pokédex App',
@@ -34,7 +34,7 @@ const androidProjects = [
     image: '/PokeVerseLogo.png',
     tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'KoinDI', 'Coil', 'Material3, tts', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/PokeVerse',
-    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/v1.0.2'
+    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/'
   },
   {
     title: 'Breezy — Forecasts That Feel Light',
@@ -43,7 +43,7 @@ const androidProjects = [
     image: '/weatherApp.png',
     tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'Geocoder', 'Material3'],
     github: 'https://github.com/Dev-Aditya-More/BreezyTheApp',
-    download: 'https://github.com/Dev-Aditya-More/BreezyTheApp/releases/v1.0.0'
+    download: 'https://github.com/Dev-Aditya-More/BreezyTheApp/releases/'
   },
   {
     title: 'Taskly — To-Do List App',
@@ -52,7 +52,7 @@ const androidProjects = [
     image: '/TasklyLogo.png',
     tags: ['Jetpack Compose', 'Room DB', 'MVVM', 'Hilt', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/Taskly',
-    download: 'https://github.com/Dev-Aditya-More/Taskly/releases/v1.0.0'
+    download: 'https://github.com/Dev-Aditya-More/Taskly/releases/'
   },
   {
     title: 'TicTacToe Game',
@@ -61,7 +61,7 @@ const androidProjects = [
     image: 'https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop',
     tags: ['Jetpack Compose', 'State Handling', 'Game Logic', 'Kotlin'],
     github: 'https://github.com/Dev-Aditya-More/TicTacToeGame',
-    download: 'https://github.com/Dev-Aditya-More/TicTacToeGame/releases/v1.0.0'
+    download: 'https://github.com/Dev-Aditya-More/TicTacToeGame/releases/'
   },
   {
     title: 'QR Code Scanner',
@@ -70,7 +70,7 @@ const androidProjects = [
     image: 'https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop',
     tags: ['CameraX', 'ML Kit', 'QR Scanner', 'Kotlin', 'Jetpack'],
     github: 'https://github.com/Dev-Aditya-More/QRcodeScanner',
-    download: 'https://github.com/Dev-Aditya-More/QRcodeScanner/releases/v1.0.0'
+    download: 'https://github.com/Dev-Aditya-More/QRcodeScanner/releases/'
   },
   {
     title: 'More Soon',
