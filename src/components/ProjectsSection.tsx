@@ -16,7 +16,6 @@ import {
   TabsTrigger
 } from '@/components/ui/tabs';
 import { Github } from 'lucide-react';
-import { motion } from "framer-motion";
 
 const androidProjects = [
   {
@@ -150,42 +149,37 @@ const ProjectGrid = ({ projects, githubUrl }) => (
   </>
 );
 
-const ProjectsSection = () => (
-  <motion.section
-    id="projects"
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.7, ease: "easeOut" }}
-    viewport={{ once: true, amount: 0.2 }}
-    className="section bg-muted/30"
-  >
-    <div className="container">
-      <h2 className="section-title">Projects</h2>
+const ProjectsSection = () => {
+  return (
+    <section id="projects" className="bg-muted/30 py-10 sm:py-14 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">Featured Projects</h2>
 
-      <Tabs defaultValue="android" className="w-full">
-        <div className="overflow-x-auto">
-          <TabsList className="flex gap-2 w-max mb-8">
-            <TabsTrigger value="android" className="min-w-max">Android Development</TabsTrigger>
-            <TabsTrigger value="devops" className="min-w-max">DevOps & Infrastructure</TabsTrigger>
-          </TabsList>
-        </div>
+        <Tabs defaultValue="android" className="w-full">
+          <div className="overflow-x-auto">
+            <TabsList className="flex gap-2 w-max mb-8">
+              <TabsTrigger value="android" className="min-w-max">Android Development</TabsTrigger>
+              <TabsTrigger value="devops" className="min-w-max">DevOps & Infrastructure</TabsTrigger>
+            </TabsList>
+          </div>
 
-        <TabsContent value="android">
-          <ProjectGrid
-            projects={androidProjects}
-            githubUrl="https://github.com/Dev-Aditya-More"
-          />
-        </TabsContent>
+          <TabsContent value="android">
+            <ProjectGrid
+              projects={androidProjects}
+              githubUrl="https://github.com/Dev-Aditya-More"
+            />
+          </TabsContent>
 
-        <TabsContent value="devops">
-          <ProjectGrid
-            projects={devopsProjects}
-            githubUrl="https://github.com/Dev-Aditya-More"
-          />
-        </TabsContent>
-      </Tabs>
-    </div>
-  </motion.section>
-);
+          <TabsContent value="devops">
+            <ProjectGrid
+              projects={devopsProjects}
+              githubUrl="https://github.com/Dev-Aditya-More"
+            />
+          </TabsContent>
+        </Tabs>
+      </div>
+    </section>
+  );
+};
 
 export default ProjectsSection;
