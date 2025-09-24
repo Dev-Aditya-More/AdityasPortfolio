@@ -22,7 +22,7 @@ const androidProjects = [
     title: 'Stashly — Bookmark, Link & File Manager',
     description: 'A modern and intuitive tool to save and organize bookmarks, links, and files.',
     longDesc: 'Built with MVVM and Jetpack Compose, featuring tagging, categorization, search, and Material 3 theming. Optimized release builds with R8 and ProGuard.',
-    image: '/StashlyIcon.png',
+    image: '/StashlyIntro.png',
     tags: ['Jetpack Compose', 'MVVM', 'Material3', 'Room DB', 'Coroutines', 'KoinDI', 'Retrofit', 'Coil'],
     github: 'https://github.com/Dev-Aditya-More/Stashly',
     download: 'https://github.com/Dev-Aditya-More/Stashly/releases/'
@@ -31,8 +31,8 @@ const androidProjects = [
     title: 'PokeVerse — Pokédex App',
     description: 'Interactive Pokédex with clean UI and modern architecture.',
     longDesc: 'Fetches and displays paginated data from PokéAPI with caching, type-based animations, and detail screens.',
-    image: '/PokeVerseLogo.png',
-    tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'KoinDI', 'Coil', 'Material3, tts', 'Coroutines'],
+    image: '/pokeIntro.png',
+    tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'KoinDI', 'Coil', 'Material3', 'tts', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/PokeVerse',
     download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/'
   },

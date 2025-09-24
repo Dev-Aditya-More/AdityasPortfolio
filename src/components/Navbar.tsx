@@ -1,14 +1,13 @@
-
-import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
+import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' }
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -24,20 +23,22 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-sm py-4' : 'bg-transparent py-6'
+        isScrolled
+          ? "bg-background/95 backdrop-blur-sm shadow-sm py-4"
+          : "bg-transparent py-6"
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="text-lg font-bold">
+        <a href="#" className="text-2xl font-bold">
           Aditya<span className="text-primary">.dev</span>
         </a>
 
@@ -53,18 +54,15 @@ const Navbar = () => {
             </a>
           ))}
           <ThemeToggle />
-          <a href="/Aditya_Resume.pdf" download>
-  <Button>Resume</Button>
-</a>
-
+          <a href="/Aditya_Resume_Android.pdf" download>
+            <Button>Resume</Button>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -83,7 +81,10 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-              <a href="/Aditya_Resume" download className="w-full"> <Button className="w-full">Resume</Button></a>
+              <a href="/Aditya_Resume_Android" download className="w-full">
+                {" "}
+                <Button className="w-full">Resume</Button>
+              </a>
             </div>
           </div>
         )}
