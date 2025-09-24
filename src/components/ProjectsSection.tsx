@@ -25,7 +25,9 @@ const androidProjects = [
     image: '/StashlyIntro.png',
     tags: ['Jetpack Compose', 'MVVM', 'Material3', 'Room DB', 'Coroutines', 'KoinDI', 'Retrofit', 'Coil'],
     github: 'https://github.com/Dev-Aditya-More/Stashly',
-    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/'
+    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/',
+    imageZoom: 1.15,
+    imagePosition: 'top center'
   },
   {
     title: 'PokeVerse — Pokédex App',
@@ -34,7 +36,9 @@ const androidProjects = [
     image: '/pokeIntro.png',
     tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'KoinDI', 'Coil', 'Material3', 'tts', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/PokeVerse',
-    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/'
+    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/',
+    imageZoom: 1.1,
+    imagePosition: 'top center'
   },
   {
     title: 'Breezy — Forecasts That Feel Light',
@@ -43,7 +47,9 @@ const androidProjects = [
     image: '/weatherApp.png',
     tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'Geocoder', 'Material3'],
     github: 'https://github.com/Dev-Aditya-More/BreezyTheApp',
-    download: 'https://github.com/Dev-Aditya-More/BreezyTheApp/releases/'
+    download: 'https://github.com/Dev-Aditya-More/BreezyTheApp/releases/',
+    imageZoom: 1.05,
+    imagePosition: 'center'
   },
   {
     title: 'Taskly — To-Do List App',
@@ -52,7 +58,9 @@ const androidProjects = [
     image: '/TasklyLogo.png',
     tags: ['Jetpack Compose', 'Room DB', 'MVVM', 'Hilt', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/Taskly',
-    download: 'https://github.com/Dev-Aditya-More/Taskly/releases/'
+    download: 'https://github.com/Dev-Aditya-More/Taskly/releases/',
+    imageZoom: 1.1,
+    imagePosition: 'center'
   },
   {
     title: 'TicTacToe Game',
@@ -61,7 +69,9 @@ const androidProjects = [
     image: 'https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop',
     tags: ['Jetpack Compose', 'State Handling', 'Game Logic', 'Kotlin'],
     github: 'https://github.com/Dev-Aditya-More/TicTacToeGame',
-    download: 'https://github.com/Dev-Aditya-More/TicTacToeGame/releases/'
+    download: 'https://github.com/Dev-Aditya-More/TicTacToeGame/releases/',
+    imageZoom: 1,
+    imagePosition: 'center'
   },
   {
     title: 'QR Code Scanner',
@@ -70,7 +80,9 @@ const androidProjects = [
     image: 'https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop',
     tags: ['CameraX', 'ML Kit', 'QR Scanner', 'Kotlin', 'Jetpack'],
     github: 'https://github.com/Dev-Aditya-More/QRcodeScanner',
-    download: 'https://github.com/Dev-Aditya-More/QRcodeScanner/releases/'
+    download: 'https://github.com/Dev-Aditya-More/QRcodeScanner/releases/',
+    imageZoom: 1,
+    imagePosition: 'center'
   },
   {
     title: 'More Soon',
@@ -79,8 +91,9 @@ const androidProjects = [
     image: 'https://images.unsplash.com/photo-1590479773265-7464e5d48118?q=80&w=1170&auto=format&fit=crop',
     tags: ['Coming Soon'],
     github: null,
+    imageZoom: 1,
+    imagePosition: 'center'
   }
-
 ];
 
 const devopsProjects = [
@@ -99,11 +112,15 @@ const ProjectGrid = ({ projects, githubUrl }) => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10">
       {projects.map((project, index) => (
         <Card key={index} className="flex flex-col h-full rounded-xl overflow-hidden shadow-sm">
-          <div className="h-48 sm:h-56 md:h-64 overflow-hidden">
+          <div className="h-48 sm:h-56 md:h-64 overflow-hidden bg-neutral-900">
             <img
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              style={{
+                objectPosition: project.imagePosition || 'center',
+                transform: `scale(${project.imageZoom || 1})`
+              }}
             />
           </div>
           <CardHeader>
