@@ -103,7 +103,7 @@ const ProjectGrid = ({ projects, githubUrl }) => (
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-contain bg-black transition-transform duration-500"
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>
           <CardHeader>
