@@ -27,7 +27,8 @@ const androidProjects = [
     github: 'https://github.com/Dev-Aditya-More/Stashly',
     download: 'https://github.com/Dev-Aditya-More/Stashly/releases/',
     imageZoom: 1.15,
-    imagePosition: 'top center'
+    imagePosition: 'top center',
+    topPadding: true
   },
   {
     title: 'PokeVerse — Pokédex App',
@@ -38,7 +39,8 @@ const androidProjects = [
     github: 'https://github.com/Dev-Aditya-More/PokeVerse',
     download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/',
     imageZoom: 1.1,
-    imagePosition: 'top center'
+    imagePosition: 'top center',
+    bottomPadding: true
   },
   {
     title: 'Breezy — Forecasts That Feel Light',
@@ -59,8 +61,6 @@ const androidProjects = [
     tags: ['Jetpack Compose', 'Room DB', 'MVVM', 'Hilt', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/Taskly',
     download: 'https://github.com/Dev-Aditya-More/Taskly/releases/',
-    imageZoom: 1.1,
-    imagePosition: 'center'
   },
   {
     title: 'TicTacToe Game',
