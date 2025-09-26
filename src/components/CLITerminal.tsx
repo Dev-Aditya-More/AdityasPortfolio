@@ -21,21 +21,21 @@ const CLITerminal = ({ onExit }: CLITerminalProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Show welcome message on load
-    const welcomeOutput = [
-      "╔══════════════════════════════════════╗",
-      "║          PORTFOLIO CLI v1.0          ║",
-      "║                                      ║",
-      "║        Welcome to my terminal!       ║",
-      "║                                      ║",
-      "╚══════════════════════════════════════╝",
-      "",
-      'Type "help" to see available commands.',
-      'Type "exit" to return to portfolio view.',
-      "",
-    ];
+  // store welcomeOutput outside so we can reuse it for "clear"
+  const welcomeOutput = [
+    "╔══════════════════════════════════════╗",
+    "║          PORTFOLIO CLI v1.0          ║",
+    "║                                      ║",
+    "║        Welcome to my terminal!       ║",
+    "║                                      ║",
+    "╚══════════════════════════════════════╝",
+    "",
+    'Type "help" to see available commands.',
+    'Type "exit" to return to portfolio view.',
+    "",
+  ];
 
+  useEffect(() => {
     setCommandHistory([
       {
         command: "",
@@ -43,13 +43,10 @@ const CLITerminal = ({ onExit }: CLITerminalProps) => {
         timestamp: new Date(),
       },
     ]);
-
-    // Focus input
     inputRef.current?.focus();
   }, []);
 
   useEffect(() => {
-    // Scroll to bottom when new commands are added
     if (terminalRef.current) {
       terminalRef.current.scrollTo({
         top: terminalRef.current.scrollHeight,
@@ -70,7 +67,14 @@ const CLITerminal = ({ onExit }: CLITerminalProps) => {
     }
 
     if (command === "clear") {
-      setCommandHistory([]);
+      // reset to just the welcome message
+      setCommandHistory([
+        {
+          command: "",
+          output: welcomeOutput,
+          timestamp: new Date(),
+        },
+      ]);
       setCurrentInput("");
       setHistoryIndex(-1);
       return;
@@ -180,7 +184,8 @@ const CLITerminal = ({ onExit }: CLITerminalProps) => {
             onChange={(e) => setCurrentInput(e.target.value)}
             onKeyDown={handleKeyDown}
             className="flex-1 ml-2 bg-transparent text-white caret-green-400 
-                       border-none outline-none focus:ring-0 focus:outline-none"
+                       border-none outline-none focus:outline-none focus:ring-0
+                       placeholder-transparent"
             autoComplete="off"
             autoFocus
           />
