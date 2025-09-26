@@ -29,11 +29,12 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   name: "Aditya More",
-  title: "Android & DevOps Enthusiast",
-  bio: "Driven developer from a tier-3 college with a passion for Jetpack Compose, DevOps, and problem-solving. I enjoy building meaningful applications, automating workflows, and guiding others through technical clarity. Currently pursuing DSA via LeetCode and exploring impactful open-source contributions.",
+  title: "Android and KMP Developer | DevOps Enthusiast | Seasonal Web Dev",
+  bio: "I'm a passionate Android developer focused on building elegant, scalable, and modern mobile experiences with Jetpack Compose and Kotlin MultiPlatform. I love exploring advanced UI patterns, state management, and clean architecture. When I'm not coding, you'll find me learning DevOps, contributing to open source, or experimenting with the latest in tech.",
   skills: [
     "Kotlin",
     "Jetpack Compose",
+    "Kotlin Multiplatform",
     "Room DB",
     "MVVM",
     "Hilt",
@@ -50,26 +51,40 @@ export const portfolioData: PortfolioData = {
     "CameraX",
     "ML Kit",
     "Material3",
-    "Coil"
+    "Coil",
+    "Retrofit",
+    "State Management",
+    "OpenWeatherMap API",
+    "Geocoder",
+    "Barcode Scanning",
+    "TypeScript",
+    "React",
+    "Next.js"
   ],
   projects: [
     {
-      name: "Taskly",
-      description: "Offline-first to-do list app built with Jetpack Compose, Room DB, and MVVM. Features task creation, editing, and persistence.",
-      technologies: ["Jetpack Compose", "Kotlin", "Room Database", "MVVM", "Hilt", "Coroutines", "Material3"],
-      github: "https://github.com/Dev-Aditya-More/Taskly"
+      name: "Stashly — Bookmark, Link & File Manager",
+      description: "A modern and intuitive tool to save and organize bookmarks, links, and files.",
+      technologies: ["Jetpack Compose", "MVVM", "Material3", "Room DB", "Coroutines", "KoinDI", "Retrofit", "Coil"],
+      github: "https://github.com/Dev-Aditya-More/Stashly"
     },
     {
-      name: "PokeVerse",
-      description: "Interactive Pokédex app using paginated API data. Built with clean architecture and responsive Compose UI.",
-      technologies: ["Jetpack Compose", "State Management", "Kotlin", "Koin", "Coil", "Material3"],
+      name: "PokeVerse — Pokédex App",
+      description: "Interactive Pokédex with clean UI and modern architecture.",
+      technologies: ["Jetpack Compose", "State Management", "MVVM", "Kotlin", "KoinDI", "Coil", "Material3", "tts", "Coroutines"],
       github: "https://github.com/Dev-Aditya-More/PokeVerse"
     },
     {
-      name: "Breezy - Weather App",
-      description: "Simple weather forecast app with real-time updates via OpenWeatherMap and geolocation support.",
-      technologies: ["Jetpack Compose", "State Management", "Kotlin", "Geocoder", "Material3", "OpenWeatherMap API"],
+      name: "Breezy — Forecasts That Feel Light",
+      description: "Simple weather forecast app with a clean interface and location-based updates.",
+      technologies: ["Jetpack Compose", "State Management", "MVVM", "Kotlin", "Geocoder", "Material3"],
       github: "https://github.com/Dev-Aditya-More/BreezyTheApp"
+    },
+    {
+      name: "Taskly",
+      description: "Offline-first to-do list app built with Jetpack Compose, Room DB, and MVVM. Features task creation, editing, and persistence.",
+      technologies: ["Jetpack Compose", "Kotlin", "Room DB", "MVVM", "Hilt", "Coroutines", "Material3"],
+      github: "https://github.com/Dev-Aditya-More/Taskly"
     },
     {
       name: "QR Code Scanner",
@@ -111,6 +126,10 @@ export const portfolioData: PortfolioData = {
   },
   social: [
     {
+      platform: "GitHub",
+      url: "https://github.com/Dev-Aditya-More"
+    },
+    {
       platform: "Twitter",
       url: "https://x.com/Adityaastwt"
     },
@@ -119,8 +138,8 @@ export const portfolioData: PortfolioData = {
       url: "https://linkedin.com/in/adityamore2005"
     },
     {
-        platform: "Instagram",
-        url: "https://instagram.com/adityamore1875"
+      platform: "Instagram",
+      url: "https://instagram.com/adityblinks"
     }
   ]
 };

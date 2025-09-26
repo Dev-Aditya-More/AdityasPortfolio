@@ -155,7 +155,7 @@ const CLITerminal = ({ onExit }: CLITerminalProps) => {
                 ))}
 
                 {/* Input Line */}
-                <form onSubmit={handleSubmit} className="flex items-center">
+                <form onSubmit={handleSubmit} className="flex items-center mt-2">
                     <span className="text-green-400">portfolio@terminal:~$ </span>
                     <input
                         ref={inputRef}
@@ -163,11 +163,18 @@ const CLITerminal = ({ onExit }: CLITerminalProps) => {
                         value={currentInput}
                         onChange={(e) => setCurrentInput(e.target.value)}
                         onKeyDown={handleKeyDown}
-                        className="flex-1 ml-2 bg-transparent text-white outline-none caret-green-400"
+                        className="ml-2 bg-transparent text-white outline-none caret-green-400 border-b border-green-400 focus:border-green-300 transition-all w-full max-w-xl"
                         autoComplete="off"
                         autoFocus
                     />
                 </form>
+            </div>
+            <div className="p-4 border-t border-green-400/30">
+                <Button
+                    className="bg-white text-black border border-green-400 hover:bg-green-100"
+                >
+                    <span className="mr-2">{">_"}</span> CLI Mode
+                </Button>
             </div>
         </div>
     );
