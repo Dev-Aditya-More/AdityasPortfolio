@@ -31,11 +31,9 @@ const Index = () => {
           onClick={() => setCLIMode(true)}
           className="font-bold backdrop-blur-md bg-gradient-to-r from-purple-500/80 to-green-400/80 text-black hover:from-purple-600/90 hover:to-green-500/90 shadow-lg border-none rounded-full px-5 py-2 text-sm transition-all duration-300"
         >
-          <Terminal className="mr-2 h-4 w-4" />
+          <Terminal className="mr-2 h-4 w-4 stroke-[3]" /> {/* Make icon bold */}
           CLI Mode
         </Button>
-
-
       </div>
 
       <HeroSection />
