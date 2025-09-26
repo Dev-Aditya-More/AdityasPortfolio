@@ -35,6 +35,7 @@ export const portfolioData: PortfolioData = {
     "Kotlin",
     "Jetpack Compose",
     "Kotlin Multiplatform",
+    "Compose Multiplatform",
     "Room DB",
     "MVVM",
     "Hilt",
@@ -43,7 +44,7 @@ export const portfolioData: PortfolioData = {
     "Java",
     "DSA",
     "Docker",
-    "Git/GitHub",
+    "VCS",
     "CI/CD",
     "Linux",
     "Firebase",
@@ -55,11 +56,7 @@ export const portfolioData: PortfolioData = {
     "Retrofit",
     "State Management",
     "OpenWeatherMap API",
-    "Geocoder",
-    "Barcode Scanning",
-    "TypeScript",
-    "React",
-    "Next.js"
+    "Geocoder"
   ],
   projects: [
     {
