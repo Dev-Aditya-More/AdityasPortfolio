@@ -78,8 +78,8 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="section bg-muted/30">
       <div className="container">
-        <h2 className="section-title">Skills & Expertise</h2>
-
+        <h2 className="section-title mb-8">Skills & Expertise</h2>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {skillCategories.map((category, index) => (
             <Card key={index} className="group hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out">
@@ -111,7 +111,7 @@ const SkillsSection = () => {
             </Card>
           ))}
         </div>
-        
+
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center gap-3 mb-4">
