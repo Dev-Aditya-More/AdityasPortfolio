@@ -1,76 +1,76 @@
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Smartphone, 
-  Code, 
-  Cloud, 
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Smartphone,
+  Code,
+  Cloud,
   Settings,
   Zap,
   Layers,
-  TestTube
-} from 'lucide-react';
+  TestTube,
+} from "lucide-react";
 
 const skillCategories = [
   {
-    title: 'Mobile Development',
+    title: "Mobile Development",
     icon: Smartphone,
     skills: [
-      { name: 'Kotlin', icon: '🟣', proficiency: 'Advanced' },
-      { name: 'Java', icon: '☕', proficiency: 'Intermediate' },
-      { name: 'Jetpack Compose', icon: '🎨', proficiency: 'Intermediate' },
-      { name: 'Android SDK', icon: '🤖', proficiency: 'Intermediate' }
-    ]
+      { name: "Kotlin", icon: "🟣", proficiency: "Advanced" },
+      { name: "Java", icon: "☕", proficiency: "Intermediate" },
+      { name: "Jetpack Compose", icon: "🎨", proficiency: "Intermediate" },
+      { name: "Android SDK", icon: "🤖", proficiency: "Intermediate" },
+    ],
   },
   {
-    title: 'Android Toolkit',
+    title: "Android Toolkit",
     icon: Code,
     skills: [
-      { name: 'Room DB', icon: '💾', proficiency: 'Intermediate' },
-      { name: 'WorkManager', icon: '📆', proficiency: 'Intermediate' },
-      { name: 'DataStore', icon: '🗂️', proficiency: 'Intermediate' },
-      { name: 'Retrofit', icon: '🌐', proficiency: 'Intermediate' }
-    ]
+      { name: "Room DB", icon: "💾", proficiency: "Intermediate" },
+      { name: "WorkManager", icon: "📆", proficiency: "Intermediate" },
+      { name: "DataStore", icon: "🗂️", proficiency: "Intermediate" },
+      { name: "Retrofit", icon: "🌐", proficiency: "Intermediate" },
+    ],
   },
   {
-    title: 'DevOps & Infrastructure',
+    title: "DevOps & Infrastructure",
     icon: Cloud,
     skills: [
-      { name: 'Docker', icon: '🐳', proficiency: 'Intermediate' },
-      { name: 'Kubernetes', icon: '⚓', proficiency: 'Intermediate' },
-      { name: 'AWS', icon: '☁️', proficiency: 'Exploring' },
-    ]
+      { name: "Docker", icon: "🐳", proficiency: "Intermediate" },
+      { name: "Kubernetes", icon: "⚓", proficiency: "Intermediate" },
+      { name: "AWS", icon: "☁️", proficiency: "Exploring" },
+    ],
   },
   {
-    title: 'Development Tools',
+    title: "Development Tools",
     icon: Settings,
     skills: [
-      { name: 'Git', icon: '📝', proficiency: 'Intermediate' },
-      { name: 'Android Studio', icon: '💻', proficiency: 'Intermediate' },
-      { name: 'Firebase', icon: '🔥', proficiency: 'Intermediate' },
-      { name: 'Gradle', icon: '⚙️', proficiency: 'Intermediate' }
-    ]
+      { name: "Git", icon: "📝", proficiency: "Intermediate" },
+      { name: "Android Studio", icon: "💻", proficiency: "Intermediate" },
+      { name: "Firebase", icon: "🔥", proficiency: "Intermediate" },
+      { name: "Gradle", icon: "⚙️", proficiency: "Intermediate" },
+    ],
   },
 ];
 
 const currentlyLearning = [
-  'AWS (Deep Dive)',
-  'Working on cool projects',
-  'KMP & Flutter'
+  "AWS (Deep Dive)",
+  "Working on cool projects",
+  "KMP & Flutter",
 ];
 
 const getProficiencyColor = (proficiency: string) => {
   switch (proficiency) {
-    case 'Mastery':
-      return 'text-purple-600 bg-purple-100 dark:text-purple-400 dark:bg-purple-900/20';
-    case 'Advanced':
-      return 'text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-blue-900/20';
-    case 'Intermediate':
-      return 'text-yellow-600 bg-yellow-100 dark:text-yellow-400 dark:bg-yellow-900/20';
-    case 'Exploring':
-      return 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20';
+    case "Mastery":
+      return "text-purple-600 bg-purple-100 dark:text-purple-400 dark:bg-purple-900/20";
+    case "Advanced":
+      return "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-blue-900/20";
+    case "Intermediate":
+      return "text-yellow-600 bg-yellow-100 dark:text-yellow-400 dark:bg-yellow-900/20";
+    case "Exploring":
+      return "text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20";
     default:
-      return 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20';
+      return "text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20";
   }
 };
 
@@ -78,11 +78,15 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="section bg-muted/30">
       <div className="container">
-        <h2 className="section-title mb-8">Skills & Expertise</h2>
-        
+        <h2 className="section-title mb-5">Skills & Expertise</h2>
+        <div className="h-8"></div>{" "}
+        {/* Adds 2-3 lines of vertical space after the title */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="group hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out">
+            <Card
+              key={index}
+              className="group hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out"
+            >
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -93,14 +97,19 @@ const SkillsSection = () => {
 
                 <div className="grid grid-cols-1 gap-4">
                   {category.skills.map((skill, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+                    >
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{skill.icon}</span>
                         <span className="font-medium">{skill.name}</span>
                       </div>
-                      <Badge 
-                        variant="secondary" 
-                        className={`text-xs font-medium ${getProficiencyColor(skill.proficiency)}`}
+                      <Badge
+                        variant="secondary"
+                        className={`text-xs font-medium ${getProficiencyColor(
+                          skill.proficiency
+                        )}`}
                       >
                         {skill.proficiency}
                       </Badge>
@@ -111,7 +120,6 @@ const SkillsSection = () => {
             </Card>
           ))}
         </div>
-
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center gap-3 mb-4">
