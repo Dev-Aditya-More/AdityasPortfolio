@@ -39,7 +39,6 @@ const skillCategories = [
       { name: 'Docker', icon: '🐳', proficiency: 'Intermediate' },
       { name: 'Kubernetes', icon: '⚓', proficiency: 'Intermediate' },
       { name: 'AWS', icon: '☁️', proficiency: 'Exploring' },
-      { name: 'Terraform', icon: '🏗️', proficiency: 'Exploring' }
     ]
   },
   {
@@ -53,12 +52,6 @@ const skillCategories = [
     ]
   },
 ];
-
-const additionalSkills = {
-  'Android': ['Room Database', 'WorkManager', 'DataStore'],
-  'Kotlin': ['Coroutines & Flow', 'Hilt/Dagger', 'Retrofit'],
-  'DevOps': ['CI/CD Pipelines', 'Prometheus', 'Grafana', 'Ansible']
-};
 
 const currentlyLearning = [
   'AWS (Deep Dive)',
@@ -118,30 +111,7 @@ const SkillsSection = () => {
             </Card>
           ))}
         </div>
-
-        <Card className="overflow-hidden mb-6">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Zap className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Additional Technologies</h3>
-            </div>
-            {Object.entries(additionalSkills).map(([category, skills], idx) => (
-              <div key={idx} className="mb-4">
-                <h4 className="text-sm font-semibold text-muted-foreground mb-2">{category}</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, i) => (
-                    <Badge key={i} variant="outline" className="bg-background/50 hover:bg-background cursor-default">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-
+        
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center gap-3 mb-4">
