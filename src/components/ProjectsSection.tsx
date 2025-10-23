@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Card,
   CardContent,
@@ -25,7 +25,11 @@ const androidProjects = [
     image: '/StashlyIcon.png',
     tags: ['Jetpack Compose', 'MVVM', 'Material3', 'Room DB', 'Coroutines', 'KoinDI', 'Retrofit', 'Coil'],
     github: 'https://github.com/Dev-Aditya-More/Stashly',
-    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/'
+    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/',
+    downloads: [
+      { label: 'IzzyOnDroid', url: 'https://apt.izzysoft.de/fdroid/index/apk/nodomain.aditya1875more.stashly' },
+      { label: 'GitHub releases', url: 'https://github.com/Dev-Aditya-More/Stashly/releases' }
+    ]
   },
   {
     title: 'PokeVerse — Pokédex App',
@@ -34,7 +38,11 @@ const androidProjects = [
     image: '/PokeVerseLogo.png',
     tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'KoinDI', 'Coil', 'Material3', 'tts', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/PokeVerse',
-    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/'
+    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/',
+    downloads: [
+      { label: 'Fdroid', url: 'https://f-droid.org/en/packages/com.aditya1875.pokeverse/' },
+      { label: 'Github Releases', url: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/' }
+    ]
   },
   {
     title: 'Breezy — Forecasts That Feel Light',
@@ -94,6 +102,64 @@ const devopsProjects = [
   }
 ];
 
+// add a small DownloadDropdown component (flexible: supports project.downloads array or project.download)
+const DownloadDropdown = ({ project }: { project: any }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('click', onDocClick);
+    return () => document.removeEventListener('click', onDocClick);
+  }, []);
+
+  const downloads =
+    project.downloads && project.downloads.length
+      ? project.downloads
+      : project.download
+      ? [{ label: 'Download APK', url: project.download }]
+      : project.github
+      ? [{ label: 'Releases', url: `${project.github.replace(/\/$/, '')}/releases/` }]
+      : [];
+
+  if (!downloads.length) return null;
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen((s) => !s)}
+        className="bg-emerald-500 text-white hover:bg-emerald-600 rounded-full px-4 py-1.5 text-sm transition-shadow shadow-sm flex items-center gap-2"
+      >
+        Download
+        <svg className="w-3 h-3 opacity-90" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+          <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute right-0 mt-2 w-[220px] bg-card border border-muted/30 rounded-md shadow-lg overflow-hidden z-50">
+          <div className="flex flex-col">
+            {downloads.map((d: any, i: number) => (
+              <a
+                key={i}
+                href={d.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 text-sm text-muted-foreground hover:bg-muted/60 transition-colors"
+              >
+                {d.label || d.url}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const ProjectGrid = ({ projects, githubUrl }) => (
   <>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10">
@@ -118,7 +184,7 @@ const ProjectGrid = ({ projects, githubUrl }) => (
               ))}
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col sm:flex-row gap-2 mt-auto">
+          <CardFooter className="flex flex-col sm:flex-row gap-2 mt-auto items-start sm:items-center">
             {project.github && (
               <Button variant="outline" size="sm" asChild className="w-full sm:w-auto">
                 <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -126,13 +192,12 @@ const ProjectGrid = ({ projects, githubUrl }) => (
                 </a>
               </Button>
             )}
-            {project.download && (
-              <Button variant="default" size="sm" asChild className="w-full sm:w-auto">
-                <a href={project.download} target="_blank" rel="noopener noreferrer">
-                  Download APK
-                </a>
-              </Button>
-            )}
+
+            {/* Replace single Download button with dropdown component.
+                You can customize per-project by adding `downloads: [{label, url}]` to your project objects in data. */}
+            <div className="w-full sm:w-auto">
+              <DownloadDropdown project={project} />
+            </div>
           </CardFooter>
         </Card>
       ))}
