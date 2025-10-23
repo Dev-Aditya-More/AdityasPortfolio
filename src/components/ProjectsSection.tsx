@@ -193,7 +193,7 @@ const DownloadDropdown = ({ project }: { project: any }) => {
           aria-expanded={open}
           className={
             // visually prominent, matches existing green theme, bold text, subtle ring & shadow
-            "bg-gradient-to-r from-emerald-500 to-emerald-400 text-white hover:from-emerald-600 hover:to-emerald-500 rounded-full px-4 py-1.5 text-sm font-semibold shadow-md hover:shadow-xl ring-1 ring-emerald-600/25 focus:outline-none focus:ring-2 focus:ring-emerald-400/30 min-w-[96px] flex items-center justify-center gap-2 transition-all duration-200"
+            "bg-gradient-to-r from-emerald-600 to-emerald-400 text-white hover:from-emerald-600 hover:to-emerald-500 rounded-full px-4 py-1.5 text-sm font-semibold shadow-md hover:shadow-xl ring-1 ring-emerald-600/25 focus:outline-none focus:ring-2 focus:ring-emerald-400/30 min-w-[96px] flex items-center justify-center gap-2 transition-all duration-200"
           }
         >
           <span className="select-none">Download</span>
