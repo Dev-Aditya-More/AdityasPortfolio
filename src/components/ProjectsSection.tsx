@@ -146,18 +146,16 @@ const DownloadDropdown = ({ project }: { project: any }) => {
     const dropdownWidth = 220;
     const spaceBelow = window.innerHeight - rect.bottom;
     const spaceAbove = rect.top;
-    const prefersUp = spaceBelow < 260 && spaceAbove > spaceBelow; // open up if not enough space below
+    const prefersUp = spaceBelow < 260 && spaceAbove > spaceBelow;
     const left = Math.min(
       Math.max(rect.right - dropdownWidth, 8),
       window.innerWidth - dropdownWidth - 8
     );
     if (prefersUp) {
-      // position above button
-      const top = window.scrollY + rect.top; // we'll use transform to put it above
+      const top = window.scrollY + rect.top;
       setOpenUp(true);
       setCoords({ top, left });
     } else {
-      // position below button
       const top = window.scrollY + rect.bottom + 8;
       setOpenUp(false);
       setCoords({ top, left });
@@ -168,7 +166,6 @@ const DownloadDropdown = ({ project }: { project: any }) => {
     setOpen((s) => {
       const willOpen = !s;
       if (willOpen) {
-        // compute after next tick to ensure ref is available
         setTimeout(() => computePosition(), 0);
       }
       return willOpen;
@@ -193,11 +190,19 @@ const DownloadDropdown = ({ project }: { project: any }) => {
           ref={buttonRef}
           type="button"
           onClick={onToggle}
-          className="bg-emerald-500 text-white hover:bg-emerald-600 rounded-full px-4 py-1.5 text-sm transition-shadow shadow-sm flex items-center gap-2"
           aria-expanded={open}
+          className={
+            // visually prominent, matches existing green theme, bold text, subtle ring & shadow
+            "bg-gradient-to-r from-emerald-500 to-emerald-400 text-white hover:from-emerald-600 hover:to-emerald-500 rounded-full px-4 py-1.5 text-sm font-semibold shadow-md hover:shadow-xl ring-1 ring-emerald-600/25 focus:outline-none focus:ring-2 focus:ring-emerald-400/30 min-w-[96px] flex items-center justify-center gap-2 transition-all duration-200"
+          }
         >
-          Download
-          <svg className={`w-3 h-3 opacity-90 transform transition-transform ${open ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+          <span className="select-none">Download</span>
+          <svg
+            className={`w-3 h-3 opacity-95 transform transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden
+          >
             <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
           </svg>
         </button>
@@ -217,18 +222,18 @@ const DownloadDropdown = ({ project }: { project: any }) => {
               className="pointer-events-auto"
             >
               <div
-                className={`relative bg-card border border-muted/30 rounded-md shadow-lg overflow-hidden max-h-72 overflow-auto`}
+                className={`relative bg-card border border-muted/30 rounded-md shadow-lg overflow-hidden max-h-72`}
                 style={{
                   transform: openUp ? 'translateY(-100%)' : 'none',
                 }}
               >
-                {/* arrow */}
+                {/* floating arrow */}
                 <div
                   style={{
                     position: 'absolute',
-                    right: 12,
-                    width: 12,
-                    height: 8,
+                    right: 14,
+                    width: 18,
+                    height: 10,
                     transform: openUp ? 'translateY(100%) rotate(180deg)' : 'translateY(-100%)',
                     top: openUp ? undefined : -8,
                     bottom: openUp ? -8 : undefined,
@@ -240,7 +245,7 @@ const DownloadDropdown = ({ project }: { project: any }) => {
                   </svg>
                 </div>
 
-                <div className="flex flex-col">
+                <div className="flex flex-col overflow-auto max-h-72">
                   {downloads.map((d: any, i: number) => (
                     <a
                       key={i}
