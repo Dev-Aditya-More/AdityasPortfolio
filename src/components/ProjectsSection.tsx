@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import {
   Card,
   CardContent,
@@ -105,15 +106,74 @@ const devopsProjects = [
 // add a small DownloadDropdown component (flexible: supports project.downloads array or project.download)
 const DownloadDropdown = ({ project }: { project: any }) => {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement | null>(null);
+  const [coords, setCoords] = useState<{ top: number; left: number } | null>(null);
+  const [openUp, setOpenUp] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (
+        buttonRef.current &&
+        (buttonRef.current as Node).contains(e.target as Node)
+      ) {
+        return;
+      }
+      if (dropdownRef.current && dropdownRef.current.contains(e.target as Node)) {
+        return;
+      }
+      setOpen(false);
     };
     document.addEventListener('click', onDocClick);
     return () => document.removeEventListener('click', onDocClick);
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (open && buttonRef.current) computePosition();
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleResize, true);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleResize, true);
+    };
+  }, [open]);
+
+  const computePosition = () => {
+    if (!buttonRef.current) return;
+    const rect = buttonRef.current.getBoundingClientRect();
+    const dropdownWidth = 220;
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const spaceAbove = rect.top;
+    const prefersUp = spaceBelow < 260 && spaceAbove > spaceBelow; // open up if not enough space below
+    const left = Math.min(
+      Math.max(rect.right - dropdownWidth, 8),
+      window.innerWidth - dropdownWidth - 8
+    );
+    if (prefersUp) {
+      // position above button
+      const top = window.scrollY + rect.top; // we'll use transform to put it above
+      setOpenUp(true);
+      setCoords({ top, left });
+    } else {
+      // position below button
+      const top = window.scrollY + rect.bottom + 8;
+      setOpenUp(false);
+      setCoords({ top, left });
+    }
+  };
+
+  const onToggle = (e?: React.MouseEvent) => {
+    setOpen((s) => {
+      const willOpen = !s;
+      if (willOpen) {
+        // compute after next tick to ensure ref is available
+        setTimeout(() => computePosition(), 0);
+      }
+      return willOpen;
+    });
+  };
 
   const downloads =
     project.downloads && project.downloads.length
@@ -127,36 +187,79 @@ const DownloadDropdown = ({ project }: { project: any }) => {
   if (!downloads.length) return null;
 
   return (
-    <div className="relative" ref={ref}>
-      <button
-        type="button"
-        onClick={() => setOpen((s) => !s)}
-        className="bg-emerald-500 text-white hover:bg-emerald-600 rounded-full px-4 py-1.5 text-sm transition-shadow shadow-sm flex items-center gap-2"
-      >
-        Download
-        <svg className="w-3 h-3 opacity-90" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
-          <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
-        </svg>
-      </button>
+    <>
+      <div className="relative inline-block" style={{ zIndex: 1 }}>
+        <button
+          ref={buttonRef}
+          type="button"
+          onClick={onToggle}
+          className="bg-emerald-500 text-white hover:bg-emerald-600 rounded-full px-4 py-1.5 text-sm transition-shadow shadow-sm flex items-center gap-2"
+          aria-expanded={open}
+        >
+          Download
+          <svg className={`w-3 h-3 opacity-90 transform transition-transform ${open ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+            <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+          </svg>
+        </button>
+      </div>
 
-      {open && (
-        <div className="absolute right-0 mt-2 w-[220px] bg-card border border-muted/30 rounded-md shadow-lg overflow-hidden z-50">
-          <div className="flex flex-col">
-            {downloads.map((d: any, i: number) => (
-              <a
-                key={i}
-                href={d.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 text-sm text-muted-foreground hover:bg-muted/60 transition-colors"
+      {open && coords
+        ? ReactDOM.createPortal(
+            <div
+              ref={dropdownRef}
+              style={{
+                position: 'absolute',
+                top: coords.top,
+                left: coords.left,
+                width: 220,
+                zIndex: 9999
+              }}
+              className="pointer-events-auto"
+            >
+              <div
+                className={`relative bg-card border border-muted/30 rounded-md shadow-lg overflow-hidden max-h-72 overflow-auto`}
+                style={{
+                  transform: openUp ? 'translateY(-100%)' : 'none',
+                }}
               >
-                {d.label || d.url}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
+                {/* arrow */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    right: 12,
+                    width: 12,
+                    height: 8,
+                    transform: openUp ? 'translateY(100%) rotate(180deg)' : 'translateY(-100%)',
+                    top: openUp ? undefined : -8,
+                    bottom: openUp ? -8 : undefined,
+                    pointerEvents: 'none'
+                  }}
+                >
+                  <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L12 1L23 11" stroke="var(--muted-foreground, #0f1724)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+
+                <div className="flex flex-col">
+                  {downloads.map((d: any, i: number) => (
+                    <a
+                      key={i}
+                      href={d.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 text-sm text-muted-foreground hover:bg-muted/60 transition-colors"
+                      onClick={() => setOpen(false)}
+                    >
+                      {d.label || d.url}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
+    </>
   );
 };
 
