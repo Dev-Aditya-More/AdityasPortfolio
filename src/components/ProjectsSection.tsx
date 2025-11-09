@@ -26,10 +26,11 @@ const androidProjects = [
     image: '/StashlyIcon.png',
     tags: ['Jetpack Compose', 'MVVM', 'Material3', 'Room DB', 'Coroutines', 'KoinDI', 'Retrofit', 'Coil'],
     github: 'https://github.com/Dev-Aditya-More/Stashly',
-    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/',
+    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/latest',
     downloads: [
+      { label: 'Fdroid', url: 'https://f-droid.org/en/packages/nodomain.aditya1875more.stashly' },
       { label: 'IzzyOnDroid', url: 'https://apt.izzysoft.de/fdroid/index/apk/nodomain.aditya1875more.stashly' },
-      { label: 'GitHub releases', url: 'https://github.com/Dev-Aditya-More/Stashly/releases' }
+      { label: 'GitHub releases', url: 'https://github.com/Dev-Aditya-More/Stashly/releases/latest' }
     ]
   },
   {
@@ -39,10 +40,10 @@ const androidProjects = [
     image: '/PokeVerseLogo.png',
     tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'KoinDI', 'Coil', 'Material3', 'tts', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/PokeVerse',
-    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/',
+    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/latest',
     downloads: [
-      { label: 'Fdroid', url: 'https://f-droid.org/en/packages/com.aditya1875.pokeverse/' },
-      { label: 'Github Releases', url: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/' }
+      { label: 'Fdroid', url: 'https://f-droid.org/en/packages/com.aditya1875.pokeverse' },
+      { label: 'Github Releases', url: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/latest' }
     ]
   },
   {
@@ -61,7 +62,7 @@ const androidProjects = [
     image: '/TasklyLogo.png',
     tags: ['Jetpack Compose', 'Room DB', 'MVVM', 'Hilt', 'Coroutines'],
     github: 'https://github.com/Dev-Aditya-More/Taskly',
-    download: 'https://github.com/Dev-Aditya-More/Taskly/releases/'
+    download: 'https://github.com/Dev-Aditya-More/Taskly/releases/latest'
   },
   {
     title: 'TicTacToe Game',
@@ -70,7 +71,7 @@ const androidProjects = [
     image: 'https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop',
     tags: ['Jetpack Compose', 'State Handling', 'Game Logic', 'Kotlin'],
     github: 'https://github.com/Dev-Aditya-More/TicTacToeGame',
-    download: 'https://github.com/Dev-Aditya-More/TicTacToeGame/releases/'
+    download: 'https://github.com/Dev-Aditya-More/TicTacToeGame/releases/latest'
   },
   {
     title: 'QR Code Scanner',
@@ -79,7 +80,7 @@ const androidProjects = [
     image: 'https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop',
     tags: ['CameraX', 'ML Kit', 'QR Scanner', 'Kotlin', 'Jetpack'],
     github: 'https://github.com/Dev-Aditya-More/QRcodeScanner',
-    download: 'https://github.com/Dev-Aditya-More/QRcodeScanner/releases/'
+    download: 'https://github.com/Dev-Aditya-More/QRcodeScanner/releases/latest'
   },
   {
     title: 'More Soon',
