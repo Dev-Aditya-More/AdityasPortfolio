@@ -15,65 +15,30 @@ import { Github } from "lucide-react";
 
 const androidProjects = [
   {
-    title: "Stashly — Bookmark, Link & File Manager",
-    description:
-      "A modern and intuitive tool to save and organize bookmarks, links, and files.",
-    longDesc:
-      "Built with MVVM and Jetpack Compose, featuring tagging, categorization, search, and Material 3 theming. Optimized release builds with R8 and ProGuard.",
-    image: "/StashlyIcon.png",
-    tags: [
-      "Jetpack Compose",
-      "MVVM",
-      "Material3",
-      "Room DB",
-      "Coroutines",
-      "KoinDI",
-      "Retrofit",
-      "Coil",
-    ],
-    github: "https://github.com/Dev-Aditya-More/Stashly",
-    download: "https://github.com/Dev-Aditya-More/Stashly/releases/",
+    title: 'Stashly — Bookmark, Link & File Manager',
+    description: 'A modern and intuitive tool to save and organize bookmarks, links, and files.',
+    longDesc: 'Built with MVVM and Jetpack Compose, featuring tagging, categorization, search, and Material 3 theming. Optimized release builds with R8 and ProGuard.',
+    image: '/StashlyIcon.png',
+    tags: ['Jetpack Compose', 'MVVM', 'Material3', 'Room DB', 'Coroutines', 'KoinDI', 'Retrofit', 'Coil'],
+    github: 'https://github.com/Dev-Aditya-More/Stashly',
+    download: 'https://github.com/Dev-Aditya-More/Stashly/releases/',
     downloads: [
-      {
-        label: "IzzyOnDroid",
-        url: "https://apt.izzysoft.de/fdroid/index/apk/nodomain.aditya1875more.stashly",
-      },
-      {
-        label: "GitHub releases",
-        url: "https://github.com/Dev-Aditya-More/Stashly/releases",
-      },
-    ],
+      { label: 'IzzyOnDroid', url: 'https://apt.izzysoft.de/fdroid/index/apk/nodomain.aditya1875more.stashly' },
+      { label: 'GitHub releases', url: 'https://github.com/Dev-Aditya-More/Stashly/releases' }
+    ]
   },
   {
-    title: "PokeVerse — Pokédex App",
-    description: "Interactive Pokédex with clean UI and modern architecture.",
-    longDesc:
-      "Fetches and displays paginated data from PokéAPI with caching, type-based animations, and detail screens.",
-    image: "/PokeVerseLogo.png",
-    tags: [
-      "Jetpack Compose",
-      "State Management",
-      "MVVM",
-      "Kotlin",
-      "KoinDI",
-      "Coil",
-      "Material3",
-      "tts",
-      "Coroutines",
-    ],
-    github: "https://github.com/Dev-Aditya-More/PokeVerse",
-    download: "https://github.com/Dev-Aditya-More/PokeVerse/releases/",
-    website: 'https://pokeverse-web.vercel.app',
+    title: 'PokeVerse — Pokédex App',
+    description: 'Interactive Pokédex with clean UI and modern architecture.',
+    longDesc: 'Fetches and displays paginated data from PokéAPI with caching, type-based animations, and detail screens.',
+    image: '/PokeVerseLogo.png',
+    tags: ['Jetpack Compose', 'State Management', 'MVVM', 'Kotlin', 'KoinDI', 'Coil', 'Material3', 'tts', 'Coroutines'],
+    github: 'https://github.com/Dev-Aditya-More/PokeVerse',
+    download: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/',
     downloads: [
-      {
-        label: "Fdroid",
-        url: "https://f-droid.org/en/packages/com.aditya1875.pokeverse/",
-      },
-      {
-        label: "Github Releases",
-        url: "https://github.com/Dev-Aditya-More/PokeVerse/releases/",
-      },
-    ],
+      { label: 'Fdroid', url: 'https://f-droid.org/en/packages/com.aditya1875.pokeverse/' },
+      { label: 'Github Releases', url: 'https://github.com/Dev-Aditya-More/PokeVerse/releases/' }
+    ]
   },
   {
     title: "Breezy — Forecasts That Feel Light",
@@ -94,36 +59,31 @@ const androidProjects = [
     download: "https://github.com/Dev-Aditya-More/BreezyTheApp/releases/",
   },
   {
-    title: "Taskly — To-Do List App",
-    description: "Minimal and offline-first task tracker using Room DB.",
-    longDesc:
-      "Built with MVVM and Clean Architecture, Room DB for persistence, and Jetpack Compose UI.",
-    image: "/TasklyLogo.png",
-    tags: ["Jetpack Compose", "Room DB", "MVVM", "Hilt", "Coroutines"],
-    github: "https://github.com/Dev-Aditya-More/Taskly",
-    download: "https://github.com/Dev-Aditya-More/Taskly/releases/",
+    title: 'Taskly — To-Do List App',
+    description: 'Minimal and offline-first task tracker using Room DB.',
+    longDesc: 'Built with MVVM and Clean Architecture, Room DB for persistence, and Jetpack Compose UI.',
+    image: '/TasklyLogo.png',
+    tags: ['Jetpack Compose', 'Room DB', 'MVVM', 'Hilt', 'Coroutines'],
+    github: 'https://github.com/Dev-Aditya-More/Taskly',
+    download: 'https://github.com/Dev-Aditya-More/Taskly/releases/'
   },
   {
-    title: "TicTacToe Game",
-    description: "Classic two-player TicTacToe game with Jetpack Compose.",
-    longDesc:
-      "Showcases responsive UI states, clean separation of logic, and win/draw detection for a smooth game experience.",
-    image:
-      "https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop",
-    tags: ["Jetpack Compose", "State Handling", "Game Logic", "Kotlin"],
-    github: "https://github.com/Dev-Aditya-More/TicTacToeGame",
-    download: "https://github.com/Dev-Aditya-More/TicTacToeGame/releases/",
+    title: 'TicTacToe Game',
+    description: 'Classic two-player TicTacToe game with Jetpack Compose.',
+    longDesc: 'Showcases responsive UI states, clean separation of logic, and win/draw detection for a smooth game experience.',
+    image: 'https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop',
+    tags: ['Jetpack Compose', 'State Handling', 'Game Logic', 'Kotlin'],
+    github: 'https://github.com/Dev-Aditya-More/TicTacToeGame',
+    download: 'https://github.com/Dev-Aditya-More/TicTacToeGame/releases/'
   },
   {
-    title: "QR Code Scanner",
-    description: "Android app to scan QR codes using ML Kit and CameraX.",
-    longDesc:
-      "Lightweight scanner using Google ML Kit’s Barcode API, with real-time decoding and camera control via CameraX.",
-    image:
-      "https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop",
-    tags: ["CameraX", "ML Kit", "QR Scanner", "Kotlin", "Jetpack"],
-    github: "https://github.com/Dev-Aditya-More/QRcodeScanner",
-    download: "https://github.com/Dev-Aditya-More/QRcodeScanner/releases/",
+    title: 'QR Code Scanner',
+    description: 'Android app to scan QR codes using ML Kit and CameraX.',
+    longDesc: 'Lightweight scanner using Google ML Kit’s Barcode API, with real-time decoding and camera control via CameraX.',
+    image: 'https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop',
+    tags: ['CameraX', 'ML Kit', 'QR Scanner', 'Kotlin', 'Jetpack'],
+    github: 'https://github.com/Dev-Aditya-More/QRcodeScanner',
+    download: 'https://github.com/Dev-Aditya-More/QRcodeScanner/releases/'
   },
   {
     title: "More Soon",
