@@ -54,7 +54,7 @@ const Navbar = () => {
             </a>
           ))}
           <ThemeToggle />
-          <a href="/Aditya_Resume_Android.pdf" download>
+          <a href="/Aditya_Resume_Latest.pdf" download>
             <Button>Resume</Button>
           </a>
         </nav>
@@ -81,7 +81,7 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-              <a href="/Aditya_Resume_Android" download className="w-full">
+              <a href="/Aditya_Resume_Latest" download className="w-full">
                 {" "}
                 <Button className="w-full">Resume</Button>
               </a>
