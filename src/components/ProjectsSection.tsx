@@ -66,6 +66,10 @@ const androidProjects = [
     website: 'https://pokeverse-web.vercel.app',
     downloads: [
       {
+        label: "Google Play Store",
+        url: "https://play.google.com/store/apps/details?id=com.aditya1875.pokeverse.play"
+      },
+      {
         label: "Indus App Store",
         url: "https://www.indusappstore.com/apps/entertainment/pok%C3%A9verse/com.aditya1875.pokeverse/?page=details&id=com.aditya1875.pokeverse",
       },
