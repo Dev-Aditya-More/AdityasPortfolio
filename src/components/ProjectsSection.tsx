@@ -45,11 +45,11 @@ const androidProjects = [
     ],
   },
   {
-    title: "PokeVerse — Pokédex App",
+    title: "Dexverse — Pokédex App",
     description: "Interactive Pokédex with clean UI and modern architecture.",
     longDesc:
       "Fetches and displays paginated data from PokéAPI with caching, type-based animations, and detail screens.",
-    image: "/PokeVerseLogo.png",
+    image: "/DexverseLogo.png",
     tags: [
       "Jetpack Compose",
       "State Management",
@@ -158,7 +158,6 @@ const devopsProjects = [
   },
 ];
 
-// add a small DownloadDropdown component (flexible: supports project.downloads array or project.download)
 const DownloadDropdown = ({ project }: { project: any }) => {
   const [open, setOpen] = useState(false);
   const [coords, setCoords] = useState<{ top: number; left: number } | null>(
