@@ -15,36 +15,6 @@ import { Github } from "lucide-react";
 
 const androidProjects = [
   {
-    title: "Stashly — Bookmark, Link & File Manager",
-    description:
-      "A modern and intuitive tool to save and organize bookmarks, links, and files.",
-    longDesc:
-      "Built with MVVM and Jetpack Compose, featuring tagging, categorization, search, and Material 3 theming. Optimized release builds with R8 and ProGuard.",
-    image: "/StashlyIcon.png",
-    tags: [
-      "Jetpack Compose",
-      "MVVM",
-      "Material3",
-      "Room DB",
-      "Coroutines",
-      "KoinDI",
-      "Retrofit",
-      "Coil",
-    ],
-    github: "https://github.com/Dev-Aditya-More/Stashly",
-    download: "https://github.com/Dev-Aditya-More/Stashly/releases/",
-    downloads: [
-      {
-        label: "IzzyOnDroid",
-        url: "https://apt.izzysoft.de/fdroid/index/apk/nodomain.aditya1875more.stashly",
-      },
-      {
-        label: "GitHub releases",
-        url: "https://github.com/Dev-Aditya-More/Stashly/releases",
-      },
-    ],
-  },
-  {
     title: "Dexverse — Pokédex App",
     description: "Interactive Pokédex with clean UI and modern architecture.",
     longDesc:
@@ -63,11 +33,11 @@ const androidProjects = [
     ],
     github: "https://github.com/Dev-Aditya-More/PokeVerse",
     download: "https://github.com/Dev-Aditya-More/PokeVerse/releases/",
-    website: 'https://pokeverse-web.vercel.app',
+    website: "https://pokeverse-web.vercel.app",
     downloads: [
       {
         label: "Google Play Store",
-        url: "https://play.google.com/store/apps/details?id=com.aditya1875.pokeverse.play"
+        url: "https://play.google.com/store/apps/details?id=com.aditya1875.pokeverse.play",
       },
       {
         label: "Indus App Store",
@@ -80,6 +50,63 @@ const androidProjects = [
       {
         label: "Github Releases",
         url: "https://github.com/Dev-Aditya-More/PokeVerse/releases/",
+      },
+    ],
+  },
+  {
+    title: "Baskit — Smart Grocery Scanner",
+    description: "Scan products and understand what you're buying instantly.",
+    longDesc:
+      "Barcode-based product analysis using OpenFoodFacts API. Shows nutrition grade, ingredients, and eco score with a clean Compose UI and smooth navigation.",
+    image: "/BaskitLogo.png", 
+    tags: [
+      "Jetpack Compose",
+      "MVVM",
+      "Kotlin",
+      "KoinDI",
+      "Retrofit",
+      "Coroutines",
+      "Material3",
+      "ML Kit",
+      "OpenFoodFacts API",
+    ],
+    github: "https://github.com/Dev-Aditya-More/Baskit", 
+    download: "https://github.com/Dev-Aditya-More/Baskit/releases/latest",
+    downloads: [
+      {
+        label: "GitHub Releases",
+        url: "https://github.com/Dev-Aditya-More/Baskit/releases/latest",
+      },
+    ],
+  },
+
+  {
+    title: "Stashly — Bookmark, Link & File Manager",
+    description:
+      "A modern and intuitive tool to save and organize bookmarks, links, and files.",
+    longDesc:
+      "Built with MVVM and Jetpack Compose, featuring tagging, categorization, search, and Material 3 theming. Optimized release builds with R8 and ProGuard.",
+    image: "/StashlyIcon.png",
+    tags: [
+      "Jetpack Compose",
+      "MVVM",
+      "Material3",
+      "Room DB",
+      "Coroutines",
+      "KoinDI",
+      "Retrofit",
+      "Coil",
+    ],
+    github: "https://github.com/Dev-Aditya-More/Stashly",
+    download: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
+    downloads: [
+      {
+        label: "IzzyOnDroid",
+        url: "https://apt.izzysoft.de/fdroid/index/apk/nodomain.aditya1875more.stashly",
+      },
+      {
+        label: "GitHub releases",
+        url: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
       },
     ],
   },
@@ -99,7 +126,7 @@ const androidProjects = [
       "Material3",
     ],
     github: "https://github.com/Dev-Aditya-More/BreezyTheApp",
-    download: "https://github.com/Dev-Aditya-More/BreezyTheApp/releases/",
+    download: "https://github.com/Dev-Aditya-More/BreezyTheApp/releases/latest",
   },
   {
     title: "Taskly — To-Do List App",
@@ -109,7 +136,7 @@ const androidProjects = [
     image: "/TasklyLogo.png",
     tags: ["Jetpack Compose", "Room DB", "MVVM", "Hilt", "Coroutines"],
     github: "https://github.com/Dev-Aditya-More/Taskly",
-    download: "https://github.com/Dev-Aditya-More/Taskly/releases/",
+    download: "https://github.com/Dev-Aditya-More/Taskly/releases/latest",
   },
   {
     title: "TicTacToe Game",
@@ -120,7 +147,7 @@ const androidProjects = [
       "https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop",
     tags: ["Jetpack Compose", "State Handling", "Game Logic", "Kotlin"],
     github: "https://github.com/Dev-Aditya-More/TicTacToeGame",
-    download: "https://github.com/Dev-Aditya-More/TicTacToeGame/releases/",
+    download: "https://github.com/Dev-Aditya-More/TicTacToeGame/releases/latest",
   },
   {
     title: "QR Code Scanner",
@@ -131,7 +158,7 @@ const androidProjects = [
       "https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop",
     tags: ["CameraX", "ML Kit", "QR Scanner", "Kotlin", "Jetpack"],
     github: "https://github.com/Dev-Aditya-More/QRcodeScanner",
-    download: "https://github.com/Dev-Aditya-More/QRcodeScanner/releases/",
+    download: "https://github.com/Dev-Aditya-More/QRcodeScanner/releases/latest",
   },
   {
     title: "More Soon",
