@@ -40,14 +40,6 @@ const androidProjects = [
         url: "https://play.google.com/store/apps/details?id=com.aditya1875.pokeverse.play",
       },
       {
-        label: "Indus App Store",
-        url: "https://www.indusappstore.com/apps/entertainment/pok%C3%A9verse/com.aditya1875.pokeverse/?page=details&id=com.aditya1875.pokeverse",
-      },
-      {
-        label: "Fdroid",
-        url: "https://f-droid.org/en/packages/com.aditya1875.pokeverse/",
-      },
-      {
         label: "Github Releases",
         url: "https://github.com/Dev-Aditya-More/PokeVerse/releases/",
       },
@@ -100,10 +92,6 @@ const androidProjects = [
     github: "https://github.com/Dev-Aditya-More/Stashly",
     download: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
     downloads: [
-      {
-        label: "IzzyOnDroid",
-        url: "https://apt.izzysoft.de/fdroid/index/apk/nodomain.aditya1875more.stashly",
-      },
       {
         label: "GitHub releases",
         url: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
