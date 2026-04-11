@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Github, Twitter, Linkedin } from 'lucide-react';
+import { ArrowRight, Github, Twitter, Linkedin, Coffee } from 'lucide-react';
 
 const titles = [
   "Android and KMP Developer",
   "DevOps Enthusiast",
-  "Seasonal Web Dev"
+  "Seasonal Web Dev",
 ];
 
 const HeroSection = () => {
@@ -62,9 +62,12 @@ const HeroSection = () => {
               <span className="inline-block w-0.5 h-7 bg-primary ml-1 animate-blink"></span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              I specialize in building modern Android apps with <span className="highlight">Jetpack Compose and KMP</span>{' '}
-              creating elegant, scalable, and user-friendly mobile experiences with a focus on
-              <span className="highlight"> clean architecture</span> and best practices.
+              I specialize in building modern Android apps with{" "}
+              <span className="highlight">Jetpack Compose and KMP</span>{" "}
+              creating elegant, scalable, and user-friendly mobile experiences
+              with a focus on
+              <span className="highlight"> clean architecture</span> and best
+              practices.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button asChild>
@@ -77,16 +80,36 @@ const HeroSection = () => {
               </Button>
             </div>
             <div className="flex gap-4 pt-2">
-              <a href="https://www.github.com/Dev-Aditya-More" target="_blank" rel="noopener noreferrer" 
-                className="social-icon bg-secondary hover:bg-primary hover:text-white">
+              <a
+                href="https://buymeacoffee.com/aditya1875q"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon bg-secondary hover:bg-primary hover:text-white"
+              >
+                <Coffee size={20} />
+              </a>
+              <a
+                href="https://www.github.com/Dev-Aditya-More"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon bg-secondary hover:bg-primary hover:text-white"
+              >
                 <Github size={20} />
               </a>
-              <a href="https://x.com/@Adityaastwt" target="_blank" rel="noopener noreferrer" 
-                className="social-icon bg-secondary hover:bg-primary hover:text-white">
+              <a
+                href="https://x.com/@Adityaastwt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon bg-secondary hover:bg-primary hover:text-white"
+              >
                 <Twitter size={20} />
               </a>
-              <a href="https://www.linkedin.com/in/adityamore2005" target="_blank" rel="noopener noreferrer" 
-                className="social-icon bg-secondary hover:bg-primary hover:text-white">
+              <a
+                href="https://www.linkedin.com/in/adityamore2005"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon bg-secondary hover:bg-primary hover:text-white"
+              >
                 <Linkedin size={20} />
               </a>
             </div>
@@ -96,10 +119,14 @@ const HeroSection = () => {
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-r from-kotlin to-android p-1">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
                   <code className="text-primary font-mono text-sm sm:text-base p-6 text-center">
-                    @Composable<br />
-                    fun DevProfile() {"{"}<br />
-                    &nbsp;&nbsp;// Building amazing<br />
-                    &nbsp;&nbsp;// Android experiences<br />
+                    @Composable
+                    <br />
+                    fun DevProfile() {"{"}
+                    <br />
+                    &nbsp;&nbsp;// Building amazing
+                    <br />
+                    &nbsp;&nbsp;// Android experiences
+                    <br />
                     {"}"}
                   </code>
                 </div>
