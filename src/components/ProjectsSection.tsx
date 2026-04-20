@@ -46,6 +46,31 @@ const androidProjects = [
     ],
   },
   {
+    title: "MoviesApp — KMP Movie Showcase",
+    description:
+      "Movie showcase app built with Kotlin Multiplatform and Jetpack Compose.",
+    longDesc:
+      "Built as an assignment project using KMP shared module. Demonstrates clean architecture, shared business logic, Ktor networking, and Compose UI.",
+    image: "/MoviesAppBanner.png",
+    tags: [
+      "Kotlin Multiplatform",
+      "Jetpack Compose",
+      "Ktor",
+      "Coroutines",
+      "Flow",
+      "Clean Architecture",
+    ],
+    badge: "Assignment",
+    github: "https://github.com/Dev-Aditya-More/MoviesAppKMP",
+    download: "https://github.com/Dev-Aditya-More/MoviesAppKMP/releases/latest",
+    downloads: [
+      {
+        label: "GitHub Releases",
+        url: "https://github.com/Dev-Aditya-More/MoviesAppKMP/releases/latest",
+      },
+    ]
+  },
+  {
     title: "Baskit — Smart Grocery Scanner",
     description: "Scan products and understand what you're buying instantly.",
     longDesc:
@@ -115,6 +140,7 @@ const androidProjects = [
       "Material3",
       "Clean Architecture",
     ],
+    badge: "Assignment",
     github: "https://github.com/Dev-Aditya-More/PayU",
     download: "https://github.com/Dev-Aditya-More/PayU/releases/latest",
     downloads: [
@@ -411,7 +437,16 @@ const ProjectGrid = ({ projects, githubUrl }) => (
             />
           </div>
           <CardHeader>
-            <CardTitle>{project.title}</CardTitle>
+            <div className="flex items-center justify-between gap-2">
+              <CardTitle>{project.title}</CardTitle>
+
+              {project.badge && (
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/20 font-medium">
+                  {project.badge}
+                </span>
+              )}
+            </div>
+
             <CardDescription>{project.description}</CardDescription>
           </CardHeader>
           <CardContent className="flex-grow">
@@ -420,7 +455,15 @@ const ProjectGrid = ({ projects, githubUrl }) => (
             </p>
             <div className="flex flex-wrap gap-1.5 mt-2">
               {project.tags.map((tag, idx) => (
-                <Badge key={idx} variant="secondary" className="text-xs">
+                <Badge
+                  key={idx}
+                  variant="secondary"
+                  className={`text-xs ${
+                    tag === "Assignment"
+                      ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
+                      : ""
+                  }`}
+                >
                   {tag}
                 </Badge>
               ))}
