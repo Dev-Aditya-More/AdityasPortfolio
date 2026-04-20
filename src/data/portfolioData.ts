@@ -56,87 +56,158 @@ export const portfolioData: PortfolioData = {
     "Retrofit",
     "State Management",
     "OpenWeatherMap API",
-    "Geocoder"
+    "Geocoder",
   ],
   projects: [
     {
-      name: "Stashly — Bookmark, Link & File Manager",
-      description: "A modern and intuitive tool to save and organize bookmarks, links, and files.",
-      technologies: ["Jetpack Compose", "MVVM", "Material3", "Room DB", "Coroutines", "KoinDI", "Retrofit", "Coil"],
-      github: "https://github.com/Dev-Aditya-More/Stashly"
+      name: "PayU — Personal Finance Tracker",
+      description:
+        "Track income, expenses, and savings with a clean UI and real-time sync using Firebase.",
+      technologies: [
+        "Jetpack Compose",
+        "MVVM",
+        "Firebase",
+        "Kotlin",
+        "Koin",
+        "Coroutines",
+        "Material3",
+        "Clean Architecture",
+      ],
+      github: "https://github.com/Dev-Aditya-More/PayU",
     },
     {
-      name: "PokeVerse — Pokédex App",
-      description: "Interactive Pokédex with clean UI and modern architecture.",
-      technologies: ["Jetpack Compose", "State Management", "MVVM", "Kotlin", "KoinDI", "Coil", "Material3", "tts", "Coroutines"],
-      github: "https://github.com/Dev-Aditya-More/PokeVerse"
+      name: "MoviesApp — KMP Movie Showcase (Assignment)",
+      description:
+        "Movie showcase app built with Kotlin Multiplatform demonstrating shared business logic and modern Compose UI.",
+      technologies: [
+        "Kotlin Multiplatform",
+        "Jetpack Compose",
+        "Ktor",
+        "Coroutines",
+        "Flow",
+        "Clean Architecture",
+      ],
+      github: "https://github.com/Dev-Aditya-More/MoviesAppKMP",
     },
     {
-      name: "Breezy — Forecasts That Feel Light",
-      description: "Simple weather forecast app with a clean interface and location-based updates.",
-      technologies: ["Jetpack Compose", "State Management", "MVVM", "Kotlin", "Geocoder", "Material3"],
-      github: "https://github.com/Dev-Aditya-More/BreezyTheApp"
+      name: "Dexverse — Pokédex App",
+      description:
+        "Interactive Pokédex with pagination, caching, and type-based animations.",
+      technologies: [
+        "Jetpack Compose",
+        "MVVM",
+        "Kotlin",
+        "Koin",
+        "Coil",
+        "Material3",
+        "Coroutines",
+        "State Management",
+      ],
+      github: "https://github.com/Dev-Aditya-More/PokeVerse",
     },
     {
-      name: "Taskly",
-      description: "Offline-first to-do list app built with Jetpack Compose, Room DB, and MVVM. Features task creation, editing, and persistence.",
-      technologies: ["Jetpack Compose", "Kotlin", "Room DB", "MVVM", "Hilt", "Coroutines", "Material3"],
-      github: "https://github.com/Dev-Aditya-More/Taskly"
+      name: "Baskit — Smart Grocery Scanner",
+      description:
+        "Barcode-based product analysis using OpenFoodFacts API with nutrition and eco scoring.",
+      technologies: [
+        "Jetpack Compose",
+        "MVVM",
+        "Kotlin",
+        "Retrofit",
+        "ML Kit",
+        "Coroutines",
+        "Material3",
+        "OpenFoodFacts API",
+      ],
+      github: "https://github.com/Dev-Aditya-More/Baskit",
+    },
+    {
+      name: "Stashly — Bookmark & File Manager",
+      description:
+        "Organize bookmarks, links, and files with tagging, search, and clean Material 3 UI.",
+      technologies: [
+        "Jetpack Compose",
+        "MVVM",
+        "Room DB",
+        "Koin",
+        "Coroutines",
+        "Material3",
+      ],
+      github: "https://github.com/Dev-Aditya-More/Stashly",
+    },
+    {
+      name: "Breezy — Weather App",
+      description:
+        "Real-time weather forecasting with location-based updates using OpenWeatherMap.",
+      technologies: [
+        "Jetpack Compose",
+        "MVVM",
+        "Kotlin",
+        "Geocoder",
+        "Material3",
+      ],
+      github: "https://github.com/Dev-Aditya-More/BreezyTheApp",
+    },
+    {
+      name: "Taskly — To-Do App",
+      description:
+        "Offline-first task manager built with Room DB and clean architecture.",
+      technologies: [
+        "Jetpack Compose",
+        "Room DB",
+        "MVVM",
+        "Hilt",
+        "Coroutines",
+      ],
+      github: "https://github.com/Dev-Aditya-More/Taskly",
     },
     {
       name: "QR Code Scanner",
-      description: "Lightweight Android app that scans QR codes in real-time using ML Kit and CameraX.",
-      technologies: ["Kotlin", "Jetpack Compose", "ML Kit", "CameraX", "Barcode Scanning"],
-      github: "https://github.com/Dev-Aditya-More/QRcodeScanner"
+      description:
+        "Real-time QR scanner using ML Kit and CameraX with lightweight architecture.",
+      technologies: ["Kotlin", "Jetpack Compose", "ML Kit", "CameraX"],
+      github: "https://github.com/Dev-Aditya-More/QRcodeScanner",
     },
     {
       name: "TicTacToe Game",
-      description: "Classic two-player TicTacToe game built in Compose with game logic separation and win/draw detection.",
-      technologies: ["Jetpack Compose", "Kotlin", "State Handling", "Material3"],
-      github: "https://github.com/Dev-Aditya-More/TicTacToeGame"
+      description: "Classic game with clean state handling and Compose UI.",
+      technologies: ["Jetpack Compose", "Kotlin", "State Management"],
+      github: "https://github.com/Dev-Aditya-More/TicTacToeGame",
     },
-    {
-      name: "StopWatch App",
-      description: "A functional stopwatch built with Kotlin and Compose. Demonstrates clean time state handling and UI updates.",
-      technologies: ["Jetpack Compose", "Kotlin", "Coroutines", "Material3"],
-      github: "https://github.com/Dev-Aditya-More/StopWatchApp"
-    },
-    {
-      name: "Unit Converter App",
-      description: "Compose-based Android app for converting units with support for light/dark mode and responsive UI.",
-      technologies: ["Kotlin", "Jetpack Compose", "Material3"],
-      github: "https://github.com/Dev-Aditya-More/UnitConverter"
-    }
   ],
   education: [
     {
       degree: "Bachelor of Engineering in Computer Engineering",
       school: "SPPU University",
-      year: "Expected 2027"
-    }
+      year: "Expected 2027",
+    },
   ],
   contact: {
     email: "aditya1875more@gmail.com",
     github: "https://github.com/Dev-Aditya-More",
     linkedin: "https://linkedin.com/in/adityamore2005",
-    website: "https://adityapushes.vercel.app"
+    website: "https://adityapushes.vercel.app",
   },
   social: [
     {
+      platform: "BuyMeACoffee",
+      url: "https://buymeacoffee.com/aditya1875q",
+    },
+    {
       platform: "GitHub",
-      url: "https://github.com/Dev-Aditya-More"
+      url: "https://github.com/Dev-Aditya-More",
     },
     {
       platform: "Twitter",
-      url: "https://x.com/Adityaastwt"
+      url: "https://x.com/Adityaastwt",
     },
     {
       platform: "LinkedIn",
-      url: "https://linkedin.com/in/adityamore2005"
+      url: "https://linkedin.com/in/adityamore2005",
     },
     {
       platform: "Instagram",
-      url: "https://instagram.com/adityblinks"
-    }
-  ]
+      url: "https://instagram.com/adityblinks",
+    },
+  ],
 };
