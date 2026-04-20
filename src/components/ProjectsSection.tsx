@@ -19,7 +19,7 @@ const androidProjects = [
     description: "Interactive Pokédex with clean UI and modern architecture.",
     longDesc:
       "Fetches and displays paginated data from PokéAPI with caching, type-based animations, and detail screens.",
-    image: "/DexverseLogo.png",
+    image: "/DexVerse_New2.png",
     tags: [
       "Jetpack Compose",
       "State Management",
@@ -50,7 +50,7 @@ const androidProjects = [
     description: "Scan products and understand what you're buying instantly.",
     longDesc:
       "Barcode-based product analysis using OpenFoodFacts API. Shows nutrition grade, ingredients, and eco score with a clean Compose UI and smooth navigation.",
-    image: "/BaskitLogo.png", 
+    image: "/baskitFeatureGraphic.png",
     tags: [
       "Jetpack Compose",
       "MVVM",
@@ -62,7 +62,7 @@ const androidProjects = [
       "ML Kit",
       "OpenFoodFacts API",
     ],
-    github: "https://github.com/Dev-Aditya-More/Baskit", 
+    github: "https://github.com/Dev-Aditya-More/Baskit",
     download: "https://github.com/Dev-Aditya-More/Baskit/releases/latest",
     downloads: [
       {
@@ -78,7 +78,7 @@ const androidProjects = [
       "A modern and intuitive tool to save and organize bookmarks, links, and files.",
     longDesc:
       "Built with MVVM and Jetpack Compose, featuring tagging, categorization, search, and Material 3 theming. Optimized release builds with R8 and ProGuard.",
-    image: "/StashlyIcon.png",
+    image: "/StashlyFeatureGraphic.png",
     tags: [
       "Jetpack Compose",
       "MVVM",
@@ -95,6 +95,32 @@ const androidProjects = [
       {
         label: "GitHub releases",
         url: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
+      },
+    ],
+  },
+  {
+    title: "PayU — Personal Finance Tracker",
+    description:
+      "Track income, expenses, and savings with a clean UI and real-time sync.",
+    longDesc:
+      "Built with Jetpack Compose and Firebase, featuring expense tracking, insights dashboard, multi-currency support, and animated UI components.",
+    image: "/PayUBanner.png",
+    tags: [
+      "Jetpack Compose",
+      "MVVM",
+      "Firebase",
+      "Kotlin",
+      "KoinDI",
+      "Coroutines",
+      "Material3",
+      "Clean Architecture",
+    ],
+    github: "https://github.com/Dev-Aditya-More/PayU",
+    download: "https://github.com/Dev-Aditya-More/PayU/releases/latest",
+    downloads: [
+      {
+        label: "GitHub Releases",
+        url: "https://github.com/Dev-Aditya-More/PayU/releases/latest",
       },
     ],
   },
@@ -135,7 +161,8 @@ const androidProjects = [
       "https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop",
     tags: ["Jetpack Compose", "State Handling", "Game Logic", "Kotlin"],
     github: "https://github.com/Dev-Aditya-More/TicTacToeGame",
-    download: "https://github.com/Dev-Aditya-More/TicTacToeGame/releases/latest",
+    download:
+      "https://github.com/Dev-Aditya-More/TicTacToeGame/releases/latest",
   },
   {
     title: "QR Code Scanner",
@@ -146,7 +173,8 @@ const androidProjects = [
       "https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop",
     tags: ["CameraX", "ML Kit", "QR Scanner", "Kotlin", "Jetpack"],
     github: "https://github.com/Dev-Aditya-More/QRcodeScanner",
-    download: "https://github.com/Dev-Aditya-More/QRcodeScanner/releases/latest",
+    download:
+      "https://github.com/Dev-Aditya-More/QRcodeScanner/releases/latest",
   },
   {
     title: "More Soon",
@@ -176,7 +204,7 @@ const devopsProjects = [
 const DownloadDropdown = ({ project }: { project: any }) => {
   const [open, setOpen] = useState(false);
   const [coords, setCoords] = useState<{ top: number; left: number } | null>(
-    null
+    null,
   );
   const [openUp, setOpenUp] = useState(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -223,7 +251,7 @@ const DownloadDropdown = ({ project }: { project: any }) => {
     const prefersUp = spaceBelow < 260 && spaceAbove > spaceBelow;
     const left = Math.min(
       Math.max(rect.right - dropdownWidth, 8),
-      window.innerWidth - dropdownWidth - 8
+      window.innerWidth - dropdownWidth - 8,
     );
     if (prefersUp) {
       const top = window.scrollY + rect.top;
@@ -250,15 +278,15 @@ const DownloadDropdown = ({ project }: { project: any }) => {
     project.downloads && project.downloads.length
       ? project.downloads
       : project.download
-      ? [{ label: "Download APK", url: project.download }]
-      : project.github
-      ? [
-          {
-            label: "Releases",
-            url: `${project.github.replace(/\/$/, "")}/releases/`,
-          },
-        ]
-      : [];
+        ? [{ label: "Download APK", url: project.download }]
+        : project.github
+          ? [
+              {
+                label: "Releases",
+                url: `${project.github.replace(/\/$/, "")}/releases/`,
+              },
+            ]
+          : [];
 
   if (!downloads.length) return null;
 
@@ -360,7 +388,7 @@ const DownloadDropdown = ({ project }: { project: any }) => {
                 </div>
               </div>
             </div>,
-            document.body
+            document.body,
           )
         : null}
     </>
