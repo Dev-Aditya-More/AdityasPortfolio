@@ -46,6 +46,31 @@ const androidProjects = [
     ],
   },
   {
+    title: "FundFlow — Mutual Fund Explorer",
+    description: "Explore and manage your mutual fund investments with ease.",
+    longDesc:
+      "A comprehensive app for exploring mutual fund investments, providing real-time updates, performance analytics, and portfolio insights.",
+    image: "/FundFlowBanner.png",
+    tags: [
+      "Jetpack Compose",
+      "MVVM",
+      "Kotlin",
+      "KoinDI",
+      "Retrofit",
+      "Coroutines",
+      "Material3",
+    ],
+    badge: "Assignment",
+    github: "https://github.com/Dev-Aditya-More/FundFlow",
+    download: "https://github.com/Dev-Aditya-More/FundFlow/releases/latest",
+    downloads: [
+      {
+        label: "GitHub Releases",
+        url: "https://github.com/Dev-Aditya-More/FundFlow/releases/latest",
+      },
+    ],
+  },
+  {
     title: "MoviesApp — KMP Movie Showcase",
     description:
       "Movie showcase app built with Kotlin Multiplatform and Jetpack Compose.",
