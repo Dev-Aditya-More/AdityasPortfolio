@@ -46,6 +46,62 @@ const androidProjects = [
     ],
   },
   {
+    title: "Stashly — Bookmark, Link & File Manager",
+    description:
+      "A modern and intuitive tool to save and organize bookmarks, links, and files.",
+    longDesc:
+      "Built with MVVM and Jetpack Compose, featuring tagging, categorization, search, and Material 3 theming. Optimized release builds with R8 and ProGuard.",
+    image: "/StashlyFeatureGraphic.png",
+    tags: [
+      "Jetpack Compose",
+      "MVVM",
+      "Material3",
+      "Room DB",
+      "Coroutines",
+      "KoinDI",
+      "Retrofit",
+      "Coil",
+    ],
+    github: "https://github.com/Dev-Aditya-More/Stashly",
+    download: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
+    downloads: [
+      {
+        label: "Google Play Store",
+        url: "https://play.google.com/store/apps/details?id=nodomain.aditya1875more.stashly.play",
+      },
+      {
+        label: "GitHub releases",
+        url: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
+      },
+    ],
+  },
+  {
+    title: "Baskit — Smart Grocery Scanner",
+    description: "Scan products and understand what you're buying instantly.",
+    longDesc:
+      "Barcode-based product analysis using OpenFoodFacts API. Shows nutrition grade, ingredients, and eco score with a clean Compose UI and smooth navigation.",
+    image: "/baskitFeatureGraphic.png",
+    tags: [
+      "Jetpack Compose",
+      "MVVM",
+      "Kotlin",
+      "KoinDI",
+      "Retrofit",
+      "Coroutines",
+      "Material3",
+      "ML Kit",
+      "OpenFoodFacts API",
+    ],
+    github: "https://github.com/Dev-Aditya-More/Baskit",
+    download: "https://github.com/Dev-Aditya-More/Baskit/releases/latest",
+    downloads: [
+      {
+        label: "GitHub Releases",
+        url: "https://github.com/Dev-Aditya-More/Baskit/releases/latest",
+      },
+    ],
+  },
+  {
     title: "FundFlow — Mutual Fund Explorer",
     description: "Explore and manage your mutual fund investments with ease.",
     longDesc:
@@ -94,59 +150,6 @@ const androidProjects = [
         url: "https://github.com/Dev-Aditya-More/MoviesAppKMP/releases/latest",
       },
     ]
-  },
-  {
-    title: "Baskit — Smart Grocery Scanner",
-    description: "Scan products and understand what you're buying instantly.",
-    longDesc:
-      "Barcode-based product analysis using OpenFoodFacts API. Shows nutrition grade, ingredients, and eco score with a clean Compose UI and smooth navigation.",
-    image: "/baskitFeatureGraphic.png",
-    tags: [
-      "Jetpack Compose",
-      "MVVM",
-      "Kotlin",
-      "KoinDI",
-      "Retrofit",
-      "Coroutines",
-      "Material3",
-      "ML Kit",
-      "OpenFoodFacts API",
-    ],
-    github: "https://github.com/Dev-Aditya-More/Baskit",
-    download: "https://github.com/Dev-Aditya-More/Baskit/releases/latest",
-    downloads: [
-      {
-        label: "GitHub Releases",
-        url: "https://github.com/Dev-Aditya-More/Baskit/releases/latest",
-      },
-    ],
-  },
-
-  {
-    title: "Stashly — Bookmark, Link & File Manager",
-    description:
-      "A modern and intuitive tool to save and organize bookmarks, links, and files.",
-    longDesc:
-      "Built with MVVM and Jetpack Compose, featuring tagging, categorization, search, and Material 3 theming. Optimized release builds with R8 and ProGuard.",
-    image: "/StashlyFeatureGraphic.png",
-    tags: [
-      "Jetpack Compose",
-      "MVVM",
-      "Material3",
-      "Room DB",
-      "Coroutines",
-      "KoinDI",
-      "Retrofit",
-      "Coil",
-    ],
-    github: "https://github.com/Dev-Aditya-More/Stashly",
-    download: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
-    downloads: [
-      {
-        label: "GitHub releases",
-        url: "https://github.com/Dev-Aditya-More/Stashly/releases/latest",
-      },
-    ],
   },
   {
     title: "PayU — Personal Finance Tracker",
