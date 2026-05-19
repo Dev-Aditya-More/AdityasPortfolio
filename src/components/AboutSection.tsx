@@ -1,7 +1,8 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Smartphone, Code, Laptop, Rocket } from 'lucide-react';
+import { useReveal } from '@/hooks/useReveal';
 
 const services = [
   {
@@ -26,20 +27,6 @@ const services = [
   }
 ];
 
-const useReveal = (threshold = 0.15) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, visible };
-};
-
 const AboutSection = () => {
   const left = useReveal();
   const right = useReveal();
@@ -55,6 +42,7 @@ const AboutSection = () => {
             className={`transition-all duration-700 ease-out ${
               left.visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
+            style={{ willChange: 'transform, opacity' }}
           >
             <p className="text-lg mb-4">
               I'm a passionate Android developer focused on building elegant, scalable, and
@@ -75,7 +63,7 @@ const AboutSection = () => {
             className={`flex flex-col justify-center transition-all duration-700 ease-out ${
               right.visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
-            style={{ transitionDelay: '100ms' }}
+            style={{ transitionDelay: '100ms', willChange: 'transform, opacity' }}
           >
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>

@@ -1,21 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Github, Linkedin, Twitter, Coffee } from "lucide-react";
-
-const useReveal = (threshold = 0.15) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, visible };
-};
+import { useReveal } from "@/hooks/useReveal";
 
 const ContactSection = () => {
   const left = useReveal();
@@ -32,6 +19,7 @@ const ContactSection = () => {
             className={`transition-all duration-700 ease-out ${
               left.visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
+            style={{ willChange: 'transform, opacity' }}
           >
             <h3 className="text-2xl font-bold mb-4">Let's work together!</h3>
             <p className="mb-6 text-lg">
@@ -101,7 +89,7 @@ const ContactSection = () => {
             className={`flex items-center transition-all duration-700 ease-out ${
               right.visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
-            style={{ transitionDelay: '100ms' }}
+            style={{ transitionDelay: '100ms', willChange: 'transform, opacity' }}
           >
             <Card className="w-full hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6">

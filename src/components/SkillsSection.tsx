@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -8,6 +8,7 @@ import {
   Settings,
   TestTube,
 } from "lucide-react";
+import { useReveal } from "@/hooks/useReveal";
 
 const skillCategories = [
   {
@@ -72,23 +73,9 @@ const getProficiencyColor = (proficiency: string) => {
   }
 };
 
-const useReveal = (threshold = 0.1) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, visible };
-};
-
 const SkillsSection = () => {
   const grid = useReveal(0.05);
-  const bottom = useReveal(0.1);
+  const bottom = useReveal(0.12);
 
   return (
     <section id="skills" className="section bg-muted/30">
@@ -103,7 +90,7 @@ const SkillsSection = () => {
               className={`group hover:shadow-lg hover:scale-[1.02] transition-all duration-500 ease-out ${
                 grid.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
-              style={{ transitionDelay: grid.visible ? `${index * 80}ms` : '0ms' }}
+              style={{ transitionDelay: grid.visible ? `${index * 80}ms` : '0ms', willChange: 'transform, opacity' }}
             >
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-6">

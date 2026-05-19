@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Calendar } from 'lucide-react';
+import { useReveal } from '@/hooks/useReveal';
 
 const experiences = [
   {
@@ -18,7 +19,8 @@ const experiences = [
     borderClass: 'border-kotlin/40',
     logoSrc: '/studiofylogo.png',
     logoFallback: 'S',
-    logoBg: 'bg-slate-800',
+    logoBg: 'bg-white',
+    logoPad: 'p-1',
   },
   {
     id: 2,
@@ -36,6 +38,7 @@ const experiences = [
     logoSrc: '/ThinkDecorPlay.png',
     logoFallback: 'D',
     logoBg: 'bg-black',
+    logoPad: 'p-0',
   },
   {
     id: 3,
@@ -52,7 +55,8 @@ const experiences = [
     borderClass: 'border-indigo-500/40',
     logoSrc: '/metrylogo.png',
     logoFallback: 'M',
-    logoBg: 'bg-indigo-900',
+    logoBg: 'bg-white',
+    logoPad: 'p-1',
   },
   {
     id: 4,
@@ -69,7 +73,8 @@ const experiences = [
     borderClass: 'border-android/40',
     logoSrc: '/hactoberfestlogo.png',
     logoFallback: 'HF',
-    logoBg: 'bg-gradient-to-br from-orange-500 to-pink-600',
+    logoBg: 'bg-white',
+    logoPad: 'p-0.5',
   },
 ];
 
@@ -77,17 +82,17 @@ const CompanyLogo = ({ exp }: { exp: (typeof experiences)[0] }) => {
   const [imgError, setImgError] = useState(false);
   return (
     <div
-      className={`shrink-0 w-12 h-12 rounded-xl ${exp.logoBg} flex items-center justify-center shadow-md overflow-hidden border border-white/10`}
+      className={`shrink-0 w-12 h-12 rounded-xl ${exp.logoBg} flex items-center justify-center shadow-md overflow-hidden border border-black/10`}
     >
       {!imgError ? (
         <img
           src={exp.logoSrc}
           alt={exp.company}
-          className="w-full h-full object-contain p-1.5"
+          className={`w-full h-full object-contain ${exp.logoPad}`}
           onError={() => setImgError(true)}
         />
       ) : (
-        <span className="text-white font-bold text-sm">{exp.logoFallback}</span>
+        <span className="font-bold text-sm text-gray-700">{exp.logoFallback}</span>
       )}
     </div>
   );
@@ -100,18 +105,8 @@ const ExperienceCard = ({
   exp: (typeof experiences)[0];
   index: number;
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const { ref, visible } = useReveal(0.15);
   const isLeft = index % 2 === 0;
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div
@@ -119,7 +114,7 @@ const ExperienceCard = ({
       className={`relative flex items-center gap-0 md:gap-8 mb-12 transition-all duration-700 ease-out ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       } ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      style={{ transitionDelay: `${index * 100}ms`, willChange: 'transform, opacity' }}
     >
       {/* Card */}
       <div className={`flex-1 ${isLeft ? 'md:text-right' : 'md:text-left'} pl-8 md:pl-0`}>

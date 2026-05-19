@@ -1,71 +1,61 @@
+import React, { useEffect, useRef } from 'react';
 
-import React, { useEffect, useState } from 'react';
+const BLOBS = [
+  { cls: 'absolute rounded-full bg-primary/5 w-[40vw] h-[40vw] blur-3xl', style: { top: '10%', left: '10%' }, tx: -0.02, ty: 0.01 },
+  { cls: 'absolute rounded-full bg-android/5 w-[35vw] h-[35vw] blur-3xl', style: { top: '40%', right: '5%' },  tx: 0.03,  ty: -0.02 },
+  { cls: 'absolute rounded-full bg-compose/5 w-[25vw] h-[25vw] blur-3xl', style: { bottom: '10%', left: '20%' }, tx: 0.01, ty: 0.03 },
+  { cls: 'absolute rounded-full bg-kotlin/5 w-[30vw] h-[30vw] blur-3xl',  style: { top: '70%', right: '30%' }, tx: -0.02, ty: -0.01 },
+];
+
+const PARTICLES = Array.from({ length: 6 }, (_, i) => ({
+  cls: `absolute w-[5px] h-[5px] rounded-full opacity-20 ${i % 3 === 0 ? 'bg-primary' : i % 3 === 1 ? 'bg-kotlin' : 'bg-android'}`,
+  style: { top: `${15 + i * 15}%`, left: `${10 + i * 16}%` },
+  tx: 0.05 * (i % 3 + 1),
+  ty: -0.03 * ((i % 2) + 1),
+}));
 
 const ParallaxBackground = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const blobRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const particleRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+    const onScroll = () => {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        const sy = window.scrollY;
+        blobRefs.current.forEach((el, i) => {
+          if (el) el.style.transform = `translate(${sy * BLOBS[i].tx}px, ${sy * BLOBS[i].ty}px)`;
+        });
+        particleRefs.current.forEach((el, i) => {
+          if (el) el.style.transform = `translate(${sy * PARTICLES[i].tx}px, ${sy * PARTICLES[i].ty}px)`;
+        });
+      });
     };
 
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Clean up
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      {/* Large blurred circles that move at different speeds */}
-      <div 
-        className="absolute rounded-full bg-primary/5 w-[40vw] h-[40vw] blur-3xl"
-        style={{ 
-          top: '10%', 
-          left: '10%', 
-          transform: `translate(${scrollY * -0.02}px, ${scrollY * 0.01}px)` 
-        }} 
-      />
-      <div 
-        className="absolute rounded-full bg-android/5 w-[35vw] h-[35vw] blur-3xl"
-        style={{ 
-          top: '40%', 
-          right: '5%', 
-          transform: `translate(${scrollY * 0.03}px, ${scrollY * -0.02}px)` 
-        }} 
-      />
-      <div 
-        className="absolute rounded-full bg-compose/5 w-[25vw] h-[25vw] blur-3xl"
-        style={{ 
-          bottom: '10%', 
-          left: '20%', 
-          transform: `translate(${scrollY * 0.01}px, ${scrollY * 0.03}px)` 
-        }} 
-      />
-      <div 
-        className="absolute rounded-full bg-kotlin/5 w-[30vw] h-[30vw] blur-3xl"
-        style={{ 
-          top: '70%', 
-          right: '30%', 
-          transform: `translate(${scrollY * -0.02}px, ${scrollY * -0.01}px)` 
-        }} 
-      />
-      
-      {/* Floating particles */}
-      {[...Array(6)].map((_, i) => (
+      {BLOBS.map((b, i) => (
         <div
           key={i}
-          className={`absolute w-[5px] h-[5px] rounded-full opacity-20 ${
-            i % 3 === 0 ? 'bg-primary' : i % 3 === 1 ? 'bg-kotlin' : 'bg-android'
-          }`}
-          style={{
-            top: `${15 + i * 15}%`,
-            left: `${10 + i * 16}%`,
-            transform: `translate(${scrollY * (0.05 * (i % 3 + 1))}px, ${scrollY * (-0.03 * ((i % 2) + 1))}px)`
-          }}
+          ref={(el) => { blobRefs.current[i] = el; }}
+          className={b.cls}
+          style={{ ...b.style, willChange: 'transform' }}
+        />
+      ))}
+      {PARTICLES.map((p, i) => (
+        <div
+          key={i}
+          ref={(el) => { particleRefs.current[i] = el; }}
+          className={p.cls}
+          style={{ ...p.style, willChange: 'transform' }}
         />
       ))}
     </div>

@@ -1,63 +1,79 @@
+import React, { useEffect, useRef } from 'react';
 
-import React, { useState, useEffect } from 'react';
+// Pre-calculated once — no recalc on re-render
+const GLITTER_COUNT = 8;
+const glitterOffsets = Array.from({ length: GLITTER_COUNT }, (_, i) => ({
+  x: Math.sin((i / GLITTER_COUNT) * Math.PI * 2) * 55,
+  y: Math.cos((i / GLITTER_COUNT) * Math.PI * 2) * 55,
+  transitionDelay: `${(i / GLITTER_COUNT) * 0.15}s`,
+}));
 
 const CursorGradient = () => {
-  const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 });
-  const [isVisible, setIsVisible] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const blobRef = useRef<HTMLDivElement>(null);
+  const glitterRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rafRef = useRef<number>(0);
+  const pos = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+    const onMove = (e: MouseEvent) => {
+      pos.current = { x: e.clientX, y: e.clientY };
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        const { x, y } = pos.current;
+        if (blobRef.current) {
+          blobRef.current.style.transform = `translate(${x - 200}px, ${y - 200}px)`;
+        }
+        glitterRefs.current.forEach((el, i) => {
+          if (el) {
+            el.style.transform = `translate(${x - 4 + glitterOffsets[i].x}px, ${y - 4 + glitterOffsets[i].y}px)`;
+          }
+        });
+        if (wrapperRef.current) wrapperRef.current.style.opacity = '1';
+      });
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
+    const onLeave = () => {
+      if (wrapperRef.current) wrapperRef.current.style.opacity = '0';
+    };
+    const onEnter = () => {
+      if (wrapperRef.current) wrapperRef.current.style.opacity = '1';
     };
 
-    const handleMouseEnter = () => {
-      // Only show when mouse enters the document
-      setIsVisible(true);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    document.documentElement.addEventListener('mouseleave', handleMouseLeave);
-    document.documentElement.addEventListener('mouseenter', handleMouseEnter);
+    window.addEventListener('mousemove', onMove);
+    document.documentElement.addEventListener('mouseleave', onLeave);
+    document.documentElement.addEventListener('mouseenter', onEnter);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
-      document.documentElement.removeEventListener('mouseenter', handleMouseEnter);
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener('mousemove', onMove);
+      document.documentElement.removeEventListener('mouseleave', onLeave);
+      document.documentElement.removeEventListener('mouseenter', onEnter);
     };
-  }, [isVisible]);
+  }, []);
 
   return (
-    <div 
+    <div
+      ref={wrapperRef}
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+      style={{ opacity: 0, transition: 'opacity 300ms' }}
       aria-hidden="true"
     >
-      {/* Main gradient blob */}
-      <div 
-        className={`absolute w-[400px] h-[400px] rounded-full bg-gradient-to-br from-primary/20 via-compose/20 to-kotlin/20 blur-3xl transition-opacity duration-300 ${isVisible ? 'opacity-40' : 'opacity-0'}`}
-        style={{
-          transform: `translate(${mousePosition.x - 200}px, ${mousePosition.y - 200}px)`,
-          transition: 'transform 0.2s ease-out',
-        }}
+      <div
+        ref={blobRef}
+        className="absolute w-[400px] h-[400px] rounded-full bg-gradient-to-br from-primary/20 via-compose/20 to-kotlin/20 blur-3xl opacity-40"
+        style={{ willChange: 'transform', transition: 'transform 0.18s ease-out' }}
       />
-      
-      {/* Glitter particles */}
-      {Array.from({ length: 12 }).map((_, index) => (
-        <div 
-          key={index}
-          className={`absolute w-[8px] h-[8px] rounded-full bg-white transition-opacity duration-300 ${isVisible ? 'opacity-60' : 'opacity-0'}`}
+      {glitterOffsets.map((offset, i) => (
+        <div
+          key={i}
+          ref={(el) => { glitterRefs.current[i] = el; }}
+          className="absolute w-1.5 h-1.5 rounded-full bg-white opacity-50"
           style={{
-            transform: `translate(
-              ${mousePosition.x - 4 + Math.sin(index * 30) * (50 + Math.random() * 30)}px, 
-              ${mousePosition.y - 4 + Math.cos(index * 30) * (50 + Math.random() * 30)}px
-            )`,
-            transition: `transform ${0.2 + Math.random() * 0.3}s ease-out`,
-            boxShadow: '0 0 10px 2px rgba(255, 255, 255, 0.7)',
-            animation: `glitter ${1 + Math.random() * 2}s infinite alternate`,
+            willChange: 'transform',
+            transition: `transform 0.25s ${offset.transitionDelay} ease-out`,
+            boxShadow: '0 0 8px 2px rgba(255,255,255,0.6)',
+            animation: `glitter ${1.8 + i * 0.2}s infinite alternate`,
           }}
         />
       ))}
