@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Github, Linkedin, Twitter, Coffee } from "lucide-react";
 
+const useReveal = (threshold = 0.15) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, visible };
+};
+
 const ContactSection = () => {
+  const left = useReveal();
+  const right = useReveal();
+
   return (
     <section id="contact" className="section">
       <div className="container">
         <h2 className="section-title">Get In Touch</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+          <div
+            ref={left.ref}
+            className={`transition-all duration-700 ease-out ${
+              left.visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+            }`}
+          >
             <h3 className="text-2xl font-bold mb-4">Let's work together!</h3>
             <p className="mb-6 text-lg">
               I'm currently open to freelance Android development opportunities
@@ -74,8 +96,14 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="flex items-center">
-            <Card className="w-full">
+          <div
+            ref={right.ref}
+            className={`flex items-center transition-all duration-700 ease-out ${
+              right.visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+            }`}
+            style={{ transitionDelay: '100ms' }}
+          >
+            <Card className="w-full hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-4">Call To Action</h3>
                 <ul className="space-y-3 mb-6">

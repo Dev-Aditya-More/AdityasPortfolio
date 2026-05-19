@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -6,8 +6,6 @@ import {
   Code,
   Cloud,
   Settings,
-  Zap,
-  Layers,
   TestTube,
 } from "lucide-react";
 
@@ -74,22 +72,42 @@ const getProficiencyColor = (proficiency: string) => {
   }
 };
 
+const useReveal = (threshold = 0.1) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, visible };
+};
+
 const SkillsSection = () => {
+  const grid = useReveal(0.05);
+  const bottom = useReveal(0.1);
+
   return (
     <section id="skills" className="section bg-muted/30">
       <div className="container">
         <h2 className="section-title mb-5">Skills & Expertise</h2>
-        <div className="h-8"></div>{" "}
-        {/* Adds 2-3 lines of vertical space after the title */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="h-8" />
+
+        <div ref={grid.ref} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out"
+              className={`group hover:shadow-lg hover:scale-[1.02] transition-all duration-500 ease-out ${
+                grid.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: grid.visible ? `${index * 80}ms` : '0ms' }}
             >
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
                     <category.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold">{category.title}</h3>
@@ -99,7 +117,7 @@ const SkillsSection = () => {
                   {category.skills.map((skill, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted hover:scale-[1.01] transition-all duration-200"
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{skill.icon}</span>
@@ -107,9 +125,7 @@ const SkillsSection = () => {
                       </div>
                       <Badge
                         variant="secondary"
-                        className={`text-xs font-medium ${getProficiencyColor(
-                          skill.proficiency
-                        )}`}
+                        className={`text-xs font-medium ${getProficiencyColor(skill.proficiency)}`}
                       >
                         {skill.proficiency}
                       </Badge>
@@ -120,27 +136,35 @@ const SkillsSection = () => {
             </Card>
           ))}
         </div>
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <TestTube className="w-6 h-6 text-primary" />
+
+        <div
+          ref={bottom.ref}
+          className={`transition-all duration-700 ease-out ${
+            bottom.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <Card className="hover:shadow-md transition-shadow duration-300">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <TestTube className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold"> What next? </h3>
               </div>
-              <h3 className="text-xl font-semibold"> What next? </h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {currentlyLearning.map((item, index) => (
-                <Badge
-                  key={index}
-                  variant="secondary"
-                  className="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400"
-                >
-                  {item}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+              <div className="flex flex-wrap gap-2">
+                {currentlyLearning.map((item, index) => (
+                  <Badge
+                    key={index}
+                    variant="secondary"
+                    className="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400 hover:scale-105 transition-transform duration-150 cursor-default"
+                  >
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );

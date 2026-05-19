@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Smartphone, Code, Laptop, Rocket } from 'lucide-react';
 
@@ -26,20 +26,42 @@ const services = [
   }
 ];
 
+const useReveal = (threshold = 0.15) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, visible };
+};
+
 const AboutSection = () => {
+  const left = useReveal();
+  const right = useReveal();
+
   return (
     <section id="about" className="section bg-muted/30">
       <div className="container">
         <h2 className="section-title">About Me</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 mt-8">
+          <div
+            ref={left.ref}
+            className={`transition-all duration-700 ease-out ${
+              left.visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+            }`}
+          >
             <p className="text-lg mb-4">
-              I'm a passionate Android developer focused on building elegant, scalable, and 
-              modern mobile experiences with Jetpack Compose and Kotlin MultiPlatform. 
+              I'm a passionate Android developer focused on building elegant, scalable, and
+              modern mobile experiences with Jetpack Compose and Kotlin MultiPlatform.
             </p>
             <p className="mb-4">
-              Currently exploring advanced UI patterns, state management, and clean architecture. 
+              Currently exploring advanced UI patterns, state management, and clean architecture.
               I love learning in public and sharing dev insights with the Android community.
             </p>
             <p>
@@ -47,8 +69,15 @@ const AboutSection = () => {
               or experimenting with the latest features in the Android ecosystem or learning DevOps by choice
             </p>
           </div>
-          <div className="flex flex-col justify-center">
-            <Card>
+
+          <div
+            ref={right.ref}
+            className={`flex flex-col justify-center transition-all duration-700 ease-out ${
+              right.visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+            }`}
+            style={{ transitionDelay: '100ms' }}
+          >
+            <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>What I Do</CardTitle>
                 <CardDescription>My core services and expertise</CardDescription>
@@ -56,8 +85,12 @@ const AboutSection = () => {
               <CardContent>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {services.map((service, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="mt-0.5 bg-primary/10 p-2 rounded-md text-primary">
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 group"
+                      style={{ transitionDelay: `${index * 60}ms` }}
+                    >
+                      <div className="mt-0.5 bg-primary/10 p-2 rounded-md text-primary group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
                         <service.icon size={18} />
                       </div>
                       <div>

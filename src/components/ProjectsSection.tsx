@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
 import {
   Card,
@@ -449,19 +449,34 @@ const DownloadDropdown = ({ project }: { project: any }) => {
   );
 };
 
-const ProjectGrid = ({ projects, githubUrl }) => (
+const ProjectGrid = ({ projects, githubUrl }) => {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.05 }
+    );
+    if (gridRef.current) observer.observe(gridRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
   <>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10">
+    <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10">
       {projects.map((project, index) => (
         <Card
           key={index}
-          className="flex flex-col h-full rounded-xl overflow-hidden shadow-sm"
+          className={`group flex flex-col h-full rounded-xl overflow-hidden shadow-sm transition-all duration-500 ease-out hover:shadow-xl hover:-translate-y-1 ${
+            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: visible ? `${Math.min(index * 60, 400)}ms` : '0ms' }}
         >
           <div className="h-48 sm:h-56 md:h-64 overflow-hidden">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-contain bg-black transition-transform duration-500"
+              className="w-full h-full object-contain bg-black transition-transform duration-500 group-hover:scale-105"
             />
           </div>
           <CardHeader>
@@ -551,7 +566,8 @@ const ProjectGrid = ({ projects, githubUrl }) => (
       </Button>
     </div>
   </>
-);
+  );
+};
 
 const ProjectsSection = () => {
   return (

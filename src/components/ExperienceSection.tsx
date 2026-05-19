@@ -16,8 +16,9 @@ const experiences = [
     accentClass: 'from-kotlin/80 to-kotlin/30',
     dotClass: 'bg-kotlin',
     borderClass: 'border-kotlin/40',
-    logo: 'S',
-    logoClass: 'bg-gradient-to-br from-slate-600 to-slate-900',
+    logoSrc: '/studiofylogo.png',
+    logoFallback: 'S',
+    logoBg: 'bg-slate-800',
   },
   {
     id: 2,
@@ -32,8 +33,9 @@ const experiences = [
     accentClass: 'from-compose/80 to-compose/30',
     dotClass: 'bg-compose',
     borderClass: 'border-compose/40',
-    logo: 'D',
-    logoClass: 'bg-gradient-to-br from-gray-800 to-black',
+    logoSrc: '/ThinkDecorPlay.png',
+    logoFallback: 'D',
+    logoBg: 'bg-black',
   },
   {
     id: 3,
@@ -48,8 +50,9 @@ const experiences = [
     accentClass: 'from-indigo-500/80 to-indigo-500/30',
     dotClass: 'bg-indigo-500',
     borderClass: 'border-indigo-500/40',
-    logo: 'M',
-    logoClass: 'bg-gradient-to-br from-indigo-600 to-indigo-900',
+    logoSrc: '/metrylogo.png',
+    logoFallback: 'M',
+    logoBg: 'bg-indigo-900',
   },
   {
     id: 4,
@@ -64,10 +67,31 @@ const experiences = [
     accentClass: 'from-android/80 to-android/30',
     dotClass: 'bg-android',
     borderClass: 'border-android/40',
-    logo: 'HF',
-    logoClass: 'bg-gradient-to-br from-orange-500 to-pink-600',
+    logoSrc: '/hactoberfestlogo.png',
+    logoFallback: 'HF',
+    logoBg: 'bg-gradient-to-br from-orange-500 to-pink-600',
   },
 ];
+
+const CompanyLogo = ({ exp }: { exp: (typeof experiences)[0] }) => {
+  const [imgError, setImgError] = useState(false);
+  return (
+    <div
+      className={`shrink-0 w-12 h-12 rounded-xl ${exp.logoBg} flex items-center justify-center shadow-md overflow-hidden border border-white/10`}
+    >
+      {!imgError ? (
+        <img
+          src={exp.logoSrc}
+          alt={exp.company}
+          className="w-full h-full object-contain p-1.5"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <span className="text-white font-bold text-sm">{exp.logoFallback}</span>
+      )}
+    </div>
+  );
+};
 
 const ExperienceCard = ({
   exp,
@@ -107,12 +131,7 @@ const ExperienceCard = ({
 
           <div className="p-5">
             <div className={`flex items-start gap-4 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
-              {/* Logo */}
-              <div
-                className={`shrink-0 w-12 h-12 rounded-xl ${exp.logoClass} flex items-center justify-center text-white font-bold text-sm shadow-md`}
-              >
-                {exp.logo}
-              </div>
+              <CompanyLogo exp={exp} />
 
               {/* Info */}
               <div className={`flex-1 min-w-0 ${isLeft ? 'md:text-right' : ''}`}>
