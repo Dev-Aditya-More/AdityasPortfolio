@@ -211,20 +211,6 @@ const ExperienceSection = () => {
             <ExperienceCard key={exp.id} exp={exp} index={index} />
           ))}
         </div>
-
-        {/* Footer stat row */}
-        <div className="mt-4 flex flex-wrap justify-center gap-8">
-          {[
-            { label: 'Companies', value: '4' },
-            { label: 'Months of XP', value: '12+' },
-            { label: 'Current Roles', value: '2' },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-2xl font-bold text-primary">{stat.value}</p>
-              <p className="text-xs text-muted-foreground uppercase tracking-widest">{stat.label}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
