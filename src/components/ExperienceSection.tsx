@@ -13,7 +13,7 @@ const experiences = [
     duration: '2 mos',
     location: 'Remote',
     isCurrent: true,
-    skills: ['Mobile App Dev', 'Android', 'Kotlin', 'Jetpack Compose', 'Firebase'],
+    skills: ['Mobile App Dev', 'Android', 'Kotlin', 'Jetpack Compose', 'Firebase', 'KMP'],
     accentClass: 'from-kotlin/80 to-kotlin/30',
     dotClass: 'bg-kotlin',
     borderClass: 'border-kotlin/40',
@@ -49,7 +49,7 @@ const experiences = [
     duration: '4 mos',
     location: 'Canada · Remote',
     isCurrent: false,
-    skills: ['Mobile Development', 'AI Integration', 'Kotlin'],
+    skills: ['Mobile Development', 'AI Integration', 'React Native', 'Expo'],
     accentClass: 'from-indigo-500/80 to-indigo-500/30',
     dotClass: 'bg-indigo-500',
     borderClass: 'border-indigo-500/40',
@@ -67,7 +67,7 @@ const experiences = [
     duration: '1 mo',
     location: 'Remote',
     isCurrent: false,
-    skills: ['Version Control', 'Jetpack Compose', 'Git', 'Open Source'],
+    skills: ['Version Control', 'Jetpack Compose', 'Git', 'Open Source', 'XML'],
     accentClass: 'from-android/80 to-android/30',
     dotClass: 'bg-android',
     borderClass: 'border-android/40',
@@ -198,7 +198,7 @@ const ExperienceSection = () => {
       <div className="container">
         <h2 className="section-title">Experience</h2>
         <p className="text-muted-foreground mb-12 mt-6">
-          Where I've worked and what I've built
+          Where I've worked so far
         </p>
 
         <div className="relative max-w-3xl mx-auto">

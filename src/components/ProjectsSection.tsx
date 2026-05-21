@@ -76,6 +76,34 @@ const androidProjects = [
     ],
   },
   {
+    title: "Facenox — Cross Platform Face Editor",
+    description:
+      "Modern Offline face editing app with filters, crop tools, and smart face detection.",
+    longDesc:
+      "Built fully offline with Jetpack Compose, CMP and ML Kit face detection. Includes advanced filters, crop tools, face analysis, drawing tools, and local project storage for complete privacy.",
+    image: "/facenoxFeatureGraphic.png",
+    tags: [
+      "Jetpack Compose",
+      "CMP",
+      "MVVM",
+      "ML Kit",
+      "Material3",
+      "Coroutines",
+      "KoinDI",
+      "Room DB",
+      "Offline First",
+      "Image Processing",
+    ],
+    github: "https://github.com/Dev-Aditya-More/FaceNox",
+    download: "https://github.com/Dev-Aditya-More/FaceNox/releases/latest",
+    downloads: [
+      {
+        label: "GitHub Releases",
+        url: "https://github.com/Dev-Aditya-More/FaceNox/releases/latest",
+      },
+    ],
+},
+  { 
     title: "Baskit — Smart Grocery Scanner",
     description: "Scan products and understand what you're buying instantly.",
     longDesc:
