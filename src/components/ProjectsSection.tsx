@@ -76,22 +76,22 @@ const androidProjects = [
     ],
   },
   {
-    title: "Facenox — Cross Platform Face Editor",
+    title: "Facenox — Cross Platform Photo Editor",
     description:
-      "Modern Offline face editing app with filters, crop tools, and smart face detection.",
+      "Modern cross-platform photo editor with filters, face tools, crop controls, and offline project management.",
     longDesc:
-      "Built fully offline with Jetpack Compose, CMP and ML Kit face detection. Includes advanced filters, crop tools, face analysis, drawing tools, and local project storage for complete privacy.",
+      "Built with a modern cross-platform architecture supporting mobile and desktop platforms. Features advanced filters, crop tools, face detection, drawing tools, and fully local project storage for privacy-focused editing workflows.",
     image: "/facenoxFeatureGraphic.png",
     tags: [
-      "Jetpack Compose",
-      "CMP",
+      "Compose Multiplatform",
+      "Kotlin",
       "MVVM",
-      "ML Kit",
       "Material3",
       "Coroutines",
       "KoinDI",
-      "Room DB",
+      "ML Kit",
       "Offline First",
+      "Desktop Support",
       "Image Processing",
     ],
     github: "https://github.com/Dev-Aditya-More/FaceNox",
@@ -102,8 +102,8 @@ const androidProjects = [
         url: "https://github.com/Dev-Aditya-More/FaceNox/releases/latest",
       },
     ],
-},
-  { 
+  },
+  {
     title: "Baskit — Smart Grocery Scanner",
     description: "Scan products and understand what you're buying instantly.",
     longDesc:
@@ -177,7 +177,7 @@ const androidProjects = [
         label: "GitHub Releases",
         url: "https://github.com/Dev-Aditya-More/MoviesAppKMP/releases/latest",
       },
-    ]
+    ],
   },
   {
     title: "PayU — Personal Finance Tracker",
@@ -482,118 +482,129 @@ const ProjectGrid = ({ projects, githubUrl }) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.05 }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.05 },
     );
     if (gridRef.current) observer.observe(gridRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-  <>
-    <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10">
-      {projects.map((project, index) => (
-        <Card
-          key={index}
-          className={`group flex flex-col h-full rounded-xl overflow-hidden shadow-sm transition-all duration-500 ease-out hover:shadow-xl hover:-translate-y-1 ${
-            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{ transitionDelay: visible ? `${Math.min(index * 60, 400)}ms` : '0ms' }}
-        >
-          <div className="h-48 sm:h-56 md:h-64 overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-contain bg-black transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          <CardHeader>
-            <div className="flex items-center justify-between gap-2">
-              <CardTitle>{project.title}</CardTitle>
+    <>
+      <div
+        ref={gridRef}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10"
+      >
+        {projects.map((project, index) => (
+          <Card
+            key={index}
+            className={`group flex flex-col h-full rounded-xl overflow-hidden shadow-sm transition-all duration-500 ease-out hover:shadow-xl hover:-translate-y-1 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+            style={{
+              transitionDelay: visible
+                ? `${Math.min(index * 60, 400)}ms`
+                : "0ms",
+            }}
+          >
+            <div className="h-48 sm:h-56 md:h-64 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-contain bg-black transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <CardHeader>
+              <div className="flex items-center justify-between gap-2">
+                <CardTitle>{project.title}</CardTitle>
 
-              {project.badge && (
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/20 font-medium">
-                  {project.badge}
-                </span>
+                {project.badge && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/20 font-medium">
+                    {project.badge}
+                  </span>
+                )}
+              </div>
+
+              <CardDescription>{project.description}</CardDescription>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <p className="text-sm text-muted-foreground mb-4">
+                {project.longDesc}
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-2">
+                {project.tags.map((tag, idx) => (
+                  <Badge
+                    key={idx}
+                    variant="secondary"
+                    className={`text-xs ${
+                      tag === "Assignment"
+                        ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
+                        : ""
+                    }`}
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+            <CardFooter className="flex flex-col sm:flex-row gap-2 mt-auto items-start sm:items-center">
+              {project.github && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  asChild
+                  className="w-full sm:w-auto"
+                >
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github size={16} className="mr-1" /> GitHub
+                  </a>
+                </Button>
               )}
-            </div>
 
-            <CardDescription>{project.description}</CardDescription>
-          </CardHeader>
-          <CardContent className="flex-grow">
-            <p className="text-sm text-muted-foreground mb-4">
-              {project.longDesc}
-            </p>
-            <div className="flex flex-wrap gap-1.5 mt-2">
-              {project.tags.map((tag, idx) => (
-                <Badge
-                  key={idx}
+              {project.website && (
+                <Button
                   variant="secondary"
-                  className={`text-xs ${
-                    tag === "Assignment"
-                      ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
-                      : ""
-                  }`}
+                  size="sm"
+                  asChild
+                  className="w-full sm:w-auto"
                 >
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
-          <CardFooter className="flex flex-col sm:flex-row gap-2 mt-auto items-start sm:items-center">
-            {project.github && (
-              <Button
-                variant="outline"
-                size="sm"
-                asChild
-                className="w-full sm:w-auto"
-              >
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github size={16} className="mr-1" /> GitHub
-                </a>
-              </Button>
-            )}
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Website
+                  </a>
+                </Button>
+              )}
 
-            {project.website && (
-              <Button
-                variant="secondary"
-                size="sm"
-                asChild
-                className="w-full sm:w-auto"
-              >
-                <a
-                  href={project.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit Website
-                </a>
-              </Button>
-            )}
-
-            {/* Replace single Download button with dropdown component.
+              {/* Replace single Download button with dropdown component.
                 You can customize per-project by adding `downloads: [{label, url}]` to your project objects in data. */}
-            <div className="w-full sm:w-auto">
-              <DownloadDropdown project={project} />
-            </div>
-          </CardFooter>
-        </Card>
-      ))}
-    </div>
+              <div className="w-full sm:w-auto">
+                <DownloadDropdown project={project} />
+              </div>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
 
-    <div className="text-center">
-      <p className="text-muted-foreground mb-4">Want to see more of my work?</p>
-      <Button variant="outline" asChild>
-        <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-          <Github size={18} className="mr-2" /> View All Projects
-        </a>
-      </Button>
-    </div>
-  </>
+      <div className="text-center">
+        <p className="text-muted-foreground mb-4">
+          Want to see more of my work?
+        </p>
+        <Button variant="outline" asChild>
+          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+            <Github size={18} className="mr-2" /> View All Projects
+          </a>
+        </Button>
+      </div>
+    </>
   );
 };
 
