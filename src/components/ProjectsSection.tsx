@@ -610,19 +610,23 @@ const ProjectGrid = ({ projects, githubUrl }) => {
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="bg-muted/30 py-10 sm:py-14 lg:py-20">
+    <section id="projects" className="bg-secondary/20 py-10 sm:py-14 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
-          Featured Projects
+        <div className="flex items-center gap-3 mb-4">
+          <span className="section-label">04 / projects</span>
+          <div className="h-px w-16 bg-border" />
+        </div>
+        <h2 className="section-title mb-8">
+          Featured <span className="gradient-text">projects</span>
         </h2>
 
         <Tabs defaultValue="android" className="w-full">
-          <div className="overflow-x-auto">
-            <TabsList className="flex gap-2 w-max mb-8">
-              <TabsTrigger value="android" className="min-w-max">
+          <div className="overflow-x-auto mb-8">
+            <TabsList className="flex gap-1 w-max bg-secondary/60 p-1 rounded-xl border border-border">
+              <TabsTrigger value="android" className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
                 Android Development
               </TabsTrigger>
-              <TabsTrigger value="devops" className="min-w-max">
+              <TabsTrigger value="devops" className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
                 DevOps & Infrastructure
               </TabsTrigger>
             </TabsList>

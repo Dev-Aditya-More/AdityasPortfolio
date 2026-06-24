@@ -1,25 +1,18 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary py-8">
-      <div className="container">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <a href="#" className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-              Aditya<span className="text-primary">.dev</span>
-            </a>
-            <p className="text-sm text-muted-foreground mt-1">
-              Android & KMP Developer
-            </p>
-          </div>
-          
-          <div className="text-sm text-muted-foreground">
-            <p>© {year} Aditya More. All Rights Reserved.</p>
-          </div>
-        </div>
+    <footer className="border-t border-border py-8">
+      <div className="container flex flex-col sm:flex-row justify-between items-center gap-4">
+        <a href="#" className="font-mono font-bold text-lg tracking-tight">
+          <span className="text-primary">~/</span>aditya
+        </a>
+
+        <p className="text-sm text-muted-foreground font-mono text-center">
+          © {year} Aditya More · Built with React & Tailwind
+        </p>
       </div>
     </footer>
   );

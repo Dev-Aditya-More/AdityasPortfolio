@@ -196,9 +196,15 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="section">
       <div className="container">
-        <h2 className="section-title">Experience</h2>
-        <p className="text-muted-foreground mb-12 mt-6">
-          Where I've worked so far
+        <div className="flex items-center gap-3 mb-4">
+          <span className="section-label">03 / experience</span>
+          <div className="h-px w-16 bg-border" />
+        </div>
+        <h2 className="section-title mb-3">
+          Where I've <span className="gradient-text">worked</span>
+        </h2>
+        <p className="text-muted-foreground mb-12 text-sm">
+          Internships and programs that shaped my craft.
         </p>
 
         <div className="relative max-w-3xl mx-auto">

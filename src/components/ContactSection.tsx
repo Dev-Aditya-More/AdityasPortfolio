@@ -1,126 +1,78 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Github, Linkedin, Twitter, Coffee } from "lucide-react";
+import { Github, Linkedin, Twitter, Coffee, Mail, ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
+const socials = [
+  { href: "https://buymeacoffee.com/aditya1875q", icon: Coffee, label: "Buy Me Coffee" },
+  { href: "https://github.com/Dev-Aditya-More", icon: Github, label: "GitHub" },
+  { href: "https://x.com/@Adityaastwt", icon: Twitter, label: "Twitter" },
+  { href: "https://www.linkedin.com/in/adityamore2005", icon: Linkedin, label: "LinkedIn" },
+];
+
 const ContactSection = () => {
-  const left = useReveal();
-  const right = useReveal();
+  const section = useReveal(0.1);
 
   return (
     <section id="contact" className="section">
       <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-          <div
-            ref={left.ref}
-            className={`transition-all duration-700 ease-out ${
-              left.visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-            }`}
-            style={{ willChange: 'transform, opacity' }}
-          >
-            <h3 className="text-2xl font-bold mb-4">Let's work together!</h3>
-            <p className="mb-6 text-lg">
-              I'm currently open to freelance Android development opportunities
-              and collaborations. If you're building something cool with
-              Compose, I'd love to hear about it!
-            </p>
-
-            <div className="space-y-4 mb-6">
-              <div>
-                <h4 className="font-medium mb-1">Looking for</h4>
-                <p className="text-muted-foreground">
-                  Freelance Android work, Collaboration opportunities
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-medium mb-1">Email me at</h4>
-                <a
-                  href="mailto:aditya1875more@gmail.com"
-                  className="text-primary hover:underline"
-                >
-                  aditya1875more@gmail.com
-                </a>
-              </div>
-            </div>
-
-            <p className="mb-4 font-medium">Connect with me:</p>
-            <div className="flex gap-4">
-              <a
-                href="https://buymeacoffee.com/aditya1875q"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon bg-secondary hover:bg-primary hover:text-white"
-              >
-                <Coffee size={20} />
-              </a>
-              <a
-                href="https://github.com/Dev-Aditya-More"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon bg-secondary hover:bg-primary hover:text-white"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href="https://x.com/@Adityaastwt"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon bg-secondary hover:bg-primary hover:text-white"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/adityamore2005"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon bg-secondary hover:bg-primary hover:text-white"
-              >
-                <Linkedin size={20} />
-              </a>
-            </div>
+        <div
+          ref={section.ref}
+          className={`transition-all duration-700 ease-out ${
+            section.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <span className="section-label">05 / contact</span>
+            <div className="h-px w-16 bg-border" />
           </div>
 
-          <div
-            ref={right.ref}
-            className={`flex items-center transition-all duration-700 ease-out ${
-              right.visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-            }`}
-            style={{ transitionDelay: '100ms', willChange: 'transform, opacity' }}
-          >
-            <Card className="w-full hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4">Call To Action</h3>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>
-                      Open to freelance Android gigs and collaborations.
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>
-                      shoot me a DM on{" "}
-                      <a href="https://x.com/@Adityaastwt">Twitter</a> if you're
-                      building something cool with Compose 🚀
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>
-                      Always happy to connect with fellow Android nerds!
-                    </span>
-                  </li>
-                </ul>
-                <Button asChild className="w-full">
-                  <a href="mailto:aditya1875more@gmail.com">Get In Touch</a>
-                </Button>
-              </CardContent>
-            </Card>
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+              Let's build
+              <br />
+              <span className="gradient-text">something great.</span>
+            </h2>
+
+            <p className="text-base text-muted-foreground mb-8 max-w-md leading-relaxed">
+              Open to Android freelance work, collaborations, and interesting
+              projects. If you're building with Compose, let's talk.
+            </p>
+
+            <a
+              href="mailto:aditya1875more@gmail.com"
+              className="group inline-flex items-center gap-2.5 font-mono text-primary hover:opacity-80 transition-opacity mb-10"
+            >
+              <Mail size={18} />
+              <span className="text-base">aditya1875more@gmail.com</span>
+              <ArrowUpRight
+                size={15}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+
+            <div className="flex flex-wrap gap-4 items-center">
+              <Button asChild size="lg" className="btn-primary">
+                <a href="mailto:aditya1875more@gmail.com">
+                  Send a message <ArrowUpRight size={16} />
+                </a>
+              </Button>
+
+              <div className="flex gap-2">
+                {socials.map(({ href, icon: Icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={label}
+                    className="w-11 h-11 flex items-center justify-center rounded-full border border-border hover:border-primary/40 hover:bg-primary/5 text-muted-foreground hover:text-primary transition-all duration-200"
+                  >
+                    <Icon size={18} />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

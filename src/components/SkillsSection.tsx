@@ -1,156 +1,186 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-  Smartphone,
-  Code,
-  Cloud,
-  Settings,
-  TestTube,
-} from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
+
+const marqueeSkills = [
+  { name: "Kotlin", color: "#7F52FF" },
+  { name: "Java", color: "#f89820" },
+  { name: "Jetpack Compose", color: "#4285F4" },
+  { name: "Android SDK", color: "#3DDC84" },
+  { name: "KMP", color: "#7F52FF" },
+  { name: "Room DB", color: "#3DDC84" },
+  { name: "Retrofit", color: "#4285F4" },
+  { name: "Coroutines", color: "#7F52FF" },
+  { name: "MVVM", color: "#3DDC84" },
+  { name: "Docker", color: "#2496ED" },
+  { name: "Kubernetes", color: "#326CE5" },
+  { name: "Firebase", color: "#FFCA28" },
+  { name: "Git", color: "#F05032" },
+  { name: "Gradle", color: "#02B3E4" },
+  { name: "Material 3", color: "#4285F4" },
+  { name: "Hilt / Koin", color: "#7F52FF" },
+  { name: "AWS", color: "#FF9900" },
+  { name: "WorkManager", color: "#3DDC84" },
+];
 
 const skillCategories = [
   {
-    title: "Mobile Development",
-    icon: Smartphone,
-    skills: [
-      { name: "Kotlin", icon: "🟣", proficiency: "Advanced" },
-      { name: "Java", icon: "☕", proficiency: "Intermediate" },
-      { name: "Jetpack Compose", icon: "🎨", proficiency: "Intermediate" },
-      { name: "Android SDK", icon: "🤖", proficiency: "Intermediate" },
+    title: "Mobile",
+    accent: "#7F52FF",
+    items: [
+      { name: "Kotlin", level: "Advanced" },
+      { name: "Java", level: "Intermediate" },
+      { name: "Jetpack Compose", level: "Intermediate" },
+      { name: "Android SDK", level: "Intermediate" },
+      { name: "KMP", level: "Intermediate" },
     ],
   },
   {
     title: "Android Toolkit",
-    icon: Code,
-    skills: [
-      { name: "Room DB", icon: "💾", proficiency: "Intermediate" },
-      { name: "WorkManager", icon: "📆", proficiency: "Intermediate" },
-      { name: "DataStore", icon: "🗂️", proficiency: "Intermediate" },
-      { name: "Retrofit", icon: "🌐", proficiency: "Intermediate" },
+    accent: "#3DDC84",
+    items: [
+      { name: "Room DB", level: "Intermediate" },
+      { name: "WorkManager", level: "Intermediate" },
+      { name: "Retrofit", level: "Intermediate" },
+      { name: "Coroutines", level: "Intermediate" },
+      { name: "Hilt / Koin", level: "Intermediate" },
     ],
   },
   {
-    title: "DevOps & Infrastructure",
-    icon: Cloud,
-    skills: [
-      { name: "Docker", icon: "🐳", proficiency: "Intermediate" },
-      { name: "Kubernetes", icon: "⚓", proficiency: "Intermediate" },
-      { name: "AWS", icon: "☁️", proficiency: "Exploring" },
+    title: "DevOps",
+    accent: "#4285F4",
+    items: [
+      { name: "Docker", level: "Intermediate" },
+      { name: "Kubernetes", level: "Intermediate" },
+      { name: "Firebase", level: "Intermediate" },
+      { name: "AWS", level: "Exploring" },
     ],
   },
   {
-    title: "Development Tools",
-    icon: Settings,
-    skills: [
-      { name: "Git", icon: "📝", proficiency: "Intermediate" },
-      { name: "Android Studio", icon: "💻", proficiency: "Intermediate" },
-      { name: "Firebase", icon: "🔥", proficiency: "Intermediate" },
-      { name: "Gradle", icon: "⚙️", proficiency: "Intermediate" },
+    title: "Tooling",
+    accent: "#22c55e",
+    items: [
+      { name: "Git", level: "Intermediate" },
+      { name: "Gradle", level: "Intermediate" },
+      { name: "Android Studio", level: "Intermediate" },
+      { name: "Material 3", level: "Intermediate" },
     ],
   },
 ];
 
-const currentlyLearning = [
-  "AWS (Deep Dive)",
-  "Working on cool projects",
-  "KMP & Flutter",
-];
-
-const getProficiencyColor = (proficiency: string) => {
-  switch (proficiency) {
-    case "Mastery":
-      return "text-purple-600 bg-purple-100 dark:text-purple-400 dark:bg-purple-900/20";
-    case "Advanced":
-      return "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-blue-900/20";
-    case "Intermediate":
-      return "text-yellow-600 bg-yellow-100 dark:text-yellow-400 dark:bg-yellow-900/20";
-    case "Exploring":
-      return "text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20";
-    default:
-      return "text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20";
-  }
+const levelStyle: Record<string, string> = {
+  Advanced: "bg-violet-500/10 text-violet-400 border-violet-500/20",
+  Intermediate: "bg-primary/10 text-primary border-primary/20",
+  Exploring: "bg-secondary text-muted-foreground border-border",
 };
 
+const doubled = [...marqueeSkills, ...marqueeSkills];
+
 const SkillsSection = () => {
+  const header = useReveal(0.1);
   const grid = useReveal(0.05);
-  const bottom = useReveal(0.12);
 
   return (
-    <section id="skills" className="section bg-muted/30">
+    <section id="skills" className="section bg-secondary/20">
       <div className="container">
-        <h2 className="section-title mb-5">Skills & Expertise</h2>
-        <div className="h-8" />
+        {/* Header */}
+        <div
+          ref={header.ref}
+          className={`transition-all duration-700 ${
+            header.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <span className="section-label">02 / skills</span>
+            <div className="h-px w-16 bg-border" />
+          </div>
+          <h2 className="section-title mb-3">
+            Tech <span className="gradient-text">stack</span>
+          </h2>
+          <p className="text-muted-foreground mb-10 max-w-lg text-sm">
+            Tools and technologies I work with every day.
+          </p>
+        </div>
 
-        <div ref={grid.ref} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {skillCategories.map((category, index) => (
-            <Card
-              key={index}
-              className={`group hover:shadow-lg hover:scale-[1.02] transition-all duration-500 ease-out ${
-                grid.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        {/* Marquee */}
+        <div className="relative mb-12 overflow-hidden">
+          <div className="absolute left-0 top-0 h-full w-20 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-20 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+          <div className="flex gap-3 animate-marquee w-max">
+            {doubled.map((skill, i) => (
+              <span
+                key={i}
+                className="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-mono border font-medium whitespace-nowrap"
+                style={{
+                  color: skill.color,
+                  borderColor: skill.color + "28",
+                  backgroundColor: skill.color + "12",
+                }}
+              >
+                {skill.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Category grid */}
+        <div
+          ref={grid.ref}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
+          {skillCategories.map((cat, i) => (
+            <div
+              key={i}
+              className={`glass-card p-5 transition-all duration-500 ease-out hover:-translate-y-1 ${
+                grid.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
-              style={{ transitionDelay: grid.visible ? `${index * 80}ms` : '0ms', willChange: 'transform, opacity' }}
+              style={{
+                transitionDelay: grid.visible ? `${i * 80}ms` : "0ms",
+                borderTopColor: cat.accent + "50",
+                borderTopWidth: "2px",
+              }}
             >
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
-                    <category.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold">{category.title}</h3>
-                </div>
-
-                <div className="grid grid-cols-1 gap-4">
-                  {category.skills.map((skill, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted hover:scale-[1.01] transition-all duration-200"
+              <h3
+                className="text-xs font-bold uppercase tracking-widest mb-4 font-mono"
+                style={{ color: cat.accent }}
+              >
+                {cat.title}
+              </h3>
+              <div className="space-y-3">
+                {cat.items.map((item, j) => (
+                  <div key={j} className="flex items-center justify-between gap-2">
+                    <span className="text-sm font-medium truncate">{item.name}</span>
+                    <span
+                      className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded border font-medium ${
+                        levelStyle[item.level] ?? levelStyle["Exploring"]
+                      }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">{skill.icon}</span>
-                        <span className="font-medium">{skill.name}</span>
-                      </div>
-                      <Badge
-                        variant="secondary"
-                        className={`text-xs font-medium ${getProficiencyColor(skill.proficiency)}`}
-                      >
-                        {skill.proficiency}
-                      </Badge>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                      {item.level}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 
+        {/* Currently exploring */}
         <div
-          ref={bottom.ref}
-          className={`transition-all duration-700 ease-out ${
-            bottom.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          className={`mt-4 glass-card p-4 border-primary/15 transition-all duration-700 ${
+            grid.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
+          style={{ transitionDelay: grid.visible ? "380ms" : "0ms" }}
         >
-          <Card className="hover:shadow-md transition-shadow duration-300">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <TestTube className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold"> What next? </h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {currentlyLearning.map((item, index) => (
-                  <Badge
-                    key={index}
-                    variant="secondary"
-                    className="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400 hover:scale-105 transition-transform duration-150 cursor-default"
-                  >
-                    {item}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="section-label">currently exploring →</span>
+            {["AWS Deep Dive", "KMP & Flutter", "Jetpack XR"].map((item) => (
+              <span
+                key={item}
+                className="text-xs px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 font-medium font-mono"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -30,9 +30,10 @@ const Index = () => {
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
         <Button
           onClick={() => setCLIMode(true)}
-          className="font-bold backdrop-blur-md bg-gradient-to-r from-purple-500/80 to-green-400/80 text-black hover:from-purple-600/90 hover:to-green-500/90 shadow-lg border-none rounded-full px-5 py-2 text-sm transition-all duration-300"
+          className="font-mono text-xs backdrop-blur-xl bg-background/80 border border-border hover:border-primary/50 hover:bg-primary/5 text-muted-foreground hover:text-primary shadow-lg rounded-full px-4 py-2 transition-all duration-200"
+          variant="ghost"
         >
-          <Terminal className="mr-2 h-4 w-4 stroke-[3]" /> {/* Make icon bold */}
+          <Terminal className="mr-2 h-3.5 w-3.5" />
           CLI Mode
         </Button>
       </div>
