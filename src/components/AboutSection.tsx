@@ -1,11 +1,18 @@
 import React from "react";
-import { Smartphone, Code, Cloud, Rocket, MapPin, GraduationCap } from "lucide-react";
+import {
+  Smartphone,
+  Code,
+  Cloud,
+  Rocket,
+  MapPin,
+  GraduationCap,
+} from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
 const stats = [
   { value: "12+", label: "Projects Built" },
-  { value: "2", label: "Play Store Apps" },
-  { value: "5+", label: "Months Exp." },
+  { value: "3", label: "Play Store Apps" },
+  { value: "10+", label: "Months Exp." },
   { value: "4", label: "Companies" },
 ];
 
@@ -61,8 +68,7 @@ const AboutSection = () => {
           </div>
 
           <h2 className="section-title mb-10">
-            A little bit{" "}
-            <span className="gradient-text">about me</span>
+            A little bit <span className="gradient-text">about me</span>
           </h2>
 
           {/* Stats row */}
@@ -84,28 +90,50 @@ const AboutSection = () => {
 
           {/* Bio + Services */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-            <div className="lg:col-span-3 space-y-4">
-              <p className="text-base leading-relaxed text-muted-foreground">
-                I'm a passionate{" "}
-                <span className="highlight">Android developer</span> focused on
-                building elegant, scalable mobile experiences with Jetpack
-                Compose and Kotlin MultiPlatform. Currently working across
-                multiple internships and personal projects.
+            <div className="lg:col-span-3 space-y-6">
+              <p className="text-base leading-8 text-muted-foreground">
+                I'm an <span className="highlight">Android Developer</span> who
+                enjoys building polished mobile experiences with Kotlin, Jetpack
+                Compose, and modern Android architecture. Over the last year
+                I've been focused on creating applications that aren't just
+                functional, but also smooth, scalable, and enjoyable to use.
               </p>
-              <p className="text-base leading-relaxed text-muted-foreground">
-                When I'm not shipping apps, I'm diving into DevOps — containerising
-                services, exploring Kubernetes, and learning cloud infrastructure.
-                I believe in <span className="highlight">clean code</span> and
-                love contributing to open source.
+
+              <p className="text-base leading-8 text-muted-foreground">
+                I've built <span className="highlight">12+ projects</span>,
+                published
+                <span className="highlight"> 3 apps on Google Play</span>, and
+                worked with multiple startups through internships. Those
+                experiences taught me how to write production-ready code,
+                collaborate with teams, ship features quickly, and continuously
+                improve products based on real user feedback.
               </p>
-              <div className="flex flex-wrap gap-4 pt-2 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5">
-                  <MapPin size={13} className="text-primary" />
-                  India · Remote-friendly
+
+              <p className="text-base leading-8 text-muted-foreground">
+                My primary stack revolves around Jetpack Compose, Kotlin, MVVM,
+                Clean Architecture, Room, Retrofit, Firebase, and Kotlin
+                Multiplatform. I'm also exploring backend engineering, Docker,
+                Kubernetes, cloud infrastructure, and DevOps to better
+                understand how mobile applications work beyond the client side.
+              </p>
+
+              <p className="text-base leading-8 text-muted-foreground">
+                Outside of development, I enjoy building personal products,
+                experimenting with new UI ideas, contributing to open source,
+                and constantly learning. My goal is simple: build software that
+                solves real problems while becoming a stronger engineer with
+                every project.
+              </p>
+
+              <div className="flex flex-wrap gap-6 pt-2 text-sm text-muted-foreground">
+                <span className="flex items-center gap-2">
+                  <MapPin size={14} className="text-primary" />
+                  India · Remote Friendly
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <GraduationCap size={13} className="text-primary" />
-                  B.E. CS · SPPU · 2027
+
+                <span className="flex items-center gap-2">
+                  <GraduationCap size={14} className="text-primary" />
+                  B.E. Computer Science · SPPU · 2027
                 </span>
               </div>
             </div>
@@ -118,7 +146,10 @@ const AboutSection = () => {
                     key={i}
                     className={`flex items-start gap-3 p-3.5 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 ${svc.bg}`}
                   >
-                    <svc.icon size={18} className={`mt-0.5 shrink-0 ${svc.accent}`} />
+                    <svc.icon
+                      size={18}
+                      className={`mt-0.5 shrink-0 ${svc.accent}`}
+                    />
                     <div>
                       <p className={`text-sm font-semibold ${svc.accent}`}>
                         {svc.title}
