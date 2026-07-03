@@ -104,6 +104,32 @@ const androidProjects = [
     ],
   },
   {
+    title: "Resona — Offline Music Player",
+    description:
+      "Modern offline music player with queue management and local file importing.",
+    longDesc:
+      "A privacy-focused offline music player built with Jetpack Compose. Features manual audio file importing, playback queue, splash screen, modern Material 3 UI, and smooth local music playback without requiring an internet connection.",
+    image: "/ResonaFeatureGraphic.png", 
+    tags: [
+      "Jetpack Compose",
+      "MVVM",
+      "Kotlin",
+      "Media3",
+      "Material3",
+      "Coroutines",
+      "Offline First",
+      "Audio Player",
+    ],
+    github: "https://github.com/Dev-Aditya-More/Resona",
+    download: "https://github.com/Dev-Aditya-More/Resona/releases/latest",
+    downloads: [
+      {
+        label: "GitHub Releases",
+        url: "https://github.com/Dev-Aditya-More/Resona/releases/latest",
+      },
+    ],
+  },
+  {
     title: "Baskit — Smart Grocery Scanner",
     description: "Scan products and understand what you're buying instantly.",
     longDesc:
@@ -233,30 +259,6 @@ const androidProjects = [
     tags: ["Jetpack Compose", "Room DB", "MVVM", "Hilt", "Coroutines"],
     github: "https://github.com/Dev-Aditya-More/Taskly",
     download: "https://github.com/Dev-Aditya-More/Taskly/releases/latest",
-  },
-  {
-    title: "TicTacToe Game",
-    description: "Classic two-player TicTacToe game with Jetpack Compose.",
-    longDesc:
-      "Showcases responsive UI states, clean separation of logic, and win/draw detection for a smooth game experience.",
-    image:
-      "https://images.unsplash.com/photo-1668901382969-8c73e450a1f5?q=80&w=2080&auto=format&fit=crop",
-    tags: ["Jetpack Compose", "State Handling", "Game Logic", "Kotlin"],
-    github: "https://github.com/Dev-Aditya-More/TicTacToeGame",
-    download:
-      "https://github.com/Dev-Aditya-More/TicTacToeGame/releases/latest",
-  },
-  {
-    title: "QR Code Scanner",
-    description: "Android app to scan QR codes using ML Kit and CameraX.",
-    longDesc:
-      "Lightweight scanner using Google ML Kit’s Barcode API, with real-time decoding and camera control via CameraX.",
-    image:
-      "https://images.unsplash.com/photo-1595079676714-d804bc1095b4?q=80&w=2070&auto=format&fit=crop",
-    tags: ["CameraX", "ML Kit", "QR Scanner", "Kotlin", "Jetpack"],
-    github: "https://github.com/Dev-Aditya-More/QRcodeScanner",
-    download:
-      "https://github.com/Dev-Aditya-More/QRcodeScanner/releases/latest",
   },
   {
     title: "More Soon",
@@ -623,10 +625,16 @@ const ProjectsSection = () => {
         <Tabs defaultValue="android" className="w-full">
           <div className="overflow-x-auto mb-8">
             <TabsList className="flex gap-1 w-max bg-secondary/60 p-1 rounded-xl border border-border">
-              <TabsTrigger value="android" className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              <TabsTrigger
+                value="android"
+                className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
                 Android Development
               </TabsTrigger>
-              <TabsTrigger value="devops" className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              <TabsTrigger
+                value="devops"
+                className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
                 DevOps & Infrastructure
               </TabsTrigger>
             </TabsList>
