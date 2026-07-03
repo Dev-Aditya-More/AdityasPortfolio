@@ -1,45 +1,26 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/about" },
+  { name: "Skills", href: "/skills" },
+  { name: "Experience", href: "/experience" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const sections = navItems
-      .map((item) => document.querySelector(item.href))
-      .filter(Boolean);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px" }
-    );
-
-    sections.forEach((s) => s && observer.observe(s));
-    return () => observer.disconnect();
   }, []);
 
   return (
@@ -51,24 +32,24 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="text-lg font-bold font-mono tracking-tight">
+        <Link to="/" className="text-lg font-bold font-mono tracking-tight">
           <span className="text-primary">~/</span>aditya
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-0.5">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.href}
               className={`text-sm px-3.5 py-1.5 rounded-md font-medium transition-all duration-200 ${
-                activeSection === item.href.slice(1)
+                location.pathname === item.href
                   ? "text-primary bg-primary/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -96,18 +77,18 @@ const Navbar = () => {
           <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-border md:hidden animate-fade-in">
             <div className="container py-4 flex flex-col gap-1">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className={`text-sm py-2.5 px-3 rounded-md transition-colors ${
-                    activeSection === item.href.slice(1)
+                    location.pathname === item.href
                       ? "text-primary bg-primary/10"
                       : "hover:bg-secondary"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               <a href="/AdityaResumeNew.pdf" download className="mt-2">
                 <Button className="w-full text-xs font-mono" size="sm">

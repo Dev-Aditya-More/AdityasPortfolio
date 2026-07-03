@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://adityapushes.vercel.app/sitemap.xml
+Sitemap: https://adityamore.work/sitemap.xml

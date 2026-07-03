@@ -12,9 +12,17 @@ import Footer from '@/components/Footer';
 import ParallaxBackground from '@/components/ParallaxBackground';
 import CursorGradient from '@/components/CursorGradient';
 import CLITerminal from '@/components/CLITerminal';
+import { useSEO } from '@/hooks/useSEO';
 
 const Index = () => {
   const [cliMode, setCLIMode] = useState(false);
+
+  useSEO({
+    title: "Aditya More's Portfolio",
+    description:
+      "Portfolio of Aditya More, Android Developer specializing in Jetpack Compose, Kotlin and clean architecture",
+    path: "/",
+  });
 
   if (cliMode) {
     return <CLITerminal onExit={() => setCLIMode(false)} />;

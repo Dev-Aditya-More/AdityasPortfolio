@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Twitter, Linkedin, Coffee, Download } from "lucide-react";
 
@@ -143,16 +144,16 @@ const HeroSection = () => {
             {/* CTAs */}
             <div className="flex flex-wrap gap-3 pt-1">
               <Button asChild className="btn-primary">
-                <a href="#projects">
+                <Link to="/projects">
                   View Projects <ArrowRight size={15} />
-                </a>
+                </Link>
               </Button>
               <Button
                 variant="outline"
                 asChild
                 className="border-border hover:border-primary/40 hover:bg-primary/5 transition-all"
               >
-                <a href="#contact">Get in Touch</a>
+                <Link to="/contact">Get in Touch</Link>
               </Button>
               <Button
                 variant="ghost"
