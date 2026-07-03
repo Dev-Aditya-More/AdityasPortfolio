@@ -186,7 +186,7 @@ export const portfolioData: PortfolioData = {
     email: "aditya1875more@gmail.com",
     github: "https://github.com/Dev-Aditya-More",
     linkedin: "https://linkedin.com/in/adityamore2005",
-    website: "https://adityapushes.vercel.app",
+    website: "https://adityamore.work",
   },
   social: [
     {
