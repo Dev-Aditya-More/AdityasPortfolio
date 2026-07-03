@@ -33,7 +33,7 @@ const androidProjects = [
     ],
     github: "https://github.com/Dev-Aditya-More/PokeVerse",
     download: "https://github.com/Dev-Aditya-More/PokeVerse/releases/",
-    website: "https://pokeverse-web.vercel.app",
+    website: "https://dexverse.in",
     downloads: [
       {
         label: "Google Play Store",
