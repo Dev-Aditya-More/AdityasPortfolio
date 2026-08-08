@@ -55,7 +55,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a href="/AdityaResumeNew.pdf" download>
+          <a href="/Resume.pdf" download>
             <Button size="sm" className="font-mono text-xs h-8 px-3">
               resume.pdf
             </Button>
@@ -90,7 +90,7 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <a href="/AdityaResumeNew.pdf" download className="mt-2">
+              <a href="/Resume.pdf" download className="mt-2">
                 <Button className="w-full text-xs font-mono" size="sm">
                   resume.pdf
                 </Button>

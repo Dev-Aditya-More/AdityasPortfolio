@@ -162,7 +162,7 @@ const HeroSection = () => {
                 className="w-10 h-10 rounded-full border border-border hover:border-primary/40 hover:bg-primary/5"
                 title="Download Resume"
               >
-                <a href="/AdityaResumeNew.pdf" download>
+                <a href="/Resume.pdf" download>
                   <Download size={16} />
                 </a>
               </Button>
