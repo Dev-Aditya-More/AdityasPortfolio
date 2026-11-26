@@ -133,8 +133,8 @@ const HeroSection = () => {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-3 pt-1">
-              <Button asChild className="btn-primary">
+            <div className="grid grid-cols-[1fr_1fr_auto] gap-2 sm:flex sm:flex-wrap sm:gap-3 pt-1">
+              <Button asChild className="btn-primary justify-center px-3 sm:px-5">
                 <Link to="/projects">
                   View Projects <ArrowRight size={15} />
                 </Link>
@@ -142,7 +142,7 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 asChild
-                className="border-border hover:border-primary/40 hover:bg-primary/5 transition-all"
+                className="border-border hover:border-primary/40 hover:bg-primary/5 transition-all px-3 sm:px-4"
               >
                 <Link to="/contact">Get in Touch</Link>
               </Button>
@@ -270,16 +270,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Scroll hint */}
-        <div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-fadeInUp"
-          style={{ animationDelay: "600ms" }}
-        >
-          <span className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase">
-            scroll
-          </span>
-          <div className="w-px h-10 bg-gradient-to-b from-border to-transparent" />
-        </div>
       </div>
     </section>
   );

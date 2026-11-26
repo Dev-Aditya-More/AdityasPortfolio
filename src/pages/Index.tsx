@@ -31,14 +31,15 @@ const Index = () => {
       <Navbar />
 
       {/* CLI Mode Toggle Button - Fixed position */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 z-50">
         <Button
           onClick={() => setCLIMode(true)}
-          className="font-mono text-xs backdrop-blur-xl bg-background/80 border border-border hover:border-primary/50 hover:bg-primary/5 text-muted-foreground hover:text-primary shadow-lg rounded-full px-4 py-2 transition-all duration-200"
+          className="font-mono text-xs backdrop-blur-xl bg-background/80 border border-border hover:border-primary/50 hover:bg-primary/5 text-muted-foreground hover:text-primary shadow-lg rounded-full h-10 w-10 p-0 sm:w-auto sm:px-4 sm:py-2 transition-all duration-200"
+          aria-label="Open CLI mode"
           variant="ghost"
         >
-          <Terminal className="mr-2 h-3.5 w-3.5" />
-          CLI Mode
+          <Terminal className="h-4 w-4 sm:mr-2 sm:h-3.5 sm:w-3.5" />
+          <span className="hidden sm:inline">CLI Mode</span>
         </Button>
       </div>
 

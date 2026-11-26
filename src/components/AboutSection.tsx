@@ -64,7 +64,6 @@ const AboutSection = () => {
           {/* Label */}
           <div className="flex items-center gap-3 mb-4">
             <span className="section-label">01 / about</span>
-            <div className="h-px w-16 bg-border" />
           </div>
 
           <h2 className="section-title mb-10">

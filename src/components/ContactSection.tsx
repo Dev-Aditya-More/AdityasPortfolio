@@ -24,7 +24,6 @@ const ContactSection = () => {
         >
           <div className="flex items-center gap-3 mb-4">
             <span className="section-label">05 / contact</span>
-            <div className="h-px w-16 bg-border" />
           </div>
 
           <div className="max-w-2xl">

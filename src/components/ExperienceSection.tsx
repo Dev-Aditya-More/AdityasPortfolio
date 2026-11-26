@@ -197,7 +197,6 @@ const ExperienceSection = () => {
       <div className="container">
         <div className="flex items-center gap-3 mb-4">
           <span className="section-label">03 / experience</span>
-          <div className="h-px w-16 bg-border" />
         </div>
         <h2 className="section-title mb-3">
           Where I've <span className="gradient-text">worked</span>

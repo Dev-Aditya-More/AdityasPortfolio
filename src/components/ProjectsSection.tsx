@@ -512,7 +512,7 @@ const DownloadDropdown = ({ project }: { project: any }) => {
 
   return (
     <>
-      <div className="relative inline-block" style={{ zIndex: 1 }}>
+      <div className="relative block sm:inline-block" style={{ zIndex: 1 }}>
         <button
           ref={buttonRef}
           type="button"
@@ -675,18 +675,19 @@ const ProjectGrid = ({ projects, githubUrl }) => {
                   <Badge
                     key={idx}
                     variant="secondary"
-                    className={`text-xs ${
-                      tag === "Assignment"
-                        ? "border border-border"
-                        : ""
-                    }`}
+                    className={`text-xs ${idx >= 6 ? "hidden sm:inline-flex" : ""}`}
                   >
                     {tag}
                   </Badge>
                 ))}
+                {project.tags.length > 6 && (
+                  <Badge variant="outline" className="text-xs text-muted-foreground sm:hidden">
+                    +{project.tags.length - 6}
+                  </Badge>
+                )}
               </div>
             </CardContent>
-            <CardFooter className="flex flex-col sm:flex-row gap-2 mt-auto items-start sm:items-center">
+            <CardFooter className="grid grid-cols-2 gap-2 mt-auto sm:flex sm:flex-row sm:items-center [&>*:last-child:nth-child(odd)]:col-span-2">
               {project.github && (
                 <Button
                   variant="outline"
@@ -763,29 +764,28 @@ const ProjectGrid = ({ projects, githubUrl }) => {
 const ProjectsSection = () => {
   return (
     <section id="projects" className="bg-secondary/20 py-10 sm:py-14 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="flex items-center gap-3 mb-4">
           <span className="section-label">04 / projects</span>
-          <div className="h-px w-16 bg-border" />
         </div>
         <h2 className="section-title mb-8">
           Featured <span className="gradient-text">projects</span>
         </h2>
 
         <Tabs defaultValue="android" className="w-full">
-          <div className="overflow-x-auto mb-8">
-            <TabsList className="flex gap-1 w-max bg-secondary/60 p-1 rounded-xl border border-border">
+          <div className="mb-8">
+            <TabsList className="grid grid-cols-2 w-full sm:inline-flex sm:w-max gap-1 h-auto bg-secondary/60 p-1 rounded-xl border border-border">
               <TabsTrigger
                 value="android"
                 className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
-                Android Development
+                Android<span className="hidden sm:inline">&nbsp;Development</span>
               </TabsTrigger>
               <TabsTrigger
                 value="web"
                 className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
-                Web Development
+                Web<span className="hidden sm:inline">&nbsp;Development</span>
               </TabsTrigger>
             </TabsList>
           </div>
