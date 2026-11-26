@@ -11,7 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Github, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Mail } from "lucide-react";
 
 const androidProjects = [
   {
@@ -265,18 +265,161 @@ const androidProjects = [
   },
 ];
 
-const devopsProjects = [
+type Website = {
+  title: string;
+  url: string;
+  category: string;
+  description: string;
+  image?: string;
+  badge?: string;
+  tags: string[];
+};
+
+// Screenshots go in /public/web/ (1440×900 works best). Until a file exists,
+// the card shows a clean typographic placeholder instead.
+const websites: Website[] = [
   {
-    title: "Coming Soon",
-    description: "DevOps projects in development!",
-    longDesc:
-      "Working on advanced DevOps automation, cloud-native solutions, and infrastructure optimization projects. Stay tuned for updates!",
-    image:
-      "https://images.unsplash.com/photo-1590479773265-7464e5d48118?q=80&w=1170&auto=format&fit=crop",
-    tags: ["Coming Soon"],
-    github: null,
+    title: "Ashwin",
+    url: "https://ashwin.world",
+    category: "Interior Design & Architecture Studio",
+    description:
+      "Portfolio site for an interior design and architecture firm in Sambhajinagar: project gallery, services, blog and an enquiry form with WhatsApp and call shortcuts.",
+    image: "/web/ashwin.png",
+    badge: "Freelance",
+    tags: ["Next.js", "Local SEO", "Responsive", "Lead capture"],
+  },
+  {
+    title: "Abhishek Fibre",
+    url: "https://abhishekfibre.com",
+    category: "FRP Manufacturer",
+    description:
+      "Business site for an FRP and waterproofing manufacturer: 9 product categories, project showcase, 33+ client list, multi-location contact and quote CTAs.",
+    image: "/web/abhishekfibre.png",
+    badge: "Freelance",
+    tags: ["Astro", "Local SEO", "Product catalogue", "Performance"],
+  },
+  {
+    title: "Dexverse",
+    url: "https://dexverse.in",
+    category: "App Landing Page",
+    description:
+      "Landing page for Dexverse, my Pokédex app for Android, covering its features, stats and evolutions, with an APK request option.",
+    image: "/web/dexverse.png",
+    badge: "Personal",
+    tags: ["Landing page", "SEO", "Responsive"],
   },
 ];
+
+const hostOf = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
+const WebsiteCard = ({ site, index, visible }: { site: Website; index: number; visible: boolean }) => {
+  const [imgOk, setImgOk] = useState(Boolean(site.image));
+  const host = hostOf(site.url);
+
+  return (
+    <a
+      href={site.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group flex flex-col rounded-xl border border-border bg-card overflow-hidden transition-all duration-500 ease-out hover:border-foreground/20 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+      style={{ transitionDelay: visible ? `${Math.min(index * 80, 400)}ms` : "0ms" }}
+    >
+      {/* Browser frame */}
+      <div className="flex items-center gap-3 px-3.5 py-2.5 border-b border-border bg-secondary/50">
+        <div className="flex gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-border" />
+          <span className="w-2.5 h-2.5 rounded-full bg-border" />
+          <span className="w-2.5 h-2.5 rounded-full bg-border" />
+        </div>
+        <div className="flex-1 truncate rounded-md bg-background/70 border border-border px-3 py-1 text-[11px] font-mono text-muted-foreground">
+          {host}
+        </div>
+      </div>
+
+      <div className="relative aspect-[16/10] overflow-hidden bg-secondary/30">
+        {imgOk ? (
+          <img
+            src={site.image}
+            alt={`${site.title} website`}
+            loading="lazy"
+            onError={() => setImgOk(false)}
+            className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 dot-grid">
+            <span className="text-3xl font-bold tracking-tight">{site.title}</span>
+            <span className="text-xs font-mono text-muted-foreground">{host}</span>
+          </div>
+        )}
+      </div>
+
+      <div className="flex flex-col flex-grow p-5">
+        <p className="section-label mb-2">{site.category}</p>
+        <div className="flex items-center justify-between gap-3 mb-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <h3 className="text-lg font-semibold truncate">{site.title}</h3>
+            {site.badge && (
+              <span
+                className={`shrink-0 text-[10px] px-2 py-0.5 rounded-full border font-medium ${
+                  site.badge === "Freelance"
+                    ? "bg-primary/10 text-primary border-primary/25"
+                    : "bg-secondary text-muted-foreground border-border"
+                }`}
+              >
+                {site.badge}
+              </span>
+            )}
+          </div>
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground group-hover:text-primary transition-colors">
+            Visit <ArrowUpRight size={14} />
+          </span>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4">{site.description}</p>
+        <div className="flex flex-wrap gap-1.5 mt-auto">
+          {site.tags.map((tag) => (
+            <Badge key={tag} variant="secondary" className="text-xs font-normal">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+      </div>
+    </a>
+  );
+};
+
+const WebsiteGrid = () => {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting && setVisible(true),
+      { threshold: 0.05 },
+    );
+    if (gridRef.current) observer.observe(gridRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10">
+        {websites.map((site, i) => (
+          <WebsiteCard key={site.url} site={site} index={i} visible={visible} />
+        ))}
+      </div>
+      <p className="text-center text-sm text-muted-foreground">
+        Need a website for your business?{" "}
+        <a
+          href="mailto:aditya1875more@gmail.com?subject=Website%20enquiry"
+          className="text-primary underline underline-offset-4 hover:opacity-80"
+        >
+          Let's talk
+        </a>
+      </p>
+    </>
+  );
+};
 
 const DownloadDropdown = ({ project }: { project: any }) => {
   const [open, setOpen] = useState(false);
@@ -639,10 +782,10 @@ const ProjectsSection = () => {
                 Android Development
               </TabsTrigger>
               <TabsTrigger
-                value="devops"
+                value="web"
                 className="min-w-max text-sm font-medium rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
-                DevOps & Infrastructure
+                Web Development
               </TabsTrigger>
             </TabsList>
           </div>
@@ -654,11 +797,8 @@ const ProjectsSection = () => {
             />
           </TabsContent>
 
-          <TabsContent value="devops">
-            <ProjectGrid
-              projects={devopsProjects}
-              githubUrl="https://github.com/Dev-Aditya-More"
-            />
+          <TabsContent value="web">
+            <WebsiteGrid />
           </TabsContent>
         </Tabs>
       </div>
