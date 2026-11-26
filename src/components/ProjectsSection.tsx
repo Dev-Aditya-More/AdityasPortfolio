@@ -11,7 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Github } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 
 const androidProjects = [
   {
@@ -32,18 +32,11 @@ const androidProjects = [
       "Coroutines",
     ],
     github: "https://github.com/Dev-Aditya-More/PokeVerse",
-    download: "https://github.com/Dev-Aditya-More/PokeVerse/releases/",
     website: "https://dexverse.in",
-    downloads: [
-      {
-        label: "Google Play Store",
-        url: "https://play.google.com/store/apps/details?id=com.aditya1875.pokeverse.play",
-      },
-      {
-        label: "Github Releases",
-        url: "https://github.com/Dev-Aditya-More/PokeVerse/releases/",
-      },
-    ],
+    apkRequest: {
+      email: "aditya1875more@gmail.com",
+      subject: "Dexverse APK request",
+    },
   },
   {
     title: "Stashly — Bookmark, Link & File Manager",
@@ -383,8 +376,7 @@ const DownloadDropdown = ({ project }: { project: any }) => {
           onClick={onToggle}
           aria-expanded={open}
           className={
-            // visually prominent, matches existing green theme, bold text, subtle ring & shadow
-            "bg-gradient-to-r from-emerald-600 to-emerald-400 text-white hover:from-emerald-600 hover:to-emerald-500 rounded-full px-4 py-1.5 text-sm font-semibold shadow-md hover:shadow-xl ring-1 ring-emerald-600/25 focus:outline-none focus:ring-2 focus:ring-emerald-400/30 min-w-[96px] flex items-center justify-center gap-2 transition-all duration-200"
+            "bg-primary text-primary-foreground hover:opacity-90 rounded-md px-4 h-9 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-ring min-w-[96px] w-full sm:w-auto flex items-center justify-center gap-2 transition-opacity duration-200"
           }
         >
           <span className="select-none">Download</span>
@@ -502,7 +494,7 @@ const ProjectGrid = ({ projects, githubUrl }) => {
         {projects.map((project, index) => (
           <Card
             key={index}
-            className={`group flex flex-col h-full rounded-xl overflow-hidden shadow-sm transition-all duration-500 ease-out hover:shadow-xl hover:-translate-y-1 ${
+            className={`group flex flex-col h-full rounded-xl overflow-hidden shadow-sm transition-all duration-500 ease-out hover:border-foreground/20 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{
@@ -523,7 +515,7 @@ const ProjectGrid = ({ projects, githubUrl }) => {
                 <CardTitle>{project.title}</CardTitle>
 
                 {project.badge && (
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/20 font-medium">
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-muted-foreground border border-border font-medium">
                     {project.badge}
                   </span>
                 )}
@@ -542,7 +534,7 @@ const ProjectGrid = ({ projects, githubUrl }) => {
                     variant="secondary"
                     className={`text-xs ${
                       tag === "Assignment"
-                        ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
+                        ? "border border-border"
                         : ""
                     }`}
                   >
@@ -589,7 +581,22 @@ const ProjectGrid = ({ projects, githubUrl }) => {
               {/* Replace single Download button with dropdown component.
                 You can customize per-project by adding `downloads: [{label, url}]` to your project objects in data. */}
               <div className="w-full sm:w-auto">
-                <DownloadDropdown project={project} />
+                {project.apkRequest ? (
+                  <Button size="sm" asChild className="w-full sm:w-auto">
+                    <a
+                      href={`mailto:${project.apkRequest.email}?subject=${encodeURIComponent(
+                        project.apkRequest.subject,
+                      )}&body=${encodeURIComponent(
+                        "Hi Aditya,\n\nI'd like to get the APK for Dexverse.\n\nThanks!",
+                      )}`}
+                      title="Email me to get the APK"
+                    >
+                      <Mail size={16} className="mr-1" /> Request APK
+                    </a>
+                  </Button>
+                ) : (
+                  <DownloadDropdown project={project} />
+                )}
               </div>
             </CardFooter>
           </Card>

@@ -6,65 +6,65 @@
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 240 10% 5%;
+    --background: 40 20% 98%;
+    --foreground: 30 10% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 5%;
+    --card-foreground: 30 10% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 5%;
+    --popover-foreground: 30 10% 9%;
 
-    --primary: 142 70% 36%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 30 22% 30%;
+    --primary-foreground: 40 20% 98%;
 
-    --secondary: 240 5% 95%;
-    --secondary-foreground: 240 10% 30%;
+    --secondary: 36 14% 94%;
+    --secondary-foreground: 30 8% 28%;
 
-    --muted: 240 5% 94%;
-    --muted-foreground: 240 10% 42%;
+    --muted: 36 12% 93%;
+    --muted-foreground: 30 6% 42%;
 
-    --accent: 142 50% 93%;
-    --accent-foreground: 142 70% 28%;
+    --accent: 36 18% 92%;
+    --accent-foreground: 30 22% 26%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 65% 48%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 88%;
-    --input: 240 5% 88%;
-    --ring: 142 70% 36%;
+    --border: 36 10% 87%;
+    --input: 36 10% 87%;
+    --ring: 30 22% 30%;
 
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 97%;
+    --background: 30 6% 5%;
+    --foreground: 40 15% 92%;
 
-    --card: 240 8% 6.5%;
-    --card-foreground: 0 0% 95%;
+    --card: 30 5% 7.5%;
+    --card-foreground: 40 15% 92%;
 
-    --popover: 240 8% 6.5%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 30 5% 7.5%;
+    --popover-foreground: 40 15% 92%;
 
-    --primary: 142 71% 50%;
-    --primary-foreground: 240 10% 4%;
+    --primary: 38 30% 72%;
+    --primary-foreground: 30 8% 7%;
 
-    --secondary: 240 5% 13%;
-    --secondary-foreground: 0 0% 72%;
+    --secondary: 30 4% 11%;
+    --secondary-foreground: 40 8% 72%;
 
-    --muted: 240 5% 12%;
-    --muted-foreground: 0 0% 48%;
+    --muted: 30 4% 11%;
+    --muted-foreground: 35 5% 55%;
 
-    --accent: 142 50% 13%;
-    --accent-foreground: 142 71% 65%;
+    --accent: 34 10% 13%;
+    --accent-foreground: 38 30% 78%;
 
-    --destructive: 0 62.8% 50.6%;
+    --destructive: 0 55% 48%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 13%;
-    --input: 240 5% 13%;
-    --ring: 142 71% 50%;
+    --border: 30 4% 14%;
+    --input: 30 4% 14%;
+    --ring: 38 30% 72%;
   }
 }
 
@@ -99,10 +99,7 @@
 /* ── Design System ──────────────────────────── */
 @layer components {
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: hsl(var(--primary));
   }
 
   .section-label {
@@ -128,22 +125,19 @@
   }
 
   .glass-card-hover:hover {
-    border-color: hsl(var(--primary) / 0.35);
-    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.08), 0 8px 32px hsl(var(--primary) / 0.07);
+    border-color: hsl(var(--foreground) / 0.18);
   }
 
   .btn-primary {
     @apply bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-medium transition-all duration-200 inline-flex items-center gap-2;
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
-    transform: translateY(-1px);
+    opacity: 0.9;
   }
 
   .dot-grid {
-    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.055) 1px, transparent 1px);
+    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.035) 1px, transparent 1px);
     background-size: 28px 28px;
   }
 
@@ -162,11 +156,8 @@
   }
 
   .social-icon:hover {
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    transform: scale(1.1);
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
-    border-color: hsl(var(--primary));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--foreground) / 0.3);
   }
 }
 
@@ -232,7 +223,7 @@
   animation: skillProgress 1.5s ease-out forwards;
   transform-origin: left;
   transform: scaleX(0);
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.7));
+  background: hsl(var(--primary));
 }
 
 /* ── Ripple ──────────────────────────────────── */
@@ -257,4 +248,4 @@
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: hsl(var(--background)); }
 ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.5); }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }

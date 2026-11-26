@@ -1,8 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import ParallaxBackground from "./ParallaxBackground";
-import CursorGradient from "./CursorGradient";
 import { useSEO } from "@/hooks/useSEO";
 
 interface PageLayoutProps {
@@ -17,8 +15,6 @@ const PageLayout = ({ title, description, path, children }: PageLayoutProps) => 
 
   return (
     <div className="min-h-screen">
-      <ParallaxBackground />
-      <CursorGradient />
       <Navbar />
       <div className="pt-20">{children}</div>
       <Footer />

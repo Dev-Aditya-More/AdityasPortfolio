@@ -9,8 +9,6 @@ import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import ParallaxBackground from '@/components/ParallaxBackground';
-import CursorGradient from '@/components/CursorGradient';
 import CLITerminal from '@/components/CLITerminal';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -30,8 +28,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <ParallaxBackground />
-      <CursorGradient />
       <Navbar />
 
       {/* CLI Mode Toggle Button - Fixed position */}

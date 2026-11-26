@@ -14,31 +14,31 @@ const floatingBadges = [
     name: "Kotlin",
     style: { top: "-14px", right: "56px" },
     delay: "0s",
-    cls: "text-[#7F52FF] border-[#7F52FF]/25 bg-[#7F52FF]/10",
+    cls: "text-muted-foreground border-border bg-card",
   },
   {
     name: "Compose",
     style: { top: "22%", right: "-72px" },
     delay: "0.9s",
-    cls: "text-[#4285F4] border-[#4285F4]/25 bg-[#4285F4]/10",
+    cls: "text-muted-foreground border-border bg-card",
   },
   {
     name: "Docker",
     style: { bottom: "18%", right: "-68px" },
     delay: "1.8s",
-    cls: "text-[#2496ED] border-[#2496ED]/25 bg-[#2496ED]/10",
+    cls: "text-muted-foreground border-border bg-card",
   },
   {
     name: "KMP",
     style: { bottom: "-14px", left: "48px" },
     delay: "0.4s",
-    cls: "text-[#3DDC84] border-[#3DDC84]/25 bg-[#3DDC84]/10",
+    cls: "text-muted-foreground border-border bg-card",
   },
   {
     name: "Firebase",
     style: { top: "48%", left: "-68px" },
     delay: "1.3s",
-    cls: "text-orange-400 border-orange-400/25 bg-orange-400/10",
+    cls: "text-muted-foreground border-border bg-card",
   },
 ];
 
@@ -89,22 +89,13 @@ const HeroSection = () => {
       {/* Bottom fade */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
 
-      {/* Ambient glow */}
-      <div
-        className="absolute top-1/3 right-1/3 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, hsl(142 71% 50% / 0.06) 0%, transparent 70%)",
-        }}
-      />
-
       <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ── Left: Text ── */}
           <div className="space-y-7 animate-fadeInUp">
             {/* Available badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary android-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               <span className="text-xs font-mono text-primary">
                 Available for work
               </span>
@@ -197,12 +188,12 @@ const HeroSection = () => {
           >
             <div className="relative w-full max-w-sm">
               {/* Terminal window */}
-              <div className="glass-card overflow-hidden shadow-2xl shadow-black/30">
+              <div className="glass-card overflow-hidden shadow-xl shadow-black/10">
                 {/* Window chrome */}
                 <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/40">
-                  <span className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <span className="w-3 h-3 rounded-full bg-green-500/70" />
+                  <span className="w-3 h-3 rounded-full bg-border" />
+                  <span className="w-3 h-3 rounded-full bg-border" />
+                  <span className="w-3 h-3 rounded-full bg-border" />
                   <span className="ml-2 text-xs font-mono text-muted-foreground">
                     ~/.aditya/profile.kt
                   </span>
@@ -211,25 +202,25 @@ const HeroSection = () => {
                 {/* Code */}
                 <div className="p-5 font-mono text-sm leading-relaxed">
                   <div>
-                    <span className="text-[#7F52FF]">val</span>{" "}
+                    <span className="text-muted-foreground italic">val</span>{" "}
                     <span className="text-foreground">developer</span>{" "}
                     <span className="text-muted-foreground">= Developer(</span>
                   </div>
                   <div className="pl-5 space-y-0.5 mt-0.5 mb-0.5">
                     <div>
-                      <span className="text-[#3DDC84]">name</span>
+                      <span className="text-foreground">name</span>
                       <span className="text-muted-foreground"> = </span>
                       <span className="text-primary">"Aditya More"</span>
                       <span className="text-muted-foreground">,</span>
                     </div>
                     <div>
-                      <span className="text-[#3DDC84]">focus</span>
+                      <span className="text-foreground">focus</span>
                       <span className="text-muted-foreground"> = </span>
                       <span className="text-primary">"Android + KMP"</span>
                       <span className="text-muted-foreground">,</span>
                     </div>
                     <div>
-                      <span className="text-[#3DDC84]">loves</span>
+                      <span className="text-foreground">loves</span>
                       <span className="text-muted-foreground"> = listOf(</span>
                     </div>
                     <div className="pl-5">
@@ -247,7 +238,7 @@ const HeroSection = () => {
                       <span className="text-muted-foreground">),</span>
                     </div>
                     <div>
-                      <span className="text-[#3DDC84]">status</span>
+                      <span className="text-foreground">status</span>
                       <span className="text-muted-foreground"> = </span>
                       <span className="text-primary">"open_to_work"</span>
                     </div>
@@ -256,7 +247,7 @@ const HeroSection = () => {
                   <div className="mt-3 pt-3 border-t border-border flex items-center gap-2">
                     <span className="text-primary">$</span>
                     <span className="text-muted-foreground">./build.sh</span>
-                    <span className="text-[#3DDC84] ml-auto">✓ success</span>
+                    <span className="text-muted-foreground ml-auto">✓ success</span>
                   </div>
                 </div>
               </div>
@@ -265,7 +256,7 @@ const HeroSection = () => {
               {floatingBadges.map((badge) => (
                 <span
                   key={badge.name}
-                  className={`absolute text-[11px] font-mono px-2.5 py-1 rounded-full border font-medium pointer-events-none animate-float ${badge.cls}`}
+                  className={`absolute text-[11px] font-mono px-2.5 py-1 rounded-full border font-medium pointer-events-none ${badge.cls}`}
                   style={{
                     ...badge.style,
                     animationDelay: badge.delay,
@@ -287,7 +278,7 @@ const HeroSection = () => {
           <span className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase">
             scroll
           </span>
-          <div className="w-px h-10 bg-gradient-to-b from-primary/40 to-transparent" />
+          <div className="w-px h-10 bg-gradient-to-b from-border to-transparent" />
         </div>
       </div>
     </section>

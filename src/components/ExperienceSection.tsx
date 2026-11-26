@@ -119,7 +119,7 @@ const ExperienceCard = ({
       {/* Card */}
       <div className={`flex-1 ${isLeft ? 'md:text-right' : 'md:text-left'} pl-8 md:pl-0`}>
         <div
-          className={`group relative overflow-hidden rounded-2xl border bg-card ${exp.borderClass} hover:shadow-xl hover:scale-[1.02] transition-all duration-300`}
+          className={`group relative overflow-hidden rounded-2xl border bg-card ${exp.borderClass} hover:border-foreground/20 transition-all duration-300`}
         >
           {/* gradient top bar */}
           <div className={`h-1 w-full bg-gradient-to-r ${exp.accentClass}`} />
@@ -135,8 +135,7 @@ const ExperienceCard = ({
                   {exp.isCurrent && (
                     <span className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-android px-2 py-0.5 rounded-full bg-android/10 border border-android/30">
                       <span className="relative flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-android opacity-75" />
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-android" />
+                                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-android" />
                       </span>
                       Live
                     </span>

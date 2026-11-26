@@ -63,21 +63,9 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				android: {
-					DEFAULT: '#3DDC84',
-					light: '#B2EECF',
-					dark: '#2AA665'
-				},
-				kotlin: {
-					DEFAULT: '#7F52FF',
-					light: '#C5B3FF',
-					dark: '#5B3BE0'
-				},
-				compose: {
-					DEFAULT: '#4285F4',
-					light: '#A8C7FA',
-					dark: '#3367D6'
-				}
+				android: 'hsl(var(--primary) / <alpha-value>)',
+				kotlin: 'hsl(var(--primary) / <alpha-value>)',
+				compose: 'hsl(var(--primary) / <alpha-value>)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

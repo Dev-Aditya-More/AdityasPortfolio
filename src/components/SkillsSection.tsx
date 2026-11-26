@@ -68,9 +68,9 @@ const skillCategories = [
 ];
 
 const levelStyle: Record<string, string> = {
-  Advanced: "bg-violet-500/10 text-violet-400 border-violet-500/20",
-  Intermediate: "bg-primary/10 text-primary border-primary/20",
-  Exploring: "bg-secondary text-muted-foreground border-border",
+  Advanced: "bg-primary/10 text-primary border-primary/25",
+  Intermediate: "bg-secondary text-secondary-foreground border-border",
+  Exploring: "bg-transparent text-muted-foreground border-border border-dashed",
 };
 
 const doubled = [...marqueeSkills, ...marqueeSkills];
@@ -109,12 +109,7 @@ const SkillsSection = () => {
             {doubled.map((skill, i) => (
               <span
                 key={i}
-                className="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-mono border font-medium whitespace-nowrap"
-                style={{
-                  color: skill.color,
-                  borderColor: skill.color + "28",
-                  backgroundColor: skill.color + "12",
-                }}
+                className="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-mono border border-border bg-card text-muted-foreground font-medium whitespace-nowrap"
               >
                 {skill.name}
               </span>
@@ -135,13 +130,10 @@ const SkillsSection = () => {
               }`}
               style={{
                 transitionDelay: grid.visible ? `${i * 80}ms` : "0ms",
-                borderTopColor: cat.accent + "50",
-                borderTopWidth: "2px",
               }}
             >
               <h3
-                className="text-xs font-bold uppercase tracking-widest mb-4 font-mono"
-                style={{ color: cat.accent }}
+                className="text-xs font-bold uppercase tracking-widest mb-4 font-mono text-primary"
               >
                 {cat.title}
               </h3>
@@ -165,7 +157,7 @@ const SkillsSection = () => {
 
         {/* Currently exploring */}
         <div
-          className={`mt-4 glass-card p-4 border-primary/15 transition-all duration-700 ${
+          className={`mt-4 glass-card p-4 transition-all duration-700 ${
             grid.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
           style={{ transitionDelay: grid.visible ? "380ms" : "0ms" }}
@@ -175,7 +167,7 @@ const SkillsSection = () => {
             {["AWS Deep Dive", "KMP & Flutter", "Jetpack XR"].map((item) => (
               <span
                 key={item}
-                className="text-xs px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 font-medium font-mono"
+                className="text-xs px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-border font-medium font-mono"
               >
                 {item}
               </span>
